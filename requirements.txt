@@ -1,0 +1,15 @@
+# Colab (T4) requirements. Versions = what pip resolved for soup-cli[train]==0.77.2 on 2026-11-11
+# (local CPU venv, see requirements-cpu.txt). torch is deliberately NOT pinned here: Colab ships a
+# CUDA build; we keep it if it satisfies soup's floor (>=2.6) and has sm_75 kernels, and record the
+# exact version in runs/phase0/*/pip_freeze_after.txt. See DECISIONS.md D-08.
+soup-cli[train]==0.77.2
+torch>=2.6
+transformers==5.22.2
+peft==0.21.2
+trl==0.29.1
+accelerate==1.15.0
+datasets==5.2.0
+bitsandbytes==0.50.2
+tokenizers==0.23.3
+safetensors==0.8.0
+huggingface_hub==2.4.0

@@ -1,0 +1,11 @@
+2026-11-11T16:16:59.758+00:00 INFO run_dir=D:\soup\runs\smoke\prepare_data_20261111T161655Z
+2026-11-11T16:16:59.758+00:00 INFO argv=D:\soup\scripts\prepare_data.py --tokenizer Qwen/Qwen2.5-0.5B-Instruct --train-per-class 3 --val-per-class 1 --heldout-per-class 3 --out-data data_smoke --phase smoke
+2026-11-11T16:17:26.722+00:00 INFO source splits: {'train': 45000, 'validation': 15000, 'test': 15000}
+2026-11-11T16:17:34.971+00:00 INFO pooled rows=75000 label/label_text mismatches=0
+2026-11-11T16:17:43.402+00:00 INFO after filters: 72417 (drops={'cyr_ratio_below_0.8': 1023, 'shorter_than_15_chars': 1560}, changed_by_clean=12477)
+2026-11-11T16:17:46.308+00:00 INFO dedupe: unique=70927 dup_rows_removed=589 conflict_groups=188 conflict_rows_dropped=901
+2026-11-11T16:24:01.383+00:00 INFO full-seq token lengths: {'p0': 121, 'p50': 156, 'p90': 224, 'p95': 259, 'p99': 362, 'p100': 802, 'mean': 170.01, 'n': 70927}
+2026-11-11T16:24:01.404+00:00 INFO share of full sequences longer than T: {'64': 1.0, '128': 0.95979, '192': 0.19922, '256': 0.05258, '384': 0.00729, '512': 0.00023, '1024': 0.0, '2048': 0.0}
+2026-11-11T16:24:01.575+00:00 INFO dropped 16 rows with full length > 512 tokens
+2026-11-11T16:24:02.611+00:00 INFO held-out rows with a train near-duplicate (3-shingle Jaccard>=0.8): 0
+2026-11-11T16:24:02.876+00:00 INFO summary written: D:\soup\runs\smoke\prepare_data_20261111T161655Z\summary.json

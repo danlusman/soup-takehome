@@ -1,0 +1,151 @@
+{
+  "finished_utc": "2026-11-11T16:26:29.123+00:00",
+  "tag": "smoke_base",
+  "model": "Qwen/Qwen2.5-0.5B-Instruct",
+  "adapter": null,
+  "dtype": "torch.float32",
+  "load_in_4bit": false,
+  "data": "data_smoke/processed/heldout.jsonl",
+  "n": 9,
+  "decoding": {
+    "do_sample": false,
+    "max_new_tokens": 32,
+    "repetition_penalty": 1.0,
+    "batch_size": 4
+  },
+  "shipped_generation_config": {
+    "max_length": null,
+    "max_new_tokens": null,
+    "min_length": null,
+    "min_new_tokens": null,
+    "early_stopping": null,
+    "max_time": null,
+    "stop_strings": null,
+    "do_sample": true,
+    "num_beams": null,
+    "use_mtp": null,
+    "use_cache": null,
+    "cache_implementation": null,
+    "cache_config": null,
+    "max_cache_len": null,
+    "temperature": 0.7,
+    "top_k": 20,
+    "top_p": 0.8,
+    "min_p": null,
+    "top_h": null,
+    "typical_p": null,
+    "epsilon_cutoff": null,
+    "eta_cutoff": null,
+    "repetition_penalty": 1.1,
+    "encoder_repetition_penalty": null,
+    "length_penalty": null,
+    "no_repeat_ngram_size": null,
+    "bad_words_ids": null,
+    "renormalize_logits": null,
+    "forced_bos_token_id": null,
+    "forced_eos_token_id": null,
+    "remove_invalid_values": null,
+    "exponential_decay_length_penalty": null,
+    "suppress_tokens": null,
+    "begin_suppress_tokens": null,
+    "sequence_bias": null,
+    "token_healing": null,
+    "guidance_scale": null,
+    "watermarking_config": null,
+    "num_return_sequences": null,
+    "output_attentions": null,
+    "output_hidden_states": null,
+    "output_scores": null,
+    "output_logits": null,
+    "return_dict_in_generate": null,
+    "pad_token_id": 151643,
+    "bos_token_id": 151643,
+    "eos_token_id": [
+      151645,
+      151643
+    ],
+    "encoder_no_repeat_ngram_size": null,
+    "decoder_start_token_id": null,
+    "is_assistant": null,
+    "num_assistant_tokens": null,
+    "num_assistant_tokens_schedule": null,
+    "assistant_confidence_threshold": null,
+    "prompt_lookup_num_tokens": null,
+    "max_matching_ngram_size": null,
+    "assistant_early_exit": null,
+    "assistant_lookbehind": null,
+    "target_lookbehind": null,
+    "assistant_ensemble_weight": null,
+    "speculation_type": null,
+    "compile_config": null,
+    "disable_compile": null,
+    "continuous_batching_config": null,
+    "low_memory": null,
+    "penalty_alpha": null,
+    "dola_layers": null,
+    "diversity_penalty": null,
+    "num_beam_groups": null,
+    "constraints": null,
+    "force_words_ids": null,
+    "prefill_chunk_size": null,
+    "_from_model_config": null,
+    "transformers_version": "5.22.2"
+  },
+  "chat_template_sha256": "cd8e9439f0570856fd70470bf8889ebd8b5d1107207f67a5efb46e342330527f",
+  "example_prompt": "<|im_start|>system\nYou are Qwen, created by Alibaba Cloud. You are a helpful assistant.<|im_end|>\n<|im_start|>user\nОпредели тональность отзыва покупателя о товаре.\nОтветь строго одной строкой JSON без пояснений и без markdown: {\"тональность\": \"<метка>\"}, где <метка> — одно из: \"негативный\", \"нейтральный\", \"позитивный\".\n\nОтзыв:\nотличные трусики)буду заказывать еще<|im_end|>\n<|im_start|>assistant\n",
+  "strict_acc": 0.3333,
+  "strict_acc_ci95": [
+    0.0,
+    0.6667
+  ],
+  "format_rate": 1.0,
+  "format_rate_ci95": [
+    1.0,
+    1.0
+  ],
+  "json_parse_rate": 1.0,
+  "lenient_acc": 0.3333,
+  "acc_among_valid": 0.3333,
+  "macro_f1_strict": 0.1667,
+  "per_class_recall_strict": {
+    "негативный": 0.0,
+    "нейтральный": 0.0,
+    "позитивный": 1.0
+  },
+  "confusion_strict": {
+    "негативный": {
+      "позитивный": 3
+    },
+    "нейтральный": {
+      "позитивный": 3
+    },
+    "позитивный": {
+      "позитивный": 3
+    }
+  },
+  "eos_rate": 1.0,
+  "stop_token_counts": {
+    "<|im_end|>": 9
+  },
+  "template_leak_rate": 0.0,
+  "gen_tokens_dist": {
+    "p0": 13,
+    "p50": 13,
+    "p90": 13,
+    "p99": 13,
+    "p100": 13
+  },
+  "prompt_len_mismatch_vs_prepare_data": 0,
+  "generate_wall_s": 31.27,
+  "measured_gen_tok_per_s": 3.74,
+  "throughput_note": "generated (non-pad) tokens / generate() wall time, batch incl. padding waste",
+  "cuda_max_allocated_bytes": null,
+  "cuda_max_reserved_bytes": null,
+  "sample_outputs": [
+    "{\"тональность\": \"позитивный\"}",
+    "{\"тональность\": \"позитивный\"}",
+    "{\"тональность\": \"позитивный\"}",
+    "{\"тональность\": \"позитивный\"}",
+    "{\"тональность\": \"позитивный\"}"
+  ]
+}

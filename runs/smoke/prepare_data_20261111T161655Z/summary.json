@@ -1,0 +1,264 @@
+{
+  "finished_utc": "2026-11-11T16:24:02.870+00:00",
+  "dataset": "ai-forever/ru-reviews-classification",
+  "revision": "0f67d914f396ce22917dc6463ec619799b3b08d2",
+  "source_counts": {
+    "train": 45000,
+    "validation": 15000,
+    "test": 15000
+  },
+  "label_text_mismatch": 0,
+  "pooled": 75000,
+  "changed_by_clean": 12477,
+  "drops": {
+    "cyr_ratio_below_0.8": 1023,
+    "shorter_than_15_chars": 1560
+  },
+  "drop_examples": {
+    "cyr_ratio_below_0.8": [
+      "The color of the dress is not the same as in the picture. He is red with a greenish podton. I did not like the color. The quality of the dress is good.",
+      "the description in the pic doesn't look like the one I got... even the design is not as the show in the picture. pockets not as in the picture. shipping was very fast thank you for that...",
+      "the fabric is very thin and it's synthetic. the top is too small and the teeshirt folds around the top",
+      "Fast delivery to Volgograd.quality synthetic.Size too big at 65 kg-size xxxl.could smaller size to order.",
+      "Fast delivery, good quality, nice seller +"
+    ],
+    "shorter_than_15_chars": [
+      "Супер!!!! ",
+      "рьтд",
+      "Вдырхах ",
+      "Размер большой",
+      "пошив не очень"
+    ]
+  },
+  "after_filters": 72417,
+  "dedupe": {
+    "unique": 70927,
+    "dup_rows_removed": 589,
+    "conflict_groups": 188,
+    "conflict_rows_dropped": 901,
+    "conflict_examples": [
+      {
+        "text": "Товар не пришел",
+        "labels": {
+          "1": 6,
+          "0": 7,
+          "2": 1
+        }
+      },
+      {
+        "text": "качество желает быть лучше",
+        "labels": {
+          "1": 2,
+          "0": 1
+        }
+      },
+      {
+        "text": "товар не соответствует описанию!!!",
+        "labels": {
+          "1": 5,
+          "0": 3
+        }
+      },
+      {
+        "text": "качество плохое",
+        "labels": {
+          "1": 6,
+          "0": 1
+        }
+      },
+      {
+        "text": "Заказ не получил. Деньги вернули.",
+        "labels": {
+          "1": 1,
+          "0": 2
+        }
+      }
+    ]
+  },
+  "tokenizer": "Qwen/Qwen2.5-0.5B-Instruct",
+  "chat_template_sha256": "cd8e9439f0570856fd70470bf8889ebd8b5d1107207f67a5efb46e342330527f",
+  "tokenizer_model_max_length": 131072,
+  "config_max_position_embeddings": 32768,
+  "eos_token": "<|im_end|>",
+  "pad_token": "<|endoftext|>",
+  "tok_len_full": {
+    "p0": 121,
+    "p50": 156,
+    "p90": 224,
+    "p95": 259,
+    "p99": 362,
+    "p100": 802,
+    "mean": 170.01,
+    "n": 70927
+  },
+  "tok_len_prompt": {
+    "p0": 108,
+    "p50": 142,
+    "p90": 210,
+    "p95": 245,
+    "p99": 348,
+    "p100": 788,
+    "mean": 156.01,
+    "n": 70927
+  },
+  "tok_len_answer": {
+    "p0": 13,
+    "p50": 14,
+    "p90": 15,
+    "p95": 15,
+    "p99": 15,
+    "p100": 15,
+    "mean": 14.0,
+    "n": 70927
+  },
+  "share_longer_than": {
+    "64": 1.0,
+    "128": 0.95979,
+    "192": 0.19922,
+    "256": 0.05258,
+    "384": 0.00729,
+    "512": 0.00023,
+    "1024": 0.0,
+    "2048": 0.0
+  },
+  "prompt_not_prefix_of_full": 0,
+  "chars_by_class": {
+    "позитивный": {
+      "p0": 15,
+      "p50": 95,
+      "p90": 253,
+      "p95": 330,
+      "p99": 559,
+      "p100": 1000,
+      "mean": 126.22,
+      "n": 23630
+    },
+    "нейтральный": {
+      "p0": 15,
+      "p50": 94,
+      "p90": 285,
+      "p95": 381,
+      "p99": 643,
+      "p100": 998,
+      "mean": 134.21,
+      "n": 23558
+    },
+    "негативный": {
+      "p0": 15,
+      "p50": 106,
+      "p90": 314,
+      "p95": 429,
+      "p99": 756,
+      "p100": 1000,
+      "mean": 152.1,
+      "n": 23739
+    }
+  },
+  "max_seq_len": 512,
+  "dropped_too_long": 16,
+  "pool_sizes": {
+    "heldout": {
+      "нейтральный": 2400,
+      "негативный": 2370,
+      "позитивный": 2345
+    },
+    "val": {
+      "позитивный": 1188,
+      "нейтральный": 1211,
+      "негативный": 1191
+    },
+    "train": {
+      "позитивный": 20093,
+      "нейтральный": 19941,
+      "негативный": 20172
+    }
+  },
+  "split_overlap": {
+    "train&val": 0,
+    "train&heldout": 0,
+    "val&heldout": 0
+  },
+  "near_duplicates_heldout_vs_train": [],
+  "splits": {
+    "train": {
+      "n": 9,
+      "label_counts": {
+        "негативный": 3,
+        "нейтральный": 3,
+        "позитивный": 3
+      },
+      "source_split_counts": {
+        "train": 5,
+        "test": 2,
+        "validation": 2
+      },
+      "file_sha256": {
+        "train.jsonl": "95a0b84101c7c30e9eb983e4f4f9c5ea2b0a8dd6051745d554f6bde8b52c9c63",
+        "train_soup.jsonl": "a37b61aca05c8ef65a291a19b33939a0606c9298b16dc54835e366a2610df838"
+      },
+      "tok_full": {
+        "p0": 127,
+        "p50": 154,
+        "p90": 223,
+        "p95": 246,
+        "p99": 246,
+        "p100": 246,
+        "mean": 165.22,
+        "n": 9
+      }
+    },
+    "val": {
+      "n": 3,
+      "label_counts": {
+        "позитивный": 1,
+        "негативный": 1,
+        "нейтральный": 1
+      },
+      "source_split_counts": {
+        "test": 2,
+        "train": 1
+      },
+      "file_sha256": {
+        "val.jsonl": "88e5c07320f50fb20c268fea765af422a1bfff46511b3dba25bc8c654c77b54e",
+        "val_soup.jsonl": "fed99cf4633779efceb025bbc9c35720b0874000d0dd1e64e9c434d9e8cac41a"
+      },
+      "tok_full": {
+        "p0": 136,
+        "p50": 142,
+        "p90": 190,
+        "p95": 190,
+        "p99": 190,
+        "p100": 190,
+        "mean": 156.0,
+        "n": 3
+      }
+    },
+    "heldout": {
+      "n": 9,
+      "label_counts": {
+        "позитивный": 3,
+        "негативный": 3,
+        "нейтральный": 3
+      },
+      "source_split_counts": {
+        "validation": 2,
+        "train": 5,
+        "test": 2
+      },
+      "file_sha256": {
+        "heldout.jsonl": "55a47955ef5c4c88813e93fa001d1bef04e17d947f95e51d58ab69972770b2ff"
+      },
+      "tok_full": {
+        "p0": 132,
+        "p50": 139,
+        "p90": 173,
+        "p95": 186,
+        "p99": 186,
+        "p100": 186,
+        "mean": 149.67,
+        "n": 9
+      }
+    }
+  },
+  "example_rendered_full": "<|im_start|>system\nYou are Qwen, created by Alibaba Cloud. You are a helpful assistant.<|im_end|>\n<|im_start|>user\nОпредели тональность отзыва покупателя о товаре.\nОтветь строго одной строкой JSON без пояснений и без markdown: {\"тональность\": \"<метка>\"}, где <метка> — одно из: \"негативный\", \"нейтральный\", \"позитивный\".\n\nОтзыв:\nНикому не советую покупать это платье. только вместо половой тряпки.На мои параметры,86-66-96,РАЗМЕР М ОКАЗАЛСЯ ОЧЕНЬ,И ОЧЕНЬ МАЛ.Сильно маломерит.В описании,платье якобы до колена.На мой рост,160 см,оно намного выше колен.<|im_end|>\n<|im_start|>assistant\n{\"тональность\": \"негативный\"}<|im_end|>\n"
+}
