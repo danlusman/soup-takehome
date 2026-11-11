@@ -24,7 +24,8 @@ installs pinned deps, runs the phase scripts, and copies `runs/` to Drive after 
 code("""
 # --- config: edit these two lines ---
 REPO_SOURCE = "git"   # "git" or "drive_zip"
-REPO_URL = "https://github.com/<you>/<repo>.git"   # if git
+REPO = "github.com/danlusman/soup-takehome.git"   # private: needs Colab secret GH_TOKEN (read-only)
+BRANCH = "main"
 DRIVE_ZIP = "/content/drive/MyDrive/soup_takehome/repo.zip"   # if drive_zip
 DRIVE_RUNS = "/content/drive/MyDrive/soup_takehome/runs"
 """)
@@ -37,7 +38,15 @@ os.makedirs(DRIVE_RUNS, exist_ok=True)
 code("""
 %cd /content
 if REPO_SOURCE == "git":
-    !rm -rf repo && git clone -q $REPO_URL repo
+    from google.colab import userdata
+    _tok = userdata.get('GH_TOKEN')   # never printed; removed from .git/config right after clone
+    subprocess.run(["rm", "-rf", "repo"], check=True)
+    r = subprocess.run(["git", "clone", "-q", "-b", BRANCH, f"https://x-access-token:{_tok}@{REPO}", "repo"],
+                       capture_output=True, text=True)
+    del _tok
+    if r.returncode != 0:
+        raise RuntimeError("git clone failed (check GH_TOKEN secret / repo access); stderr hidden to avoid leaking the token")
+    subprocess.run(["git", "-C", "repo", "remote", "set-url", "origin", f"https://{REPO}"], check=True)
 else:
     !rm -rf repo && mkdir repo && unzip -q $DRIVE_ZIP -d repo
 %cd /content/repo
