@@ -266,3 +266,14 @@ template leak per artifact, paired bootstrap (10,000 resamples, seed 0) on per-p
   and how many overflow to inf (fp16 max 65504) — a silent-failure candidate for Phase 6.
 - Also found: safetensors `get_tensor` outside the `safe_open` context segfaults on Windows (mmap closed);
   verify.py clones inside the context.
+
+---
+# Phase 7 — analysis (after results; nothing above was edited)
+
+## D-23 Verdict and how it was reached
+- DON'T SHIP under D-20/D-21 as written: S1, S2 and S3 fail (analysis/verdict.md, runs/phase5/verify_20261112T121313Z).
+- The pre-registered T2 reference (NF4 floor) turned out to be a large systematic shift (C-29/C-30). The original
+  verdict is reported unchanged. The post-hoc alternative (null-control reference) would flip T2 to PASS, but T3,
+  S2 and S3 still fail, so the verdict doesn't depend on that choice.
+- Next step if continued: re-evaluate base vs NF4 on ≥1,500 of the 6,863 never-used held-out rows with thresholds
+  registered first, and fix the 4-bit step until label agreement with fp16 is ≥95%.

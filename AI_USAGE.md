@@ -50,4 +50,13 @@ redone (and how).
 | 23 | verify.py weight test vs raw base tensors | **AI error, caught by smoke test** | base is bf16; compare against base cast to fp16 (D-22). Without the smoke run the null control would have passed T1 |
 | 24 | verify.py read safetensors lazily | **AI error** | segfault on Windows; fixed by clone inside safe_open |
 
+## Colab execution + Phase 7 analysis
+
+| # | AI suggestion / action | Engineer decision | Verification / changes |
+|---|---|---|---|
+| 25 | AI drove the Colab notebook in the built-in browser (cells, runtime, secrets UI); engineer did all sign-ins, the OAuth grants and the token | Engineer approved each grant | AI made two UI mistakes, both recorded: typed into the Gemini link (cancelled the privacy notice), and editor autocomplete merged two commands (junk files deleted and the cell re-run; the torch result was unaffected) |
+| 26 | Uninstall Colab's torchao 0.10.0 after the probes crashed | pending | failed runs kept (runs/phase2/*T1111*), uninstall logged, notebook updated |
+| 27 | Analysis of raw logs only: estimate-vs-measured with a cause per gap | pending | Two numbers first written from memory were caught and corrected against estimates.json and the nvidia-smi CSV before committing |
+| 28 | Verdict strictly by pre-registered criteria; post-hoc T2 alternative reported separately | pending | analysis/verdict.md; thresholds unchanged |
+
 (Engineer: fill in the "decision" column yourself and add anything you re-did by hand.)

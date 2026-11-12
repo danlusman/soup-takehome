@@ -86,3 +86,19 @@ Status: OPEN unless marked otherwise. Each item says what would resolve it.
   (peak allocated 14.09 GiB, reserved 14.31 GiB of 14.56) and OOM'd in step 3 backward with 1.34 GiB
   reserved-but-unallocated (runs/phase2/mem_probe_b8_s256_*). "Predicted not to fit" is half right:
   the live tensors fit; the allocator did not. expandable_segments might make it pass.
+
+## Status after the T4 runs (2026-11-12; evidence in analysis/*.md)
+- C-17 **RESOLVED**: Soup trained on a T4 with the frozen base in torch.float16, fp16 AMP (telemetry train_begin).
+- C-18 **REVISED**: real run clipped on only 3.7% of steps (median grad norm 0.18); the null control clipped on
+  100% (grad norm 6.4–7.5). The smoke-run pattern didn't carry over.
+- C-19 **CHECKED**: 0 skipped fp16 steps and a constant loss scale (65536) in all 3 runs. Eager attention (probe c)
+  is where fp16 overflow happens (C-26).
+- C-12 **RESOLVED**: non-PyTorch GPU memory ≈ 105–141 MiB, far below my 0.45 GiB and Soup's 0.82–1.17 GB.
+- C-22 **MATERIALISED**: +4.0 pp gain, CI [−2.0, +9.9]; n=252 couldn't resolve it. Verdict DON'T SHIP.
+- **C-28 NF4 reload peak unexplained.** quantize.py's reload_check peaks at 1.705 GiB for a 1.075 GiB artifact
+  (runs/phase4/quantize_*). Not investigated.
+- **C-29 NF4 breaks the neutral class of the base model** (neutral recall 0.571 → 0.071, runs/phase5 base_nf4_gen).
+  On the trained model the damage is smaller (0.690 → 0.583) but it still moves 7.9% of labels. Any 4-bit artifact of
+  this model family needs a per-class check, not just accuracy.
+- **C-30 T2's reference was a poor choice.** It compared training against KL(base‖base-NF4), which turned out to be a
+  large systematic shift (C-29), not noise. Kept as pre-registered; post-hoc analysis in analysis/verdict.md.
