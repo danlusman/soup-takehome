@@ -71,3 +71,18 @@ Status: OPEN unless marked otherwise. Each item says what would resolve it.
   (d) NF4 noise floor on 0.5B is large (decision-position KL 0.20) and base-NF4 changes greedy answers;
   the floor on 1.5B/T4 is unknown. (e) Shipped sampling (T 0.7, top_p 0.8, top_k 20, rep 1.1) dropped
   format_rate to 0.56 on the 5-step adapter — S7 may be the criterion that fails for real.
+- **C-25 (T4, observed) Colab's preinstalled torchao 0.10.0 breaks peft LoRA wrapping on fp16.**
+  `ImportError: Found an incompatible version of torchao. Found version 0.10.0, but only versions above
+  0.16.0 are supported` in 4/5 first-attempt probes (runs/phase2/mem_probe_*_20261112T1111*); NF4 probe
+  unaffected (different dispatch). Loud, not silent, but environment-only: the local venv has no torchao.
+  `soup doctor` reported all checks OK with torchao 0.10.0 present. Fixed by uninstalling torchao
+  (runs/phase0/torchao_*.txt); notebook Phase 0 now does it.
+- **C-26 (T4, observed) Eager attention in fp16 → NaN loss, every step skipped, no error.**
+  Probe (c) b1/s512 eager: loss=nan at steps 1–3, GradScaler scale 65536→32768→16384→8192
+  (runs/phase2/mem_probe_b1_s512_r16_nockpt_fp16_eager_*). SDPA path is finite. A training run
+  configured with eager attention on a T4 would "finish" having learned nothing. Random-token inputs,
+  so magnitude may differ on real text; the failure mode is the point. Phase 6 candidate.
+- **C-27 (T4, observed) Probe (e) OOM was fragmentation, not capacity.** b8/s256/no-ckpt ran steps 1–2
+  (peak allocated 14.09 GiB, reserved 14.31 GiB of 14.56) and OOM'd in step 3 backward with 1.34 GiB
+  reserved-but-unallocated (runs/phase2/mem_probe_b8_s256_*). "Predicted not to fit" is half right:
+  the live tensors fit; the allocator did not. expandable_segments might make it pass.

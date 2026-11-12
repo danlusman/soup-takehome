@@ -64,6 +64,9 @@ os.makedirs(ENV, exist_ok=True)
 !free -b > {ENV}/free.txt; df -B1 /content > {ENV}/df.txt
 !pip freeze > {ENV}/pip_freeze_before.txt
 !pip install -q -r requirements.txt 2>&1 | tail -20 | tee {ENV}/pip_install.txt
+# Colab preinstalls torchao 0.10.0; peft 0.21.2 refuses torchao < 0.16 when wrapping LoRA on fp16
+# linears (ImportError, runs/phase2/mem_probe_*_20261112T1111*). Nothing in our stack uses torchao.
+!pip show torchao 2>&1 | head -3 > {ENV}/torchao_before_uninstall.txt; pip uninstall -y torchao > {ENV}/torchao_uninstall.txt 2>&1
 !pip freeze > {ENV}/pip_freeze_after.txt
 !soup --version > {ENV}/soup_version.txt 2>&1; cat {ENV}/soup_version.txt
 """)
