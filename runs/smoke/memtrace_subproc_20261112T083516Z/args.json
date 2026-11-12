@@ -1,0 +1,12 @@
+{
+  "phase": "smoke",
+  "tag": "subproc",
+  "step_every": 10,
+  "disk_paths": [],
+  "runs_root": null,
+  "command": [
+    "python",
+    "-c",
+    "print('hi')"
+  ]
+}

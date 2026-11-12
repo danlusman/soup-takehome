@@ -1,0 +1,159 @@
+{
+  "config": {
+    "architectures": [
+      "Qwen2ForCausalLM"
+    ],
+    "attention_dropout": 0.0,
+    "bos_token_id": 151643,
+    "eos_token_id": 151645,
+    "hidden_act": "silu",
+    "hidden_size": 1536,
+    "initializer_range": 0.02,
+    "intermediate_size": 8960,
+    "max_position_embeddings": 32768,
+    "max_window_layers": 21,
+    "model_type": "qwen2",
+    "num_attention_heads": 12,
+    "num_hidden_layers": 28,
+    "num_key_value_heads": 2,
+    "rms_norm_eps": 1e-06,
+    "rope_theta": 1000000.0,
+    "sliding_window": 32768,
+    "tie_word_embeddings": true,
+    "torch_dtype": "bfloat16",
+    "transformers_version": "4.43.1",
+    "use_cache": true,
+    "use_sliding_window": false,
+    "vocab_size": 151936
+  },
+  "shape": {
+    "hidden": 1536,
+    "inter": 8960,
+    "layers": 28,
+    "heads": 12,
+    "kv_heads": 2,
+    "head_dim": 128,
+    "vocab": 151936,
+    "tied": true,
+    "attn_bias": true
+  },
+  "param_counts": {
+    "embed": 233373696,
+    "lm_head_untied": 0,
+    "decoder_linear": 1310195712,
+    "norms_and_biases": 144896,
+    "total": 1543714304
+  },
+  "planned_train": {
+    "run": {
+      "batch": 8,
+      "seq": 256,
+      "rank": 16,
+      "targets": [
+        "q_proj",
+        "k_proj",
+        "v_proj",
+        "o_proj",
+        "gate_proj",
+        "up_proj",
+        "down_proj"
+      ],
+      "base": "fp16",
+      "double_quant": true,
+      "kbit_upcast_embed_fp32": true,
+      "grad_ckpt": false,
+      "lora_dropout": 0.05,
+      "attn": "sdpa_mem_efficient",
+      "optimizer": "adamw_torch",
+      "context_bytes": 483183820
+    },
+    "weights_detail": {
+      "decoder_linear": 2620391424,
+      "non_linear": 467037184
+    },
+    "trainable_params": 18464768,
+    "activations_detail": {
+      "per_token_per_layer": 132912,
+      "no_ckpt": 7621705728,
+      "with_ckpt": 448364544,
+      "used": 7621705728
+    },
+    "activation_items_per_token_layer": {
+      "rmsnorm_x2_fp32_input": 12288,
+      "attn_sdpa_q_krep_vrep_out": 12288,
+      "attn_sdpa_lse": 48,
+      "mlp_gate_up_act": 53760,
+      "lora_inputs": 54528
+    },
+    "logits_detail": {
+      "elements": 311164928,
+      "fp16_logits": 622329856,
+      "fp32_upcast": 1244659712,
+      "logsoftmax_saved_fp32": 1244659712,
+      "grad_fp32": 1244659712,
+      "grad_fp16": 622329856,
+      "forward": 3111649280,
+      "peak": 4978638848
+    },
+    "terms": {
+      "weights": 3087428608,
+      "lora_params_fp32": 73859072,
+      "lora_grads_fp32": 73859072,
+      "adam_states": 147718144,
+      "activations": 7621705728,
+      "logits_chain_peak": 4978638848
+    },
+    "predicted_max_allocated": 15983209472,
+    "predicted_nvidia_smi_used": 16466393292,
+    "notes": [
+      "Step 1 has no Adam states yet; compare step>=2 peaks.",
+      "max_reserved exceeds max_allocated by allocator fragmentation (not modelled).",
+      "TRL may keep logits for token-accuracy / entropy metrics: extra T*V transients."
+    ]
+  },
+  "export": {
+    "fp16_weights": 3087428608,
+    "merge_gpu_peak": 3142478848,
+    "merge_cpu_ram_peak_low": 3142478848,
+    "merge_cpu_ram_peak_high": 6174857216,
+    "merge_cpu_note": "low = load fp16 directly + in-place merge; high = an extra full copy (fp32 load then cast, or state-dict materialized for saving). If the base is accidentally loaded fp32: 2x fp16_weights before cast.",
+    "disk_hf_cache_base": 3087428608,
+    "disk_merged_fp16": 3087428608,
+    "nf4_bnb_in_vram": 1142926720.0,
+    "nf4_quantize_gpu_peak": 1170451840.0,
+    "gguf_q4_k_m_range": [
+      868339296.0,
+      964821440.0
+    ],
+    "gguf_conversion_f16_intermediate": 3087428608,
+    "disk_peak_gguf_path": 10227107264.0,
+    "disk_peak_gguf_note": "HF cache + merged fp16 + f16 GGUF intermediate + Q4_K_M output",
+    "kv_cache_bytes_per_token_fp16": 28672
+  },
+  "soup_estimate": {
+    "terms_bytes": {
+      "weights": 3087428608,
+      "adapters": 73859072,
+      "gradients": 73859072,
+      "optimizer": 147718144,
+      "activations": 8006506906,
+      "logits": 3733979136,
+      "dequant": 0,
+      "optimizer_step": 0,
+      "overhead": 1256167547
+    },
+    "total_bytes": 16379518485,
+    "total_GiB": 15.255,
+    "notes": [],
+    "lora_targets_used": [
+      "q_proj",
+      "k_proj",
+      "v_proj",
+      "o_proj",
+      "gate_proj",
+      "up_proj",
+      "down_proj"
+    ],
+    "shape_source": "config.json"
+  }
+}

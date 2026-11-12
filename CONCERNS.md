@@ -34,3 +34,15 @@ Status: OPEN unless marked otherwise. Each item says what would resolve it.
   come from accuracy. Look at the Colab baseline confusion matrix first.
 - **C-11 CPU tokenizer pass is slow.** prepare_data tokenizes all ~71k rows (6 min locally). Fine, but
   on Colab's 2 vCPUs expect longer.
+- **C-12 CUDA context size is a placeholder (0.45 GiB).** Soup budgets 1.17 GB "overhead". Measure from
+  the first nvidia-smi dump vs torch reserved in Phase 2 probes.
+- **C-13 Which SDPA kernel runs on the T4?** Flash-attention needs sm80+; we assume PyTorch picks the
+  memory-efficient kernel (O(s) memory). If it falls back to the math kernel, activations gain an
+  O(s²) term ~ probe (c) eager. Not verified; probe (a) vs (c) will show.
+- **C-14 Probes use random token ids and no padding.** Real batches have padding + attention masks
+  (may change the SDPA kernel) and real text. Memory should be identical for the same shapes, speed
+  may not. The wrapped `soup train` run is the cross-check.
+- **C-15 Soup's batch_size: auto probes for the max batch by trying until OOM.** If left on, the
+  measured peak is "whatever fit", not our planned shape. Set batch_size explicitly in Phase 3.
+- **C-16 TRL metrics may hold logits.** SFTTrainer logs mean_token_accuracy / entropy computed from
+  logits — extra T×V transients not in either estimate. Check against measured peak.

@@ -1,0 +1,71 @@
+{
+  "finished_utc": "2026-11-12T08:34:24.469+00:00",
+  "tag": "b1_s64_r8_ckpt_fp16_sdpa",
+  "cuda": false,
+  "trainable_params": 4399104,
+  "trainable_dtypes": [
+    "torch.float32"
+  ],
+  "losses": [
+    12.895170211791992,
+    14.079107284545898
+  ],
+  "phases": [
+    {
+      "phase": "load_weights",
+      "max_allocated": null,
+      "max_reserved": null,
+      "allocated": null,
+      "rss_after": 1467195392
+    },
+    {
+      "phase": "lora_wrap",
+      "max_allocated": null,
+      "max_reserved": null,
+      "allocated": null,
+      "rss_after": 1479573504
+    },
+    {
+      "phase": "step1_forward",
+      "max_allocated": null,
+      "max_reserved": null,
+      "allocated": null,
+      "rss_after": 2395463680
+    },
+    {
+      "phase": "step1_backward",
+      "max_allocated": null,
+      "max_reserved": null,
+      "allocated": null,
+      "rss_after": 2384277504
+    },
+    {
+      "phase": "step1_optimizer",
+      "max_allocated": null,
+      "max_reserved": null,
+      "allocated": null,
+      "rss_after": 2400178176
+    },
+    {
+      "phase": "step2_forward",
+      "max_allocated": null,
+      "max_reserved": null,
+      "allocated": null,
+      "rss_after": 2467782656
+    },
+    {
+      "phase": "step2_backward",
+      "max_allocated": null,
+      "max_reserved": null,
+      "allocated": null,
+      "rss_after": 2428002304
+    },
+    {
+      "phase": "step2_optimizer",
+      "max_allocated": null,
+      "max_reserved": null,
+      "allocated": null,
+      "rss_after": 2416001024
+    }
+  ]
+}

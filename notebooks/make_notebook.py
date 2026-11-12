@@ -83,6 +83,31 @@ code("""
 sync()
 """)
 
+md("""
+## Phase 2 — memory budget + controlled probes
+Each probe is a separate process so its torch peaks and nvidia-smi trace are clean.
+Probe (e) is a **pre-registered falsification test**: the budget predicts it does NOT fit
+(~15.3 GiB incl. context). An OOM there is a result, not a failure — keep the log.
+""")
+code("""
+!python scripts/memory_budget.py --batch 4 --seq 512 --grad-ckpt 2>&1 | tail -15
+!python scripts/memory_budget.py --batch 2 --seq 512 2>&1 | tail -12
+sync()
+""")
+code("""
+probes = [
+  "--batch 4 --seq 512 --grad-ckpt",            # (a) planned real-run shape
+  "--batch 2 --seq 512",                         # (b) no checkpointing: tests the activation term
+  "--batch 1 --seq 512 --attn eager",            # (c) eager attention: tests the s^2 term
+  "--batch 4 --seq 512 --grad-ckpt --base nf4",  # (d) QLoRA weights term (Soup's default)
+  "--batch 8 --seq 256",                         # (e) predicted NOT to fit
+]
+for a in probes:
+    print("=== probe", a)
+    !python scripts/mem_probe.py {a} 2>&1 | grep -E "phase|step|trainable|Error|error|Killed" | tail -25 || echo "EXIT NONZERO"
+    sync()
+""")
+
 nb = {"cells": cells, "metadata": {"accelerator": "GPU", "colab": {"gpuType": "T4"},
                                    "kernelspec": {"name": "python3", "display_name": "Python 3"}},
       "nbformat": 4, "nbformat_minor": 5}

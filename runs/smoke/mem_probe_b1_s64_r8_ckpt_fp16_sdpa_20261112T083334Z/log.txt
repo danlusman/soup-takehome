@@ -1,0 +1,15 @@
+2026-11-12T08:33:39.504+00:00 INFO run_dir=D:\soup\runs\smoke\mem_probe_b1_s64_r8_ckpt_fp16_sdpa_20261112T083334Z
+2026-11-12T08:33:39.504+00:00 INFO argv=scripts/mem_probe.py --model Qwen/Qwen2.5-0.5B-Instruct --batch 1 --seq 64 --rank 8 --grad-ckpt --steps 2 --phase smoke
+2026-11-12T08:34:03.576+00:00 INFO nvidia-smi not found: GPU sampler disabled
+2026-11-12T08:34:11.008+00:00 INFO phase load_weights           (no CUDA) rss=1467195392 7.3s
+2026-11-12T08:34:11.810+00:00 INFO trainable params=4399104 dtypes=['torch.float32']
+2026-11-12T08:34:11.852+00:00 INFO phase lora_wrap              (no CUDA) rss=1479573504 0.7s
+2026-11-12T08:34:14.595+00:00 INFO phase step1_forward          (no CUDA) rss=2395463680 2.6s
+2026-11-12T08:34:18.188+00:00 INFO phase step1_backward         (no CUDA) rss=2384277504 3.5s
+2026-11-12T08:34:18.506+00:00 INFO phase step1_optimizer        (no CUDA) rss=2400178176 0.2s
+2026-11-12T08:34:18.508+00:00 INFO step 1 loss=12.8952 scale=None
+2026-11-12T08:34:21.066+00:00 INFO phase step2_forward          (no CUDA) rss=2467782656 2.4s
+2026-11-12T08:34:24.181+00:00 INFO phase step2_backward         (no CUDA) rss=2428002304 3.0s
+2026-11-12T08:34:24.418+00:00 INFO phase step2_optimizer        (no CUDA) rss=2416001024 0.1s
+2026-11-12T08:34:24.419+00:00 INFO step 2 loss=14.0791 scale=None
+2026-11-12T08:34:24.474+00:00 INFO summary written: D:\soup\runs\smoke\mem_probe_b1_s64_r8_ckpt_fp16_sdpa_20261112T083334Z\summary.json

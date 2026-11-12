@@ -1,0 +1,17 @@
+{
+  "model": "Qwen/Qwen2.5-0.5B-Instruct",
+  "batch": 1,
+  "seq": 64,
+  "rank": 8,
+  "alpha": 32,
+  "dropout": 0.05,
+  "targets": "all-linear",
+  "grad_ckpt": true,
+  "base": "fp16",
+  "attn": "sdpa",
+  "steps": 2,
+  "answer_tokens": 14,
+  "seed": 0,
+  "phase": "smoke",
+  "runs_root": null
+}

@@ -19,4 +19,14 @@ redone (and how).
 | 7 | Wrote prepare_data.py / eval_task.py / task_format.py / common.py and ran the CPU smoke test (0.5B, 9 held-out rows) | pending engineer review | Smoke run logs in `runs/smoke/`. Found and recorded: console mojibake was a Windows cp1251 display artefact, not data (re-checked with UTF-8 output); label-conflict evidence (C-09); 0.5B constant-predictor behaviour (C-10) |
 | 8 | Leave torch unpinned on Colab (`torch>=2.6`) | pending engineer review | Bends the "pin everything" rule; reason in D-08 |
 
+## Phase 2 — memory budget
+
+| # | AI suggestion | Engineer decision | Verification / changes |
+|---|---|---|---|
+| 9 | Itemized analytic estimator + Soup's own estimator as a second column | pending | Param + LoRA formulas checked exactly against a real 0.5B load (runs/smoke/mem_probe_*) |
+| 10 | Train LoRA on fp16 base instead of Soup's default 4-bit QLoRA (D-10) | pending | reasoning only; probe (d) measures the NF4 alternative |
+| 11 | Planned shape b=4, s=512, grad-ckpt, r=16 all-linear (D-11) | pending | estimate only until probes run on the T4 |
+| 12 | Controlled probe script instead of reading Soup's peak; in-process Trainer callback for the real Soup run | pending | CPU smoke only: CUDA stats, nvidia-smi sampler and the Trainer patch are untested |
+| 13 | Probe (e) as a pre-registered "should OOM" test | pending | — |
+
 (Engineer: fill in the "decision" column yourself and add anything you re-did by hand.)

@@ -1,0 +1,3 @@
+{"phase": "disk:before", "utc": "2026-11-12T08:34:35.722+00:00", "sizes_bytes": {"scripts": 72927}, "disk_used": 16359780352, "disk_free": 93980819456}
+{"phase": "command", "utc_begin": "2026-11-12T08:34:35.786+00:00", "utc_end": "2026-11-12T08:35:13.512+00:00", "wall_s": 37.726, "torch_before": {"cuda": false}, "torch_after": {"cuda": false}, "rss_before": 207347712, "rss_after": 471359488, "command": ["soup", "--version"]}
+{"phase": "disk:after", "utc": "2026-11-12T08:35:13.592+00:00", "sizes_bytes": {"scripts": 72927}, "disk_used": 16359784448, "disk_free": 93980815360}

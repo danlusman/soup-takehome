@@ -82,3 +82,45 @@ or reading the source. Numbers here are only allowed if they come from a file in
 - Smoke run shows it drops legitimate short reviews ("Размер большой", "пошив не очень") along with
   junk ("рьтд"). 1,560 / 75,000 rows. Kept because short reviews are disproportionately the
   conflicting-label ones (see D-02); revisit if the engineer disagrees.
+
+---
+# Phase 2 — memory
+
+## D-10 Proposed: LoRA on an fp16 base (`quantization: none`), NOT Soup's default QLoRA (`4bit`)
+- Soup 0.77.2 defaults: `training.quantization: 4bit`, `lora.r: 64`, `lora.alpha: 16`,
+  `lora.target_modules: auto` (= `q_proj, v_proj` for qwen2 per `soup_cli.utils.model_shape.lora_targets`),
+  `gradient_checkpointing: false`, `batch_size: auto`, `optimizer: adamw_torch`, `lr: 2e-5`
+  (read from `soup_cli/config/schema.py`).
+- Why not QLoRA: the task merges the adapter into the **fp16** base. An adapter trained against
+  NF4-dequantized weights is merged into weights it never saw, so "merged" != "what was trained" by
+  the quantization error of every adapted layer. With fp16 LoRA, merged ≈ adapter-on up to fp16
+  rounding, which is what Phase 5's "merged ≈ adapter-on" check assumes.
+- Memory doesn't force QLoRA: estimated weights 2.875 GiB (fp16) vs 1.499 GiB (NF4 incl. fp32-upcast
+  embeddings); the peak is dominated by logits/activations, not weights (see runs/phase2 grid).
+- Alternative kept as a probe: (d) NF4 base, to measure the weights term Soup would actually use.
+- Engineer to confirm in Phase 3.
+
+## D-11 Proposed training shape: b=4, max_length 512, gradient checkpointing ON, r=16, all linear
+- Batches pad to their longest row: with b=8 and full-length p95=259 tokens (runs/smoke/prepare_data),
+  most batches reach >256, so s must be budgeted at the 512 cap, not the mean.
+- Estimate (runs/smoke/memory_budget_*/grid.csv): b4/s512/ckpt ≈ 8.2 GiB allocated; b4/s512 without
+  ckpt ≈ 14.9 GiB (too close to 15 GiB). Under checkpointing the **logits chain (4.6 GiB) is the
+  biggest term**, bigger than the weights: vocab 151,936 × 2,048 tokens × ~14 B. Only ~14 answer
+  tokens per row carry loss; the rest of the logits are pure overhead (fused CE would remove it;
+  Soup has `use_cut_ce` / `use_liger`, not used, to keep the stack plain).
+- r=16 all-linear = 18.46M trainable params (1.2%); q,v-only at r=16 would be 2.18M.
+
+## D-12 Measurement design
+- Own estimator (`scripts/memory_budget.py`), itemized per tensor, PLUS Soup's estimator
+  (`soup_cli.utils.vram_estimate.estimate_vram`) as a second, independent column. They agree on
+  weights/LoRA/Adam exactly, on activations within 5% (7.10 vs 7.46 GiB for b8/s256/no-ckpt), and
+  disagree on logits (4.64 vs 3.48 GiB: we charge ~14 B/element, Soup ~12). Measurement decides.
+- Controlled probe (`scripts/mem_probe.py`) instead of reading Soup's training peak: exact b×s every
+  step, per-phase torch peaks (load / wrap / fwd / bwd / opt, steps 1–3). Soup's real run is ALSO
+  wrapped (`scripts/memtrace.py -- soup train ...`) to see whether its peak matches the probe.
+- Pre-registered falsification: probe (e) b8/s256/no-ckpt is predicted not to fit.
+- Units: GiB (2^30) everywhere; Soup prints GB (1e9). 15 GiB ≈ 16.1 GB, i.e. the "16 GB" T4.
+- Validated locally: parameter formula = 494,032,768 for Qwen2.5-0.5B, exactly the real count;
+  LoRA r=8 all-linear formula = 4,399,104 = what peft reported (runs/smoke/mem_probe_*/log.txt).
+  The 1.5B formula gives 1,543,714,304 params; ×2 B = 3,087,428,608 B vs model.safetensors
+  3,087,467,144 B (difference = 38.5 KB header).

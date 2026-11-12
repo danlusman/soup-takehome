@@ -1,0 +1,13 @@
+{
+  "phase": "smoke",
+  "tag": "soupversion",
+  "step_every": 10,
+  "disk_paths": [
+    "scripts"
+  ],
+  "runs_root": null,
+  "command": [
+    "soup",
+    "--version"
+  ]
+}
