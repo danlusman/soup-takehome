@@ -1,0 +1,19 @@
+{
+  "phase": "phase4",
+  "tag": "soup_merge_real",
+  "step_every": 10,
+  "disk_paths": [
+    "outputs/merged/real"
+  ],
+  "runs_root": null,
+  "command": [
+    "soup",
+    "merge",
+    "--adapter",
+    "outputs/real",
+    "--output",
+    "outputs/merged/real",
+    "--dtype",
+    "float16"
+  ]
+}

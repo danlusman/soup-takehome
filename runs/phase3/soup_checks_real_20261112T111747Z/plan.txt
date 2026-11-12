@@ -1,0 +1,19 @@
+$ /usr/bin/python3 -m soup_cli plan --config configs/real.yaml --state /content/repo/runs/phase3/soup_checks_real_20261112T111747Z/plan.tfstate
+# exit=0
+                     Training plan                      
+┏━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃ Field                   ┃ Value                      ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━━┩
+│ base                    │ Qwen/Qwen2.5-1.5B-Instruct │
+│ task                    │ sft                        │
+│ config_sha              │ 5b924292ef9fbbc1...        │
+│ dataset_sha             │ eea88565a07ea644...        │
+│ estimated_cost          │ $0.0500                    │
+│ estimated_minutes       │ 10.0                       │
+│ peak_vram_gb            │ 8.5                        │
+│ spot_price_usd_per_hour │ $0.30                      │
+└─────────────────────────┴────────────────────────────┘
+╭──────────────────────────────────────────────────────────────────────────────────────────────── plan ────────────────────────────────────────────────────────────────────────────────────────────────╮
+│ Plan written to /content/repo/runs/phase3/soup_checks_real_20261112T111747Z/plan.tfstate.                                                                                                            │
+│ Review the numbers, then run `soup apply` to record the plan.                                                                                                                                        │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯

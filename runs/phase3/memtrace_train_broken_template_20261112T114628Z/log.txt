@@ -1,0 +1,7 @@
+2026-11-12T11:46:30.660+00:00 INFO run_dir=/content/repo/runs/phase3/memtrace_train_broken_template_20261112T114628Z
+2026-11-12T11:46:30.660+00:00 INFO argv=scripts/memtrace.py --phase phase3 --tag train_broken_template --disk-paths outputs/broken_template -- soup train --config configs/broken_template.yaml --yes
+2026-11-12T11:46:30.875+00:00 INFO disk before {'outputs/broken_template': None} free=106.9 GiB
+2026-11-12T11:58:41.342+00:00 INFO phase command                max_alloc=6.517 GiB max_reserved=14.121 GiB alloc_now=3.098 GiB 730.0s
+2026-11-12T11:58:41.343+00:00 INFO disk after {'outputs/broken_template': 785872077} free=106.1 GiB
+2026-11-12T11:58:42.395+00:00 INFO command exit code=0 peak nvidia-smi memory.used=14413 MiB
+2026-11-12T11:58:42.396+00:00 INFO summary written: /content/repo/runs/phase3/memtrace_train_broken_template_20261112T114628Z/summary.json

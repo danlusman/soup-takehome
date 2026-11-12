@@ -1,0 +1,28 @@
+$ /usr/bin/python3 /content/repo/scripts/inspect_soup_labels.py --config configs/real.yaml --phase phase3
+# exit=0
+2026-11-12T11:18:20.538+00:00 INFO run_dir=/content/repo/runs/phase3/inspect_labels_real_20261112T111818Z
+2026-11-12T11:18:20.539+00:00 INFO argv=/content/repo/scripts/inspect_soup_labels.py --config configs/real.yaml --phase phase3
+2026-11-12T11:18:25.168+00:00 INFO soup chat_template override=None ; template sha soup=cd8e9439f057 ref=cd8e9439f057
+2026-11-12T11:18:31.726+00:00 INFO trained_equals_target_plus_im_end    0 / 1650
+2026-11-12T11:18:31.726+00:00 INFO trained_equals_target_only           0 / 1650
+2026-11-12T11:18:31.726+00:00 INFO im_end_trained                       1650 / 1650
+2026-11-12T11:18:31.727+00:00 INFO role_prefix_in_loss                  1650 / 1650
+2026-11-12T11:18:31.727+00:00 INFO render_matches_eval_template         1650 / 1650
+2026-11-12T11:18:31.727+00:00 INFO zero_trained_rows                    0 / 1650
+2026-11-12T11:18:31.727+00:00 INFO example rendered input:
+<|im_start|>system
+You are Qwen, created by Alibaba Cloud. You are a helpful assistant.<|im_end|>
+<|im_start|>user
+Определи тональность отзыва покупателя о товаре.
+Ответь строго одной строкой JSON без пояснений и без markdown: {"тональность": "<метка>"}, где <метка> — одно из: "негативный", "нейтральный", "позитивный".
+
+Отзыв:
+Никому не советую покупать это платье. только вместо половой тряпки.На мои параметры,86-66-96,РАЗМЕР М ОКАЗАЛСЯ ОЧЕНЬ,И ОЧЕНЬ МАЛ.Сильно маломерит.В описании,платье якобы до колена.На мой рост,160 см,оно намного выше колен.<|im_end|>
+<|im_start|>assistant
+{"тональность": "негативный"}<|im_end|>
+
+2026-11-12T11:18:31.727+00:00 INFO example trained span: '<|im_start|>assistant\n{"тональность": "негативный"}<|im_end|>\n'
+2026-11-12T11:18:31.727+00:00 INFO summary written: /content/repo/runs/phase3/inspect_labels_real_20261112T111818Z/summary.json
+
+--- stderr ---
+[transformers] return_assistant_tokens_mask==True but chat template does not contain `{% generation %}` keyword.

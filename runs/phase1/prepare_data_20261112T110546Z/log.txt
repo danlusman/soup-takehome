@@ -1,0 +1,12 @@
+2026-11-12T11:05:48.063+00:00 INFO run_dir=/content/repo/runs/phase1/prepare_data_20261112T110546Z
+2026-11-12T11:05:48.063+00:00 INFO argv=scripts/prepare_data.py --tokenizer Qwen/Qwen2.5-1.5B-Instruct
+2026-11-12T11:05:54.842+00:00 INFO source splits: {'train': 45000, 'validation': 15000, 'test': 15000}
+2026-11-12T11:05:58.025+00:00 INFO pooled rows=75000 label/label_text mismatches=0
+2026-11-12T11:06:00.902+00:00 INFO after filters: 72417 (drops={'cyr_ratio_below_0.8': 1023, 'shorter_than_15_chars': 1560}, changed_by_clean=12477)
+2026-11-12T11:06:01.708+00:00 INFO dedupe: unique=70927 dup_rows_removed=589 conflict_groups=188 conflict_rows_dropped=901
+2026-11-12T11:07:24.427+00:00 INFO full-seq token lengths: {'p0': 121, 'p50': 156, 'p90': 224, 'p95': 259, 'p99': 362, 'p100': 802, 'mean': 170.01, 'n': 70927}
+2026-11-12T11:07:24.428+00:00 INFO share of full sequences longer than T: {'64': 1.0, '128': 0.95979, '192': 0.19922, '256': 0.05258, '384': 0.00729, '512': 0.00023, '1024': 0.0, '2048': 0.0}
+2026-11-12T11:07:24.442+00:00 INFO dropped 16 rows with full length > 512 tokens
+2026-11-12T11:07:26.000+00:00 INFO held-out rows with a train near-duplicate (3-shingle Jaccard>=0.8): 0
+2026-11-12T11:07:26.484+00:00 INFO soup val split check: {'val_split': 0.0909, 'n_train': 1500, 'n_val': 150, 'exact_match': True}
+2026-11-12T11:07:26.522+00:00 INFO summary written: /content/repo/runs/phase1/prepare_data_20261112T110546Z/summary.json

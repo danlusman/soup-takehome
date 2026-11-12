@@ -1,0 +1,10 @@
+Filesystem      Size  Used Avail Use% Mounted on
+overlay         113G   35G   79G  31% /
+2.9G	outputs/base_fp16
+750M	outputs/broken_template
+8.7G	outputs/merged
+8.7G	outputs/merged_ref
+2.9G	outputs/merged_ref_gpu
+4.4G	outputs/nf4
+750M	outputs/null_lr1e-7
+750M	outputs/real

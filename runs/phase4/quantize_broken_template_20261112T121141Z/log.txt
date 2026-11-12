@@ -1,0 +1,8 @@
+2026-11-12T12:11:43.691+00:00 INFO run_dir=/content/repo/runs/phase4/quantize_broken_template_20261112T121141Z
+2026-11-12T12:11:43.691+00:00 INFO argv=scripts/quantize.py --src outputs/merged/broken_template --out outputs/nf4/broken_template
+2026-11-12T12:11:43.924+00:00 INFO disk before {'outputs/merged/broken_template': 3098891180} free=79.5 GiB
+2026-11-12T12:12:14.219+00:00 INFO phase merge_4bit_load_quantize_save max_alloc=1.099 GiB max_reserved=1.117 GiB alloc_now=0.639 GiB 29.9s
+2026-11-12T12:12:14.222+00:00 INFO disk after {'outputs/merged/broken_template': 3098891180, 'outputs/nf4/broken_template': 1154752198} free=78.4 GiB
+2026-11-12T12:12:15.562+00:00 INFO phase reload_check           max_alloc=1.705 GiB max_reserved=1.713 GiB alloc_now=1.270 GiB 1.1s
+2026-11-12T12:12:21.593+00:00 INFO Linear4bit modules after reload: 196; dir bytes 1154752198
+2026-11-12T12:12:21.594+00:00 INFO summary written: /content/repo/runs/phase4/quantize_broken_template_20261112T121141Z/summary.json

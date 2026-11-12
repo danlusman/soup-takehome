@@ -1,0 +1,16 @@
+{
+  "phase": "phase3",
+  "tag": "train_real",
+  "step_every": 10,
+  "disk_paths": [
+    "outputs/real"
+  ],
+  "runs_root": null,
+  "command": [
+    "soup",
+    "train",
+    "--config",
+    "configs/real.yaml",
+    "--yes"
+  ]
+}

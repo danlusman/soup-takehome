@@ -1,0 +1,4 @@
+2026-11-12T11:11:43.588+00:00 INFO run_dir=/content/repo/runs/phase2/mem_probe_b4_s512_r16_ckpt_fp16_sdpa_20261112T111140Z
+2026-11-12T11:11:43.589+00:00 INFO argv=scripts/mem_probe.py --batch 4 --seq 512 --grad-ckpt
+2026-11-12T11:11:54.804+00:00 INFO phase load_weights           max_alloc=2.875 GiB max_reserved=2.932 GiB alloc_now=2.875 GiB 3.1s
+2026-11-12T11:11:55.098+00:00 INFO phase lora_wrap              max_alloc=2.875 GiB max_reserved=2.932 GiB alloc_now=2.875 GiB 0.0s

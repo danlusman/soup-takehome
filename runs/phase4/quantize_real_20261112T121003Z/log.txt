@@ -1,0 +1,8 @@
+2026-11-12T12:10:07.818+00:00 INFO run_dir=/content/repo/runs/phase4/quantize_real_20261112T121003Z
+2026-11-12T12:10:07.818+00:00 INFO argv=scripts/quantize.py --src outputs/merged/real --out outputs/nf4/real
+2026-11-12T12:10:08.073+00:00 INFO disk before {'outputs/merged/real': 3098893514} free=81.6 GiB
+2026-11-12T12:10:44.887+00:00 INFO phase merge_4bit_load_quantize_save max_alloc=1.099 GiB max_reserved=1.117 GiB alloc_now=0.639 GiB 36.3s
+2026-11-12T12:10:44.888+00:00 INFO disk after {'outputs/merged/real': 3098893514, 'outputs/nf4/real': 1154754527} free=80.6 GiB
+2026-11-12T12:10:47.196+00:00 INFO phase reload_check           max_alloc=1.705 GiB max_reserved=1.713 GiB alloc_now=1.270 GiB 2.0s
+2026-11-12T12:10:51.784+00:00 INFO Linear4bit modules after reload: 196; dir bytes 1154754527
+2026-11-12T12:10:51.784+00:00 INFO summary written: /content/repo/runs/phase4/quantize_real_20261112T121003Z/summary.json

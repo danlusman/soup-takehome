@@ -1,0 +1,7 @@
+2026-11-12T12:04:19.053+00:00 INFO run_dir=/content/repo/runs/phase4/memtrace_soup_merge_broken_template_20261112T120415Z
+2026-11-12T12:04:19.054+00:00 INFO argv=scripts/memtrace.py --phase phase4 --tag soup_merge_broken_template --disk-paths outputs/merged/broken_template -- soup merge --adapter outputs/broken_template --output outputs/merged/broken_template --dtype float16
+2026-11-12T12:04:19.290+00:00 INFO disk before {'outputs/merged/broken_template': None} free=94.3 GiB
+2026-11-12T12:05:52.840+00:00 INFO phase command                max_alloc=0.069 GiB max_reserved=0.070 GiB alloc_now=0.000 GiB 93.1s
+2026-11-12T12:05:52.842+00:00 INFO disk after {'outputs/merged/broken_template': 3098891180} free=91.4 GiB
+2026-11-12T12:05:53.100+00:00 INFO command exit code=0 peak nvidia-smi memory.used=177 MiB
+2026-11-12T12:05:53.102+00:00 INFO summary written: /content/repo/runs/phase4/memtrace_soup_merge_broken_template_20261112T120415Z/summary.json

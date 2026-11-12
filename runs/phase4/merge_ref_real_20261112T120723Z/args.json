@@ -1,0 +1,9 @@
+{
+  "adapter": "outputs/real",
+  "base": null,
+  "out": "outputs/merged_ref_gpu/real",
+  "device": "cuda",
+  "seed": 0,
+  "phase": "phase4",
+  "runs_root": null
+}

@@ -1,0 +1,19 @@
+{
+  "phase": "phase4",
+  "tag": "soup_merge_null_lr1e-7",
+  "step_every": 10,
+  "disk_paths": [
+    "outputs/merged/null_lr1e-7"
+  ],
+  "runs_root": null,
+  "command": [
+    "soup",
+    "merge",
+    "--adapter",
+    "outputs/null_lr1e-7",
+    "--output",
+    "outputs/merged/null_lr1e-7",
+    "--dtype",
+    "float16"
+  ]
+}

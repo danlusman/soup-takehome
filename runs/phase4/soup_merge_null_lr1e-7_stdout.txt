@@ -1,0 +1,30 @@
+2026-11-12T12:01:22.142+00:00 INFO run_dir=/content/repo/runs/phase4/memtrace_soup_merge_null_lr1e-7_20261112T120119Z
+2026-11-12T12:01:22.142+00:00 INFO argv=scripts/memtrace.py --phase phase4 --tag soup_merge_null_lr1e-7 --disk-paths outputs/merged/null_lr1e-7 -- soup merge --adapter outputs/null_lr1e-7 --output outputs/merged/null_lr1e-7 --dtype float16
+2026-11-12T12:01:22.347+00:00 INFO disk before {'outputs/merged/null_lr1e-7': None} free=100.0 GiB
+╭───────────────────────────────── Merge Plan ─────────────────────────────────╮
+│ Adapter: outputs/null_lr1e-7                                                 │
+│ Base:    Qwen/Qwen2.5-1.5B-Instruct                                          │
+│ Output:  outputs/merged/null_lr1e-7                                          │
+│ Dtype:   float16                                                             │
+╰──────────────────────────────────────────────────────────────────────────────╯
+Loading base model: Qwen/Qwen2.5-1.5B-Instruct...
+Base revision: 989aa7980e4cf806f80c7fef2b1adb7bc71aa306 (recorded run)
+Loading weights:   0%|          | 0/338 [00:00<?, ?it/s]Loading weights:   0%|          | 1/338 [00:01<06:48,  1.21s/it]Loading weights:  19%|█▊        | 63/338 [00:01<00:04, 64.31it/s]Loading weights:  28%|██▊       | 93/338 [00:01<00:03, 73.58it/s]Loading weights:  34%|███▎      | 114/338 [00:01<00:03, 71.56it/s]Loading weights:  38%|███▊      | 129/338 [00:02<00:02, 75.13it/s]Loading weights:  42%|████▏     | 142/338 [00:02<00:04, 48.67it/s]Loading weights:  45%|████▍     | 152/338 [00:03<00:04, 38.90it/s]Loading weights:  47%|████▋     | 159/338 [00:03<00:04, 41.91it/s]Loading weights:  49%|████▉     | 166/338 [00:03<00:04, 38.47it/s]Loading weights:  51%|█████     | 172/338 [00:03<00:04, 34.87it/s]Loading weights:  52%|█████▏    | 177/338 [00:04<00:05, 32.01it/s]Loading weights:  54%|█████▍    | 184/338 [00:04<00:04, 31.64it/s]Loading weights:  56%|█████▌    | 188/338 [00:04<00:04, 30.05it/s]Loading weights:  58%|█████▊    | 195/338 [00:04<00:05, 27.72it/s]Loading weights:  59%|█████▉    | 199/338 [00:04<00:05, 24.38it/s]Loading weights:  61%|██████    | 207/338 [00:05<00:04, 32.55it/s]Loading weights:  63%|██████▎   | 212/338 [00:05<00:04, 29.24it/s]Loading weights:  65%|██████▍   | 219/338 [00:05<00:03, 30.25it/s]Loading weights:  66%|██████▌   | 223/338 [00:05<00:04, 25.69it/s]Loading weights:  69%|██████▊   | 232/338 [00:05<00:03, 29.65it/s]Loading weights:  70%|██████▉   | 236/338 [00:06<00:03, 31.24it/s]Loading weights:  72%|███████▏  | 243/338 [00:06<00:03, 31.61it/s]Loading weights:  73%|███████▎  | 247/338 [00:06<00:03, 26.62it/s]Loading weights:  75%|███████▌  | 255/338 [00:06<00:02, 35.66it/s]Loading weights:  77%|███████▋  | 260/338 [00:06<00:02, 30.59it/s]Loading weights:  79%|███████▉  | 267/338 [00:07<00:02, 31.17it/s]Loading weights:  80%|████████  | 271/338 [00:07<00:02, 27.14it/s]Loading weights:  83%|████████▎ | 280/338 [00:07<00:01, 30.76it/s]Loading weights:  86%|████████▌ | 291/338 [00:07<00:01, 32.23it/s]Loading weights:  87%|████████▋ | 295/338 [00:08<00:01, 28.19it/s]Loading weights:  90%|████████▉ | 304/338 [00:08<00:01, 31.65it/s]Loading weights:  91%|█████████ | 308/338 [00:08<00:00, 32.91it/s]Loading weights:  93%|█████████▎| 315/338 [00:08<00:00, 33.05it/s]Loading weights:  94%|█████████▍| 319/338 [00:08<00:00, 27.53it/s]Loading weights:  97%|█████████▋| 327/338 [00:08<00:00, 36.34it/s]Loading weights:  98%|█████████▊| 332/338 [00:09<00:00, 32.15it/s]Loading weights: 100%|██████████| 338/338 [00:09<00:00, 36.96it/s]
+Loading LoRA adapter: outputs/null_lr1e-7...
+Merging weights...
+Saving merged model to outputs/merged/null_lr1e-7...
+Writing model shards:   0%|          | 0/1 [00:00<?, ?it/s]Writing model shards: 100%|██████████| 1/1 [00:22<00:00, 22.42s/it]Writing model shards: 100%|██████████| 1/1 [00:22<00:00, 22.42s/it]
+Saving tokenizer...
+╭────────────────────────────── Merge Complete! ───────────────────────────────╮
+│ Output: outputs/merged/null_lr1e-7                                           │
+│ Size:   2.9 GB                                                               │
+│                                                                              │
+│ Next steps:                                                                  │
+│   soup chat --model outputs/merged/null_lr1e-7                               │
+│   soup push --model outputs/merged/null_lr1e-7 --repo user/model             │
+│   soup export --model outputs/merged/null_lr1e-7 --format gguf               │
+╰──────────────────────────────────────────────────────────────────────────────╯
+2026-11-12T12:02:23.128+00:00 INFO phase command                max_alloc=0.069 GiB max_reserved=0.070 GiB alloc_now=0.000 GiB 60.3s
+2026-11-12T12:02:23.129+00:00 INFO disk after {'outputs/merged/null_lr1e-7': 3098893514} free=97.1 GiB
+2026-11-12T12:02:23.928+00:00 INFO command exit code=0 peak nvidia-smi memory.used=177 MiB
+2026-11-12T12:02:23.929+00:00 INFO summary written: /content/repo/runs/phase4/memtrace_soup_merge_null_lr1e-7_20261112T120119Z/summary.json

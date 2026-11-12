@@ -1,0 +1,8 @@
+{
+  "config": "configs/broken_template.yaml",
+  "skip": [],
+  "tag": null,
+  "seed": 0,
+  "phase": "phase3",
+  "runs_root": null
+}

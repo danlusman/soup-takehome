@@ -1,0 +1,30 @@
+2026-11-12T11:58:49.983+00:00 INFO run_dir=/content/repo/runs/phase4/memtrace_soup_merge_real_20261112T115847Z
+2026-11-12T11:58:49.984+00:00 INFO argv=scripts/memtrace.py --phase phase4 --tag soup_merge_real --disk-paths outputs/merged/real -- soup merge --adapter outputs/real --output outputs/merged/real --dtype float16
+2026-11-12T11:58:50.251+00:00 INFO disk before {'outputs/merged/real': None} free=105.8 GiB
+╭───────────────────────────────── Merge Plan ─────────────────────────────────╮
+│ Adapter: outputs/real                                                        │
+│ Base:    Qwen/Qwen2.5-1.5B-Instruct                                          │
+│ Output:  outputs/merged/real                                                 │
+│ Dtype:   float16                                                             │
+╰──────────────────────────────────────────────────────────────────────────────╯
+Loading base model: Qwen/Qwen2.5-1.5B-Instruct...
+Base revision: 989aa7980e4cf806f80c7fef2b1adb7bc71aa306 (recorded run)
+Loading weights:   0%|          | 0/338 [00:00<?, ?it/s]Loading weights:   0%|          | 1/338 [00:00<04:10,  1.35it/s]Loading weights:  16%|█▌        | 53/338 [00:00<00:03, 80.32it/s]Loading weights:  22%|██▏       | 76/338 [00:01<00:02, 88.74it/s]Loading weights:  28%|██▊       | 94/338 [00:01<00:02, 100.29it/s]Loading weights:  33%|███▎      | 111/338 [00:01<00:02, 95.74it/s]Loading weights:  37%|███▋      | 125/338 [00:01<00:02, 99.22it/s]Loading weights:  43%|████▎     | 147/338 [00:01<00:01, 121.50it/s]Loading weights:  48%|████▊     | 163/338 [00:01<00:01, 112.20it/s]Loading weights:  54%|█████▍    | 183/338 [00:01<00:01, 127.53it/s]Loading weights:  59%|█████▊    | 198/338 [00:02<00:01, 122.64it/s]Loading weights:  65%|██████▍   | 219/338 [00:02<00:00, 126.27it/s]Loading weights:  69%|██████▉   | 233/338 [00:02<00:00, 121.81it/s]Loading weights:  73%|███████▎  | 246/338 [00:02<00:00, 122.93it/s]Loading weights:  77%|███████▋  | 259/338 [00:02<00:00, 120.99it/s]Loading weights:  83%|████████▎ | 279/338 [00:02<00:00, 132.29it/s]Loading weights:  87%|████████▋ | 293/338 [00:02<00:00, 127.36it/s]Loading weights:  93%|█████████▎| 315/338 [00:02<00:00, 126.60it/s]Loading weights:  97%|█████████▋| 328/338 [00:03<00:00, 125.41it/s]Loading weights: 100%|██████████| 338/338 [00:03<00:00, 108.44it/s]
+Loading LoRA adapter: outputs/real...
+Merging weights...
+Saving merged model to outputs/merged/real...
+Writing model shards:   0%|          | 0/1 [00:00<?, ?it/s]Writing model shards: 100%|██████████| 1/1 [00:28<00:00, 28.59s/it]Writing model shards: 100%|██████████| 1/1 [00:28<00:00, 28.59s/it]
+Saving tokenizer...
+╭────────────────────────────── Merge Complete! ───────────────────────────────╮
+│ Output: outputs/merged/real                                                  │
+│ Size:   2.9 GB                                                               │
+│                                                                              │
+│ Next steps:                                                                  │
+│   soup chat --model outputs/merged/real                                      │
+│   soup push --model outputs/merged/real --repo user/model                    │
+│   soup export --model outputs/merged/real --format gguf                      │
+╰──────────────────────────────────────────────────────────────────────────────╯
+2026-11-12T11:59:53.249+00:00 INFO phase command                max_alloc=0.069 GiB max_reserved=0.070 GiB alloc_now=0.000 GiB 62.5s
+2026-11-12T11:59:53.253+00:00 INFO disk after {'outputs/merged/real': 3098893514} free=102.9 GiB
+2026-11-12T11:59:53.865+00:00 INFO command exit code=0 peak nvidia-smi memory.used=177 MiB
+2026-11-12T11:59:53.867+00:00 INFO summary written: /content/repo/runs/phase4/memtrace_soup_merge_real_20261112T115847Z/summary.json

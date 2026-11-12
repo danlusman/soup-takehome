@@ -1,0 +1,18 @@
+{
+  "dataset": "ai-forever/ru-reviews-classification",
+  "revision": "0f67d914f396ce22917dc6463ec619799b3b08d2",
+  "tokenizer": "Qwen/Qwen2.5-1.5B-Instruct",
+  "max_seq_len": 512,
+  "min_chars": 15,
+  "min_cyr_ratio": 0.8,
+  "train_per_class": 500,
+  "val_per_class": 50,
+  "heldout_per_class": 84,
+  "heldout_frac": 0.1,
+  "val_frac": 0.05,
+  "salt": "soup-rureviews-v1",
+  "seed": 0,
+  "out_data": "data",
+  "phase": "phase1",
+  "runs_root": null
+}

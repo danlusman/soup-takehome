@@ -1,0 +1,9 @@
+{
+  "src": "outputs/merged/real",
+  "src_hub": null,
+  "out": "outputs/nf4/real",
+  "no_double_quant": false,
+  "seed": 0,
+  "phase": "phase4",
+  "runs_root": null
+}

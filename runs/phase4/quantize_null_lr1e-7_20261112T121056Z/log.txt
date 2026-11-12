@@ -1,0 +1,8 @@
+2026-11-12T12:10:59.640+00:00 INFO run_dir=/content/repo/runs/phase4/quantize_null_lr1e-7_20261112T121056Z
+2026-11-12T12:10:59.641+00:00 INFO argv=scripts/quantize.py --src outputs/merged/null_lr1e-7 --out outputs/nf4/null_lr1e-7
+2026-11-12T12:10:59.885+00:00 INFO disk before {'outputs/merged/null_lr1e-7': 3098893514} free=80.6 GiB
+2026-11-12T12:11:31.311+00:00 INFO phase merge_4bit_load_quantize_save max_alloc=1.099 GiB max_reserved=1.117 GiB alloc_now=0.639 GiB 31.0s
+2026-11-12T12:11:31.312+00:00 INFO disk after {'outputs/merged/null_lr1e-7': 3098893514, 'outputs/nf4/null_lr1e-7': 1154754538} free=79.5 GiB
+2026-11-12T12:11:33.710+00:00 INFO phase reload_check           max_alloc=1.705 GiB max_reserved=1.713 GiB alloc_now=1.270 GiB 2.1s
+2026-11-12T12:11:39.295+00:00 INFO Linear4bit modules after reload: 196; dir bytes 1154754538
+2026-11-12T12:11:39.296+00:00 INFO summary written: /content/repo/runs/phase4/quantize_null_lr1e-7_20261112T121056Z/summary.json

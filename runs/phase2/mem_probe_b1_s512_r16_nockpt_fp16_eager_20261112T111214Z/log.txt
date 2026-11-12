@@ -1,0 +1,4 @@
+2026-11-12T11:12:15.956+00:00 INFO run_dir=/content/repo/runs/phase2/mem_probe_b1_s512_r16_nockpt_fp16_eager_20261112T111214Z
+2026-11-12T11:12:15.956+00:00 INFO argv=scripts/mem_probe.py --batch 1 --seq 512 --attn eager
+2026-11-12T11:12:27.643+00:00 INFO phase load_weights           max_alloc=2.875 GiB max_reserved=2.932 GiB alloc_now=2.875 GiB 4.0s
+2026-11-12T11:12:27.905+00:00 INFO phase lora_wrap              max_alloc=2.875 GiB max_reserved=2.932 GiB alloc_now=2.875 GiB 0.0s

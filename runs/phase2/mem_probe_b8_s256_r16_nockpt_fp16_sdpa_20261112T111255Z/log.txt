@@ -1,0 +1,4 @@
+2026-11-12T11:12:57.376+00:00 INFO run_dir=/content/repo/runs/phase2/mem_probe_b8_s256_r16_nockpt_fp16_sdpa_20261112T111255Z
+2026-11-12T11:12:57.376+00:00 INFO argv=scripts/mem_probe.py --batch 8 --seq 256
+2026-11-12T11:13:08.933+00:00 INFO phase load_weights           max_alloc=2.875 GiB max_reserved=2.932 GiB alloc_now=2.875 GiB 4.1s
+2026-11-12T11:13:09.200+00:00 INFO phase lora_wrap              max_alloc=2.875 GiB max_reserved=2.932 GiB alloc_now=2.875 GiB 0.0s

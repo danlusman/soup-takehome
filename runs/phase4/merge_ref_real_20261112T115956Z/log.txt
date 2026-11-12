@@ -1,0 +1,9 @@
+2026-11-12T11:59:58.804+00:00 INFO run_dir=/content/repo/runs/phase4/merge_ref_real_20261112T115956Z
+2026-11-12T11:59:58.804+00:00 INFO argv=scripts/merge_ref.py --adapter outputs/real --out outputs/merged_ref/real --device cpu
+2026-11-12T12:00:13.731+00:00 INFO phase load_base_fp16         max_alloc=0.000 GiB max_reserved=0.000 GiB alloc_now=0.000 GiB 3.0s
+2026-11-12T12:00:14.649+00:00 INFO phase load_adapter           max_alloc=0.069 GiB max_reserved=0.070 GiB alloc_now=0.000 GiB 0.7s
+2026-11-12T12:00:30.390+00:00 INFO phase merge_and_unload       max_alloc=0.000 GiB max_reserved=0.070 GiB alloc_now=0.000 GiB 15.5s
+2026-11-12T12:00:57.520+00:00 INFO phase save_merged            max_alloc=0.000 GiB max_reserved=0.070 GiB alloc_now=0.000 GiB 26.8s
+2026-11-12T12:00:59.035+00:00 INFO phase copy_tokenizer_template_genconfig_from_base max_alloc=0.000 GiB max_reserved=0.070 GiB alloc_now=0.000 GiB 0.9s
+2026-11-12T12:00:59.036+00:00 INFO disk after_save {'outputs/merged_ref/real': 3098893515} free=100.0 GiB
+2026-11-12T12:01:16.876+00:00 INFO summary written: /content/repo/runs/phase4/merge_ref_real_20261112T115956Z/summary.json

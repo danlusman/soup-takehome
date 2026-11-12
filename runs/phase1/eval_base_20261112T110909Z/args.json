@@ -1,0 +1,17 @@
+{
+  "model": "Qwen/Qwen2.5-1.5B-Instruct",
+  "adapter": null,
+  "tokenizer": null,
+  "data": "data/processed/heldout.jsonl",
+  "limit": null,
+  "batch_size": 32,
+  "max_new_tokens": 32,
+  "repetition_penalty": 1.0,
+  "dtype": "auto",
+  "load_in_4bit": false,
+  "bootstrap": 2000,
+  "tag": "base",
+  "seed": 0,
+  "phase": "phase1",
+  "runs_root": null
+}

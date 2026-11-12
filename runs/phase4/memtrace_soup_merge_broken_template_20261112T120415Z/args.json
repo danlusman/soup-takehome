@@ -1,0 +1,19 @@
+{
+  "phase": "phase4",
+  "tag": "soup_merge_broken_template",
+  "step_every": 10,
+  "disk_paths": [
+    "outputs/merged/broken_template"
+  ],
+  "runs_root": null,
+  "command": [
+    "soup",
+    "merge",
+    "--adapter",
+    "outputs/broken_template",
+    "--output",
+    "outputs/merged/broken_template",
+    "--dtype",
+    "float16"
+  ]
+}

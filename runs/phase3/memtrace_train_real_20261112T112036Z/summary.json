@@ -1,0 +1,20 @@
+{
+  "finished_utc": "2026-11-12T11:33:22.753+00:00",
+  "command": [
+    "soup",
+    "train",
+    "--config",
+    "configs/real.yaml",
+    "--yes"
+  ],
+  "exit_code": 0,
+  "error": null,
+  "peak_nvidia_smi_used_MiB": 14315,
+  "final_torch": {
+    "cuda": true,
+    "allocated": 3326047744,
+    "reserved": 9344909312,
+    "max_allocated": 7156196352,
+    "max_reserved": 14860419072
+  }
+}

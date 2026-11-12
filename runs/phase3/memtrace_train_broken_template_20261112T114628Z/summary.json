@@ -1,0 +1,20 @@
+{
+  "finished_utc": "2026-11-12T11:58:42.396+00:00",
+  "command": [
+    "soup",
+    "train",
+    "--config",
+    "configs/broken_template.yaml",
+    "--yes"
+  ],
+  "exit_code": 0,
+  "error": null,
+  "peak_nvidia_smi_used_MiB": 14413,
+  "final_torch": {
+    "cuda": true,
+    "allocated": 3326047744,
+    "reserved": 8321499136,
+    "max_allocated": 6997104640,
+    "max_reserved": 15162408960
+  }
+}

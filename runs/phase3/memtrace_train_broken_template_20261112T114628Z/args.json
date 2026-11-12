@@ -1,0 +1,16 @@
+{
+  "phase": "phase3",
+  "tag": "train_broken_template",
+  "step_every": 10,
+  "disk_paths": [
+    "outputs/broken_template"
+  ],
+  "runs_root": null,
+  "command": [
+    "soup",
+    "train",
+    "--config",
+    "configs/broken_template.yaml",
+    "--yes"
+  ]
+}

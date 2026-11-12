@@ -1,0 +1,8 @@
+{
+  "config": "configs/real.yaml",
+  "skip": [],
+  "tag": null,
+  "seed": 0,
+  "phase": "phase3",
+  "runs_root": null
+}

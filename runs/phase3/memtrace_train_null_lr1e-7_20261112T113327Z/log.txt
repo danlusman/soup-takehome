@@ -1,0 +1,7 @@
+2026-11-12T11:33:29.849+00:00 INFO run_dir=/content/repo/runs/phase3/memtrace_train_null_lr1e-7_20261112T113327Z
+2026-11-12T11:33:29.849+00:00 INFO argv=scripts/memtrace.py --phase phase3 --tag train_null_lr1e-7 --disk-paths outputs/null_lr1e-7 -- soup train --config configs/null_lr1e-7.yaml --yes
+2026-11-12T11:33:30.048+00:00 INFO disk before {'outputs/null_lr1e-7': None} free=107.9 GiB
+2026-11-12T11:46:21.854+00:00 INFO phase command                max_alloc=6.665 GiB max_reserved=13.840 GiB alloc_now=3.098 GiB 771.3s
+2026-11-12T11:46:21.855+00:00 INFO disk after {'outputs/null_lr1e-7': 785874354} free=107.2 GiB
+2026-11-12T11:46:23.018+00:00 INFO command exit code=0 peak nvidia-smi memory.used=14315 MiB
+2026-11-12T11:46:23.019+00:00 INFO summary written: /content/repo/runs/phase3/memtrace_train_null_lr1e-7_20261112T113327Z/summary.json

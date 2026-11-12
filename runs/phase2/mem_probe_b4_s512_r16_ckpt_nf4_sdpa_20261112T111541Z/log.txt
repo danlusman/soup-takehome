@@ -1,0 +1,18 @@
+2026-11-12T11:15:43.591+00:00 INFO run_dir=/content/repo/runs/phase2/mem_probe_b4_s512_r16_ckpt_nf4_sdpa_20261112T111541Z
+2026-11-12T11:15:43.592+00:00 INFO argv=scripts/mem_probe.py --batch 4 --seq 512 --grad-ckpt --base nf4
+2026-11-12T11:15:55.616+00:00 INFO phase load_weights           max_alloc=1.099 GiB max_reserved=1.119 GiB alloc_now=1.074 GiB 3.4s
+2026-11-12T11:15:56.243+00:00 INFO trainable params=18464768 dtypes=['torch.float32']
+2026-11-12T11:15:56.346+00:00 INFO phase lora_wrap              max_alloc=1.944 GiB max_reserved=2.061 GiB alloc_now=1.578 GiB 0.5s
+2026-11-12T11:15:57.403+00:00 INFO phase step1_forward          max_alloc=5.309 GiB max_reserved=5.705 GiB alloc_now=4.102 GiB 0.8s
+2026-11-12T11:15:58.867+00:00 INFO phase step1_backward         max_alloc=6.423 GiB max_reserved=6.908 GiB alloc_now=1.686 GiB 1.3s
+2026-11-12T11:15:59.184+00:00 INFO phase step1_optimizer        max_alloc=1.893 GiB max_reserved=7.115 GiB alloc_now=1.755 GiB 0.1s
+2026-11-12T11:15:59.184+00:00 INFO step 1 loss=13.5544 scale=65536.0
+2026-11-12T11:15:59.999+00:00 INFO phase step2_forward          max_alloc=5.477 GiB max_reserved=7.115 GiB alloc_now=4.247 GiB 0.6s
+2026-11-12T11:16:01.469+00:00 INFO phase step2_backward         max_alloc=6.568 GiB max_reserved=7.115 GiB alloc_now=1.824 GiB 1.3s
+2026-11-12T11:16:01.697+00:00 INFO phase step2_optimizer        max_alloc=1.893 GiB max_reserved=7.115 GiB alloc_now=1.755 GiB 0.0s
+2026-11-12T11:16:01.697+00:00 INFO step 2 loss=13.3009 scale=65536.0
+2026-11-12T11:16:02.523+00:00 INFO phase step3_forward          max_alloc=5.477 GiB max_reserved=7.115 GiB alloc_now=4.247 GiB 0.6s
+2026-11-12T11:16:04.011+00:00 INFO phase step3_backward         max_alloc=6.568 GiB max_reserved=7.115 GiB alloc_now=1.824 GiB 1.3s
+2026-11-12T11:16:04.226+00:00 INFO phase step3_optimizer        max_alloc=1.893 GiB max_reserved=7.115 GiB alloc_now=1.755 GiB 0.0s
+2026-11-12T11:16:04.226+00:00 INFO step 3 loss=12.9309 scale=65536.0
+2026-11-12T11:16:04.785+00:00 INFO summary written: /content/repo/runs/phase2/mem_probe_b4_s512_r16_ckpt_nf4_sdpa_20261112T111541Z/summary.json

@@ -1,0 +1,9 @@
+{
+  "src": "outputs/merged/broken_template",
+  "src_hub": null,
+  "out": "outputs/nf4/broken_template",
+  "no_double_quant": false,
+  "seed": 0,
+  "phase": "phase4",
+  "runs_root": null
+}

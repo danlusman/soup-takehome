@@ -1,0 +1,9 @@
+{
+  "adapter": "outputs/null_lr1e-7",
+  "base": null,
+  "out": "outputs/merged_ref/null_lr1e-7",
+  "device": "cpu",
+  "seed": 0,
+  "phase": "phase4",
+  "runs_root": null
+}

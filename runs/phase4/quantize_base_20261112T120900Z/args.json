@@ -1,0 +1,9 @@
+{
+  "src": "outputs/base_fp16",
+  "src_hub": "Qwen/Qwen2.5-1.5B-Instruct",
+  "out": "outputs/nf4/base",
+  "no_double_quant": false,
+  "seed": 0,
+  "phase": "phase4",
+  "runs_root": null
+}

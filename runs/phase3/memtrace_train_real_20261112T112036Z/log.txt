@@ -1,0 +1,7 @@
+2026-11-12T11:20:38.011+00:00 INFO run_dir=/content/repo/runs/phase3/memtrace_train_real_20261112T112036Z
+2026-11-12T11:20:38.011+00:00 INFO argv=scripts/memtrace.py --phase phase3 --tag train_real --disk-paths outputs/real -- soup train --config configs/real.yaml --yes
+2026-11-12T11:20:38.228+00:00 INFO disk before {'outputs/real': None} free=109.0 GiB
+2026-11-12T11:33:21.586+00:00 INFO phase command                max_alloc=6.665 GiB max_reserved=13.840 GiB alloc_now=3.098 GiB 762.9s
+2026-11-12T11:33:21.587+00:00 INFO disk after {'outputs/real': 785881530} free=108.2 GiB
+2026-11-12T11:33:22.752+00:00 INFO command exit code=0 peak nvidia-smi memory.used=14315 MiB
+2026-11-12T11:33:22.754+00:00 INFO summary written: /content/repo/runs/phase3/memtrace_train_real_20261112T112036Z/summary.json

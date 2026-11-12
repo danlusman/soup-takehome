@@ -1,0 +1,7 @@
+2026-11-12T11:58:49.983+00:00 INFO run_dir=/content/repo/runs/phase4/memtrace_soup_merge_real_20261112T115847Z
+2026-11-12T11:58:49.984+00:00 INFO argv=scripts/memtrace.py --phase phase4 --tag soup_merge_real --disk-paths outputs/merged/real -- soup merge --adapter outputs/real --output outputs/merged/real --dtype float16
+2026-11-12T11:58:50.251+00:00 INFO disk before {'outputs/merged/real': None} free=105.8 GiB
+2026-11-12T11:59:53.249+00:00 INFO phase command                max_alloc=0.069 GiB max_reserved=0.070 GiB alloc_now=0.000 GiB 62.5s
+2026-11-12T11:59:53.253+00:00 INFO disk after {'outputs/merged/real': 3098893514} free=102.9 GiB
+2026-11-12T11:59:53.865+00:00 INFO command exit code=0 peak nvidia-smi memory.used=177 MiB
+2026-11-12T11:59:53.867+00:00 INFO summary written: /content/repo/runs/phase4/memtrace_soup_merge_real_20261112T115847Z/summary.json

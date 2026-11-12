@@ -1,0 +1,16 @@
+2026-11-12T11:11:02.028+00:00 INFO run_dir=/content/repo/runs/phase2/memory_budget_20261112T111100Z
+2026-11-12T11:11:02.028+00:00 INFO argv=scripts/memory_budget.py --batch 2 --seq 512
+2026-11-12T11:11:02.403+00:00 INFO shape={'hidden': 1536, 'inter': 8960, 'layers': 28, 'heads': 12, 'kv_heads': 2, 'head_dim': 128, 'vocab': 151936, 'tied': True, 'attn_bias': True}
+2026-11-12T11:11:02.403+00:00 INFO param counts={'embed': 233373696, 'lm_head_untied': 0, 'decoder_linear': 1310195712, 'norms_and_biases': 144896, 'total': 1543714304}
+2026-11-12T11:11:02.486+00:00 INFO PLANNED b=2 s=512 r=16 targets=q_proj,k_proj,v_proj,o_proj,gate_proj,up_proj,down_proj base=fp16 ckpt=False attn=sdpa_mem_efficient
+2026-11-12T11:11:02.486+00:00 INFO   weights                 2.875 GiB
+2026-11-12T11:11:02.486+00:00 INFO   lora_params_fp32        0.069 GiB
+2026-11-12T11:11:02.486+00:00 INFO   lora_grads_fp32         0.069 GiB
+2026-11-12T11:11:02.486+00:00 INFO   adam_states             0.138 GiB
+2026-11-12T11:11:02.486+00:00 INFO   activations             3.549 GiB
+2026-11-12T11:11:02.486+00:00 INFO   logits_chain_peak       2.318 GiB
+2026-11-12T11:11:02.486+00:00 INFO   max_allocated           9.018 GiB
+2026-11-12T11:11:02.486+00:00 INFO   nvidia-smi              9.468 GiB (context placeholder 0.45)
+2026-11-12T11:11:02.486+00:00 INFO activations no-ckpt 3.549 GiB vs ckpt 0.209 GiB; logits peak 2.318 GiB
+2026-11-12T11:11:02.487+00:00 INFO soup estimate total 9.514 GiB terms(GiB)={'weights': 2.875, 'adapters': 0.069, 'gradients': 0.069, 'optimizer': 0.138, 'activations': 3.728, 'logits': 1.739, 'dequant': 0.0, 'optimizer_step': 0.0, 'overhead': 0.897}
+2026-11-12T11:11:02.487+00:00 INFO summary written: /content/repo/runs/phase2/memory_budget_20261112T111100Z/summary.json

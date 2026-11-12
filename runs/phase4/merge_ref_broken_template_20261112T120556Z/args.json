@@ -1,0 +1,9 @@
+{
+  "adapter": "outputs/broken_template",
+  "base": null,
+  "out": "outputs/merged_ref/broken_template",
+  "device": "cpu",
+  "seed": 0,
+  "phase": "phase4",
+  "runs_root": null
+}

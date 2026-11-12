@@ -1,0 +1,9 @@
+2026-11-12T12:07:26.257+00:00 INFO run_dir=/content/repo/runs/phase4/merge_ref_real_20261112T120723Z
+2026-11-12T12:07:26.257+00:00 INFO argv=scripts/merge_ref.py --adapter outputs/real --out outputs/merged_ref_gpu/real --device cuda
+2026-11-12T12:07:52.522+00:00 INFO phase load_base_fp16         max_alloc=2.875 GiB max_reserved=2.932 GiB alloc_now=2.875 GiB 14.1s
+2026-11-12T12:07:53.737+00:00 INFO phase load_adapter           max_alloc=3.013 GiB max_reserved=3.061 GiB alloc_now=2.944 GiB 1.0s
+2026-11-12T12:07:54.225+00:00 INFO phase merge_and_unload       max_alloc=3.054 GiB max_reserved=3.166 GiB alloc_now=2.883 GiB 0.3s
+2026-11-12T12:08:40.180+00:00 INFO phase save_merged            max_alloc=2.883 GiB max_reserved=3.166 GiB alloc_now=2.883 GiB 45.7s
+2026-11-12T12:08:41.420+00:00 INFO phase copy_tokenizer_template_genconfig_from_base max_alloc=0.008 GiB max_reserved=3.166 GiB alloc_now=0.008 GiB 0.9s
+2026-11-12T12:08:41.421+00:00 INFO disk after_save {'outputs/merged_ref_gpu/real': 3098893515} free=85.6 GiB
+2026-11-12T12:08:56.229+00:00 INFO summary written: /content/repo/runs/phase4/merge_ref_real_20261112T120723Z/summary.json

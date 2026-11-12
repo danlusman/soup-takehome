@@ -1,0 +1,15 @@
+2026-11-12T11:16:08.460+00:00 INFO run_dir=/content/repo/runs/phase2/mem_probe_b8_s256_r16_nockpt_fp16_sdpa_20261112T111606Z
+2026-11-12T11:16:08.460+00:00 INFO argv=scripts/mem_probe.py --batch 8 --seq 256
+2026-11-12T11:16:19.820+00:00 INFO phase load_weights           max_alloc=2.875 GiB max_reserved=2.932 GiB alloc_now=2.875 GiB 3.9s
+2026-11-12T11:16:20.502+00:00 INFO trainable params=18464768 dtypes=['torch.float32']
+2026-11-12T11:16:20.632+00:00 INFO phase lora_wrap              max_alloc=2.944 GiB max_reserved=2.990 GiB alloc_now=2.944 GiB 0.5s
+2026-11-12T11:16:21.641+00:00 INFO phase step1_forward          max_alloc=12.780 GiB max_reserved=13.152 GiB alloc_now=11.613 GiB 0.7s
+2026-11-12T11:16:22.415+00:00 INFO phase step1_backward         max_alloc=13.934 GiB max_reserved=14.314 GiB alloc_now=3.029 GiB 0.6s
+2026-11-12T11:16:22.892+00:00 INFO phase step1_optimizer        max_alloc=3.235 GiB max_reserved=14.424 GiB alloc_now=3.098 GiB 0.3s
+2026-11-12T11:16:22.893+00:00 INFO step 1 loss=13.6567 scale=65536.0
+2026-11-12T11:16:23.572+00:00 INFO phase step2_forward          max_alloc=12.937 GiB max_reserved=13.311 GiB alloc_now=11.770 GiB 0.5s
+2026-11-12T11:16:24.349+00:00 INFO phase step2_backward         max_alloc=14.091 GiB max_reserved=14.258 GiB alloc_now=3.166 GiB 0.6s
+2026-11-12T11:16:24.552+00:00 INFO phase step2_optimizer        max_alloc=3.235 GiB max_reserved=14.299 GiB alloc_now=3.098 GiB 0.0s
+2026-11-12T11:16:24.553+00:00 INFO step 2 loss=13.2933 scale=65536.0
+2026-11-12T11:16:25.236+00:00 INFO phase step3_forward          max_alloc=12.924 GiB max_reserved=14.299 GiB alloc_now=11.758 GiB 0.5s
+2026-11-12T11:16:25.473+00:00 INFO phase step3_backward         max_alloc=12.918 GiB max_reserved=14.299 GiB alloc_now=11.758 GiB 0.0s

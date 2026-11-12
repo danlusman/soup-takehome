@@ -1,0 +1,6 @@
+timestamp, index, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%], utilization.memory [%], power.draw [W], temperature.gpu, clocks.current.sm [MHz], pstate
+2026/11/12 11:11:51.077, 0, Tesla T4, 3 MiB, 15360 MiB, 0 %, 0 %, 9.34 W, 36, 300 MHz, P8
+2026/11/12 11:11:52.098, 0, Tesla T4, 3053 MiB, 15360 MiB, 0 %, 0 %, 29.02 W, 38, 1245 MHz, P0
+2026/11/12 11:11:53.113, 0, Tesla T4, 3067 MiB, 15360 MiB, 23 %, 1 %, 29.03 W, 39, 1245 MHz, P0
+2026/11/12 11:11:54.126, 0, Tesla T4, 3097 MiB, 15360 MiB, 13 %, 1 %, 26.57 W, 39, 645 MHz, P0
+2026/11/12 11:11:55.162, 0, Tesla T4, 3107 MiB, 15360 MiB, 0 %, 0 %, 30.40 W, 39, 1185 MHz, P0

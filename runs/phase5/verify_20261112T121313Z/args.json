@@ -1,0 +1,30 @@
+{
+  "base": "Qwen/Qwen2.5-1.5B-Instruct",
+  "data": "data/processed/heldout.jsonl",
+  "limit": null,
+  "runs": [
+    "real",
+    "null_lr1e-7",
+    "broken_template"
+  ],
+  "ship_run": "real",
+  "null_runs": [
+    "null_lr1e-7"
+  ],
+  "adapter_dir": "outputs",
+  "merged_dir": "outputs/merged",
+  "merged_ref_dir": "outputs/merged_ref",
+  "nf4_dir": "outputs/nf4",
+  "base_nf4": "outputs/nf4/base",
+  "no_nf4": false,
+  "allow_cpu_nf4": false,
+  "cpu_dtype": "fp32",
+  "tf_batch": 4,
+  "gen_batch": 32,
+  "max_new_tokens": 32,
+  "bootstrap": 10000,
+  "skip_generation": false,
+  "seed": 0,
+  "phase": "phase5",
+  "runs_root": null
+}

@@ -1,0 +1,18 @@
+2026-11-12T11:15:24.037+00:00 INFO run_dir=/content/repo/runs/phase2/mem_probe_b1_s512_r16_nockpt_fp16_eager_20261112T111521Z
+2026-11-12T11:15:24.038+00:00 INFO argv=scripts/mem_probe.py --batch 1 --seq 512 --attn eager
+2026-11-12T11:15:34.668+00:00 INFO phase load_weights           max_alloc=2.875 GiB max_reserved=2.932 GiB alloc_now=2.875 GiB 3.2s
+2026-11-12T11:15:35.558+00:00 INFO trainable params=18464768 dtypes=['torch.float32']
+2026-11-12T11:15:35.686+00:00 INFO phase lora_wrap              max_alloc=2.944 GiB max_reserved=2.990 GiB alloc_now=2.944 GiB 0.7s
+2026-11-12T11:15:36.562+00:00 INFO phase step1_forward          max_alloc=6.006 GiB max_reserved=6.096 GiB alloc_now=5.714 GiB 0.6s
+2026-11-12T11:15:37.032+00:00 INFO phase step1_backward         max_alloc=6.293 GiB max_reserved=6.389 GiB alloc_now=3.029 GiB 0.3s
+2026-11-12T11:15:37.256+00:00 INFO phase step1_optimizer        max_alloc=3.029 GiB max_reserved=6.389 GiB alloc_now=2.960 GiB 0.0s
+2026-11-12T11:15:37.256+00:00 INFO step 1 loss=nan scale=32768.0
+2026-11-12T11:15:37.587+00:00 INFO phase step2_forward          max_alloc=6.012 GiB max_reserved=6.389 GiB alloc_now=5.721 GiB 0.1s
+2026-11-12T11:15:37.935+00:00 INFO phase step2_backward         max_alloc=6.301 GiB max_reserved=6.389 GiB alloc_now=3.029 GiB 0.1s
+2026-11-12T11:15:38.124+00:00 INFO phase step2_optimizer        max_alloc=3.029 GiB max_reserved=6.389 GiB alloc_now=2.960 GiB 0.0s
+2026-11-12T11:15:38.124+00:00 INFO step 2 loss=nan scale=16384.0
+2026-11-12T11:15:38.443+00:00 INFO phase step3_forward          max_alloc=6.012 GiB max_reserved=6.389 GiB alloc_now=5.721 GiB 0.1s
+2026-11-12T11:15:38.792+00:00 INFO phase step3_backward         max_alloc=6.301 GiB max_reserved=6.389 GiB alloc_now=3.029 GiB 0.1s
+2026-11-12T11:15:38.989+00:00 INFO phase step3_optimizer        max_alloc=3.029 GiB max_reserved=6.389 GiB alloc_now=2.960 GiB 0.0s
+2026-11-12T11:15:38.989+00:00 INFO step 3 loss=nan scale=8192.0
+2026-11-12T11:15:39.995+00:00 INFO summary written: /content/repo/runs/phase2/mem_probe_b1_s512_r16_nockpt_fp16_eager_20261112T111521Z/summary.json

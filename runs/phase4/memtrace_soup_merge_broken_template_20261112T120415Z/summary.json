@@ -1,0 +1,23 @@
+{
+  "finished_utc": "2026-11-12T12:05:53.102+00:00",
+  "command": [
+    "soup",
+    "merge",
+    "--adapter",
+    "outputs/broken_template",
+    "--output",
+    "outputs/merged/broken_template",
+    "--dtype",
+    "float16"
+  ],
+  "exit_code": 0,
+  "error": null,
+  "peak_nvidia_smi_used_MiB": 177,
+  "final_torch": {
+    "cuda": true,
+    "allocated": 0,
+    "reserved": 75497472,
+    "max_allocated": 73859072,
+    "max_reserved": 75497472
+  }
+}

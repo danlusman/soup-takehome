@@ -1,0 +1,8 @@
+{
+  "config": "configs/null_lr1e-7.yaml",
+  "limit": null,
+  "examples": 3,
+  "seed": 0,
+  "phase": "phase3",
+  "runs_root": null
+}

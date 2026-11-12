@@ -1,0 +1,93 @@
+{
+  "finished_utc": "2026-11-12T11:12:53.320+00:00",
+  "tag": "b4_s512_r16_ckpt_nf4_sdpa",
+  "cuda": true,
+  "trainable_params": 18464768,
+  "trainable_dtypes": [
+    "torch.float32"
+  ],
+  "losses": [
+    13.554404258728027,
+    13.300443649291992,
+    12.930375099182129
+  ],
+  "phases": [
+    {
+      "phase": "load_weights",
+      "max_allocated": 1179743232,
+      "max_reserved": 1201668096,
+      "allocated": 1153424384,
+      "rss_after": 1103253504
+    },
+    {
+      "phase": "lora_wrap",
+      "max_allocated": 2086919168,
+      "max_reserved": 2212495360,
+      "allocated": 1694320640,
+      "rss_after": 1111306240
+    },
+    {
+      "phase": "step1_forward",
+      "max_allocated": 5700009472,
+      "max_reserved": 6125780992,
+      "allocated": 4404771840,
+      "rss_after": 1510780928
+    },
+    {
+      "phase": "step1_backward",
+      "max_allocated": 6896173568,
+      "max_reserved": 7417626624,
+      "allocated": 1810632192,
+      "rss_after": 1537196032
+    },
+    {
+      "phase": "step1_optimizer",
+      "max_allocated": 2032209920,
+      "max_reserved": 7639924736,
+      "allocated": 1884491264,
+      "rss_after": 1685680128
+    },
+    {
+      "phase": "step2_forward",
+      "max_allocated": 5881414656,
+      "max_reserved": 7639924736,
+      "allocated": 4560683008,
+      "rss_after": 1689276416
+    },
+    {
+      "phase": "step2_backward",
+      "max_allocated": 7052083712,
+      "max_reserved": 7639924736,
+      "allocated": 1958350336,
+      "rss_after": 1689452544
+    },
+    {
+      "phase": "step2_optimizer",
+      "max_allocated": 2032209920,
+      "max_reserved": 7639924736,
+      "allocated": 1884491264,
+      "rss_after": 1689452544
+    },
+    {
+      "phase": "step3_forward",
+      "max_allocated": 5881414656,
+      "max_reserved": 7639924736,
+      "allocated": 4560683008,
+      "rss_after": 1689669632
+    },
+    {
+      "phase": "step3_backward",
+      "max_allocated": 7052083712,
+      "max_reserved": 7639924736,
+      "allocated": 1958350336,
+      "rss_after": 1689772032
+    },
+    {
+      "phase": "step3_optimizer",
+      "max_allocated": 2032209920,
+      "max_reserved": 7639924736,
+      "allocated": 1884491264,
+      "rss_after": 1689772032
+    }
+  ]
+}

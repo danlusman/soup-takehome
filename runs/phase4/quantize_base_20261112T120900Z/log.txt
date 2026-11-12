@@ -1,0 +1,9 @@
+2026-11-12T12:09:04.297+00:00 INFO run_dir=/content/repo/runs/phase4/quantize_base_20261112T120900Z
+2026-11-12T12:09:04.297+00:00 INFO argv=scripts/quantize.py --src-hub Qwen/Qwen2.5-1.5B-Instruct --src outputs/base_fp16 --out outputs/nf4/base
+2026-11-12T12:09:22.047+00:00 INFO phase snapshot_base          max_alloc=0.000 GiB max_reserved=0.000 GiB alloc_now=0.000 GiB 17.0s
+2026-11-12T12:09:22.048+00:00 INFO disk before {'outputs/base_fp16': 3098957844} free=82.7 GiB
+2026-11-12T12:09:54.535+00:00 INFO phase merge_4bit_load_quantize_save max_alloc=1.099 GiB max_reserved=1.117 GiB alloc_now=0.639 GiB 32.2s
+2026-11-12T12:09:54.537+00:00 INFO disk after {'outputs/base_fp16': 3098957844, 'outputs/nf4/base': 1154754879} free=81.6 GiB
+2026-11-12T12:09:56.273+00:00 INFO phase reload_check           max_alloc=1.705 GiB max_reserved=1.713 GiB alloc_now=1.270 GiB 1.5s
+2026-11-12T12:10:00.418+00:00 INFO Linear4bit modules after reload: 196; dir bytes 1154754879
+2026-11-12T12:10:00.419+00:00 INFO summary written: /content/repo/runs/phase4/quantize_base_20261112T120900Z/summary.json

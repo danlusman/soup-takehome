@@ -1,0 +1,16 @@
+{
+  "phase": "phase3",
+  "tag": "train_null_lr1e-7",
+  "step_every": 10,
+  "disk_paths": [
+    "outputs/null_lr1e-7"
+  ],
+  "runs_root": null,
+  "command": [
+    "soup",
+    "train",
+    "--config",
+    "configs/null_lr1e-7.yaml",
+    "--yes"
+  ]
+}

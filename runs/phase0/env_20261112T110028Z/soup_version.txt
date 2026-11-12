@@ -1,0 +1,2 @@
+soup v0.77.2
+https://github.com/MakazhanAlpamys/Soup

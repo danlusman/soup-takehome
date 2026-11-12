@@ -1,0 +1,30 @@
+{
+  "finished_utc": "2026-11-12T12:35:08.194+00:00",
+  "verdict": "DON'T SHIP",
+  "trained": {
+    "real": {
+      "T0_scale0_is_base": "PASS",
+      "T0_merged_eq_adapter_on": "PASS",
+      "T1_weights_changed": "PASS",
+      "T2_kl_above_floor": "FAIL",
+      "T3_behaviour_changed": "FAIL",
+      "overall": "NOT TRAINED"
+    },
+    "null_lr1e-7": {
+      "T0_scale0_is_base": "PASS",
+      "T0_merged_eq_adapter_on": "PASS",
+      "T1_weights_changed": "FAIL",
+      "T2_kl_above_floor": "FAIL",
+      "T3_behaviour_changed": "FAIL",
+      "overall": "NOT TRAINED"
+    },
+    "broken_template": {
+      "T0_scale0_is_base": "PASS",
+      "T0_merged_eq_adapter_on": "PASS",
+      "T1_weights_changed": "PASS",
+      "T2_kl_above_floor": "FAIL",
+      "T3_behaviour_changed": "FAIL",
+      "overall": "NOT TRAINED"
+    }
+  }
+}

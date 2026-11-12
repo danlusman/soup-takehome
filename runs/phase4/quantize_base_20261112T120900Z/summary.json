@@ -1,0 +1,61 @@
+{
+  "finished_utc": "2026-11-12T12:10:00.418+00:00",
+  "src": "outputs/base_fp16",
+  "out": "outputs/nf4/base",
+  "format": "bitsandbytes NF4 (Soup merge_4bit)",
+  "double_quant": true,
+  "cuda": true,
+  "reload_linear4bit_modules": 196,
+  "reload_quantization_config": "BitsAndBytesConfig {\n  \"_load_in_4bit\": true,\n  \"_load_in_8bit\": false,\n  \"bnb_4bit_compute_dtype\": \"float16\",\n  \"bnb_4bit_quant_storage\": \"uint8\",\n  \"bnb_4bit_quant_type\": \"nf4\",\n  \"bnb_4bit_use_double_quant\": true,\n  \"llm_int8_enable_fp32_cpu_offload\": false,\n  \"llm_int8_has_fp16_weight\": false,\n  \"llm_int8_skip_modules\": null,\n  \"llm_int8_threshold\": 6.0,\n  \"load_in_4bit\": true,\n  \"load_in_8bit\": false,\n  \"quant_method\": \"bitsandbytes\"\n}\n",
+  "reload_memory_footprint_bytes": 1122135552,
+  "reload_non4bit_param_dtypes": [
+    "torch.bfloat16"
+  ],
+  "files": {
+    "chat_template.jinja": {
+      "bytes": 2507,
+      "sha256": "cd8e9439f0570856fd70470bf8889ebd8b5d1107207f67a5efb46e342330527f"
+    },
+    "config.json": {
+      "bytes": 1853,
+      "sha256": "3f787b2b6c202a4e5182002e7b375432b234bfb8c60a082d8e10d8e9461d8a64"
+    },
+    "generation_config.json": {
+      "bytes": 242,
+      "sha256": "bb36bf5692a4be006d5956c3aa7075c794fafb738f72b9332a51fdc17417c580"
+    },
+    "model.safetensors": {
+      "bytes": 1143327692,
+      "sha256": "06106640d26d6ec9358cae294790944e50e5d46a5eff37929a098d694286aad7"
+    },
+    "tokenizer.json": {
+      "bytes": 11421892,
+      "sha256": "3fd169731d2cbde95e10bf356d66d5997fd885dd8dbb6fb4684da3f23b2585d8"
+    },
+    "tokenizer_config.json": {
+      "bytes": 693,
+      "sha256": "2e3bd3cb5055f7a903a54e7062b2fd14d21b70f4174c3ffcd9fc81ec50a25631"
+    }
+  },
+  "out_dir_bytes": 1154754879,
+  "phases": [
+    {
+      "phase": "snapshot_base",
+      "wall_s": 17.022,
+      "max_allocated": 0,
+      "rss_after": 624185344
+    },
+    {
+      "phase": "merge_4bit_load_quantize_save",
+      "wall_s": 32.208,
+      "max_allocated": 1179743232,
+      "rss_after": 1633890304
+    },
+    {
+      "phase": "reload_check",
+      "wall_s": 1.454,
+      "max_allocated": 1830290432,
+      "rss_after": 1635360768
+    }
+  ]
+}

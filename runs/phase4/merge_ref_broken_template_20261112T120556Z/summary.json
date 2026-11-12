@@ -1,0 +1,126 @@
+{
+  "finished_utc": "2026-11-12T12:07:18.821+00:00",
+  "base": "Qwen/Qwen2.5-1.5B-Instruct",
+  "adapter": "outputs/broken_template",
+  "adapter_config": {
+    "alora_invocation_tokens": null,
+    "alpha_pattern": {},
+    "arrow_config": null,
+    "auto_mapping": null,
+    "base_model_name_or_path": "Qwen/Qwen2.5-1.5B-Instruct",
+    "bias": "none",
+    "corda_config": null,
+    "ensure_weight_tying": false,
+    "eva_config": null,
+    "exclude_modules": null,
+    "fan_in_fan_out": false,
+    "inference_mode": true,
+    "init_lora_weights": true,
+    "kasa_config": null,
+    "layer_replication": null,
+    "layers_pattern": null,
+    "layers_to_transform": null,
+    "loftq_config": {},
+    "lora_alpha": 32,
+    "lora_bias": false,
+    "lora_dropout": 0.05,
+    "lora_ga_config": null,
+    "megatron_config": null,
+    "megatron_core": "megatron.core",
+    "modules_to_save": null,
+    "monteclora_config": null,
+    "peft_type": "LORA",
+    "peft_version": "0.21.2",
+    "qalora_group_size": 16,
+    "r": 16,
+    "rank_pattern": {},
+    "revision": null,
+    "target_modules": [
+      "up_proj",
+      "gate_proj",
+      "v_proj",
+      "o_proj",
+      "down_proj",
+      "q_proj",
+      "k_proj"
+    ],
+    "target_parameters": null,
+    "task_type": "CAUSAL_LM",
+    "trainable_token_indices": null,
+    "use_bdlora": null,
+    "use_dora": false,
+    "use_qalora": false,
+    "use_rslora": false,
+    "velora_config": null
+  },
+  "device": "cpu",
+  "base_param_dtypes": [
+    "torch.float16"
+  ],
+  "merged_param_dtypes": [
+    "torch.float16"
+  ],
+  "leftover_lora_params": [],
+  "template_sha_base": "cd8e9439f0570856fd70470bf8889ebd8b5d1107207f67a5efb46e342330527f",
+  "template_sha_adapter_dir": "9fe579a2c222698c7ba22d46e26466362fbe951569a89096c366267f9b82ab92",
+  "adapter_template_differs_from_base": true,
+  "files": {
+    "chat_template.jinja": {
+      "bytes": 2507,
+      "sha256": "cd8e9439f0570856fd70470bf8889ebd8b5d1107207f67a5efb46e342330527f"
+    },
+    "config.json": {
+      "bytes": 1372,
+      "sha256": "50387372767851d46c86d6f064e0e2843a14441d42f98b5ceaa2e0c5aa0518d7"
+    },
+    "generation_config.json": {
+      "bytes": 242,
+      "sha256": "bb36bf5692a4be006d5956c3aa7075c794fafb738f72b9332a51fdc17417c580"
+    },
+    "model.safetensors": {
+      "bytes": 3087466808,
+      "sha256": "555e27b0862c124fb4819a4c01f33d65b01604743fb2f22092e3814f8c901427"
+    },
+    "tokenizer.json": {
+      "bytes": 11421892,
+      "sha256": "3fd169731d2cbde95e10bf356d66d5997fd885dd8dbb6fb4684da3f23b2585d8"
+    },
+    "tokenizer_config.json": {
+      "bytes": 694,
+      "sha256": "04b1682c59acbd057f4c9072297faa73d56fc9de053094c659cdb4c464f58f86"
+    }
+  },
+  "merged_dir_bytes": 3098893515,
+  "phases": [
+    {
+      "phase": "load_base_fp16",
+      "wall_s": 9.256,
+      "max_allocated": 0,
+      "rss_after": 4080472064
+    },
+    {
+      "phase": "load_adapter",
+      "wall_s": 1.212,
+      "max_allocated": 73859072,
+      "rss_after": 4167811072
+    },
+    {
+      "phase": "merge_and_unload",
+      "wall_s": 15.098,
+      "max_allocated": 0,
+      "rss_after": 4179542016
+    },
+    {
+      "phase": "save_merged",
+      "wall_s": 21.595,
+      "max_allocated": 0,
+      "rss_after": 4179189760
+    },
+    {
+      "phase": "copy_tokenizer_template_genconfig_from_base",
+      "wall_s": 0.88,
+      "max_allocated": 0,
+      "rss_after": 1188085760
+    }
+  ]
+}

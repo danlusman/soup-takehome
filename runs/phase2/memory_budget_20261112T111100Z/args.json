@@ -1,0 +1,19 @@
+{
+  "model": "Qwen/Qwen2.5-1.5B-Instruct",
+  "config_json": null,
+  "batch": 2,
+  "seq": 512,
+  "rank": 16,
+  "targets": "all-linear",
+  "base": "fp16",
+  "grad_ckpt": false,
+  "lora_dropout": 0.05,
+  "attn": "sdpa_mem_efficient",
+  "optimizer": "adamw_torch",
+  "context_gib": 0.45,
+  "vram_gib": 15.0,
+  "no_soup": false,
+  "seed": 0,
+  "phase": "phase2",
+  "runs_root": null
+}

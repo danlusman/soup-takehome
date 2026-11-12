@@ -1,0 +1,7 @@
+2026-11-12T12:01:22.142+00:00 INFO run_dir=/content/repo/runs/phase4/memtrace_soup_merge_null_lr1e-7_20261112T120119Z
+2026-11-12T12:01:22.142+00:00 INFO argv=scripts/memtrace.py --phase phase4 --tag soup_merge_null_lr1e-7 --disk-paths outputs/merged/null_lr1e-7 -- soup merge --adapter outputs/null_lr1e-7 --output outputs/merged/null_lr1e-7 --dtype float16
+2026-11-12T12:01:22.347+00:00 INFO disk before {'outputs/merged/null_lr1e-7': None} free=100.0 GiB
+2026-11-12T12:02:23.128+00:00 INFO phase command                max_alloc=0.069 GiB max_reserved=0.070 GiB alloc_now=0.000 GiB 60.3s
+2026-11-12T12:02:23.129+00:00 INFO disk after {'outputs/merged/null_lr1e-7': 3098893514} free=97.1 GiB
+2026-11-12T12:02:23.928+00:00 INFO command exit code=0 peak nvidia-smi memory.used=177 MiB
+2026-11-12T12:02:23.929+00:00 INFO summary written: /content/repo/runs/phase4/memtrace_soup_merge_null_lr1e-7_20261112T120119Z/summary.json

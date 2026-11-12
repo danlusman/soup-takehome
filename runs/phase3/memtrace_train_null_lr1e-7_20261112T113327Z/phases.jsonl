@@ -1,0 +1,26 @@
+{"phase": "disk:before", "utc": "2026-11-12T11:33:30.048+00:00", "sizes_bytes": {"outputs/null_lr1e-7": null}, "disk_used": 5065560064, "disk_free": 115860287488}
+{"phase": "trainer:train_begin", "utc": "2026-11-12T11:33:59.919+00:00", "max_allocated": 3161526272, "max_reserved": 3208642560, "allocated": 3161289216}
+{"phase": "trainer:step_end", "utc": "2026-11-12T11:34:04.213+00:00", "step": 1, "max_allocated": 5829145088, "max_reserved": 7589593088, "allocated": 3326149120}
+{"phase": "trainer:step_end", "utc": "2026-11-12T11:34:07.116+00:00", "step": 2, "max_allocated": 5829145088, "max_reserved": 7589593088, "allocated": 3326127616}
+{"phase": "trainer:step_end", "utc": "2026-11-12T11:34:09.719+00:00", "step": 3, "max_allocated": 5829145088, "max_reserved": 7591690240, "allocated": 3326123008}
+{"phase": "trainer:step_end", "utc": "2026-11-12T11:34:31.735+00:00", "step": 10, "max_allocated": 6230667264, "max_reserved": 14860419072, "allocated": 3326124544}
+{"phase": "trainer:step_end", "utc": "2026-11-12T11:35:06.767+00:00", "step": 20, "max_allocated": 6805870080, "max_reserved": 14860419072, "allocated": 3326149120}
+{"phase": "trainer:step_end", "utc": "2026-11-12T11:35:48.093+00:00", "step": 30, "max_allocated": 6805870080, "max_reserved": 14860419072, "allocated": 3326147584}
+{"phase": "trainer:step_end", "utc": "2026-11-12T11:36:19.719+00:00", "step": 40, "max_allocated": 6805870080, "max_reserved": 14860419072, "allocated": 3326123008}
+{"phase": "trainer:step_end", "utc": "2026-11-12T11:37:00.342+00:00", "step": 50, "max_allocated": 6805870080, "max_reserved": 14860419072, "allocated": 3326129152}
+{"phase": "trainer:step_end", "utc": "2026-11-12T11:37:40.146+00:00", "step": 60, "max_allocated": 6805870080, "max_reserved": 14860419072, "allocated": 3326156800}
+{"phase": "trainer:step_end", "utc": "2026-11-12T11:38:23.001+00:00", "step": 70, "max_allocated": 6805870080, "max_reserved": 14860419072, "allocated": 3326135296}
+{"phase": "trainer:step_end", "utc": "2026-11-12T11:38:56.466+00:00", "step": 80, "max_allocated": 7082305024, "max_reserved": 14860419072, "allocated": 3326139904}
+{"phase": "trainer:step_end", "utc": "2026-11-12T11:39:38.971+00:00", "step": 90, "max_allocated": 7082305024, "max_reserved": 14860419072, "allocated": 3326135296}
+{"phase": "trainer:step_end", "utc": "2026-11-12T11:40:12.122+00:00", "step": 100, "max_allocated": 7082305024, "max_reserved": 14860419072, "allocated": 3326123008}
+{"phase": "trainer:step_end", "utc": "2026-11-12T11:40:59.179+00:00", "step": 110, "max_allocated": 7082305024, "max_reserved": 14860419072, "allocated": 3326129152}
+{"phase": "trainer:step_end", "utc": "2026-11-12T11:41:31.320+00:00", "step": 120, "max_allocated": 7082305024, "max_reserved": 14860419072, "allocated": 3326133760}
+{"phase": "trainer:step_end", "utc": "2026-11-12T11:42:17.329+00:00", "step": 130, "max_allocated": 7156196352, "max_reserved": 14860419072, "allocated": 3326181376}
+{"phase": "trainer:step_end", "utc": "2026-11-12T11:42:50.597+00:00", "step": 140, "max_allocated": 7156196352, "max_reserved": 14860419072, "allocated": 3326142976}
+{"phase": "trainer:step_end", "utc": "2026-11-12T11:43:34.704+00:00", "step": 150, "max_allocated": 7156196352, "max_reserved": 14860419072, "allocated": 3326136832}
+{"phase": "trainer:step_end", "utc": "2026-11-12T11:44:14.998+00:00", "step": 160, "max_allocated": 7156196352, "max_reserved": 14860419072, "allocated": 3326139904}
+{"phase": "trainer:step_end", "utc": "2026-11-12T11:44:56.931+00:00", "step": 170, "max_allocated": 7156196352, "max_reserved": 14860419072, "allocated": 3326127616}
+{"phase": "trainer:step_end", "utc": "2026-11-12T11:45:29.400+00:00", "step": 180, "max_allocated": 7156196352, "max_reserved": 14860419072, "allocated": 3326138368}
+{"phase": "trainer:train_end", "utc": "2026-11-12T11:46:20.752+00:00", "max_allocated": 7156196352, "max_reserved": 14860419072, "allocated": 3326047744}
+{"phase": "command", "utc_begin": "2026-11-12T11:33:30.381+00:00", "utc_end": "2026-11-12T11:46:21.712+00:00", "wall_s": 771.33, "torch_before": {"cuda": true, "allocated": 0, "reserved": 0, "max_allocated": 0, "max_reserved": 0}, "torch_after": {"cuda": true, "allocated": 3326047744, "reserved": 9344909312, "max_allocated": 7156196352, "max_reserved": 14860419072}, "rss_before": 671477760, "rss_after": 2355322880, "command": ["soup", "train", "--config", "configs/null_lr1e-7.yaml", "--yes"]}
+{"phase": "disk:after", "utc": "2026-11-12T11:46:21.855+00:00", "sizes_bytes": {"outputs/null_lr1e-7": 785874354}, "disk_used": 5855277056, "disk_free": 115070570496}

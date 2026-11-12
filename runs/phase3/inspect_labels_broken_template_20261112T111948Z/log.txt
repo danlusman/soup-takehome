@@ -1,0 +1,21 @@
+2026-11-12T11:19:50.693+00:00 INFO run_dir=/content/repo/runs/phase3/inspect_labels_broken_template_20261112T111948Z
+2026-11-12T11:19:50.693+00:00 INFO argv=/content/repo/scripts/inspect_soup_labels.py --config configs/broken_template.yaml --phase phase3
+2026-11-12T11:19:56.682+00:00 INFO soup chat_template override='qwen2.5' ; template sha soup=9fe579a2c222 ref=cd8e9439f057
+2026-11-12T11:20:00.933+00:00 INFO trained_equals_target_plus_im_end    0 / 1650
+2026-11-12T11:20:00.933+00:00 INFO trained_equals_target_only           0 / 1650
+2026-11-12T11:20:00.933+00:00 INFO im_end_trained                       1650 / 1650
+2026-11-12T11:20:00.934+00:00 INFO role_prefix_in_loss                  1650 / 1650
+2026-11-12T11:20:00.934+00:00 INFO render_matches_eval_template         0 / 1650
+2026-11-12T11:20:00.934+00:00 INFO zero_trained_rows                    0 / 1650
+2026-11-12T11:20:00.934+00:00 INFO example rendered input:
+<|im_start|>user
+Определи тональность отзыва покупателя о товаре.
+Ответь строго одной строкой JSON без пояснений и без markdown: {"тональность": "<метка>"}, где <метка> — одно из: "негативный", "нейтральный", "позитивный".
+
+Отзыв:
+Никому не советую покупать это платье. только вместо половой тряпки.На мои параметры,86-66-96,РАЗМЕР М ОКАЗАЛСЯ ОЧЕНЬ,И ОЧЕНЬ МАЛ.Сильно маломерит.В описании,платье якобы до колена.На мой рост,160 см,оно намного выше колен.<|im_end|>
+<|im_start|>assistant
+{"тональность": "негативный"}<|im_end|>
+
+2026-11-12T11:20:00.934+00:00 INFO example trained span: '<|im_start|>assistant\n{"тональность": "негативный"}<|im_end|>\n'
+2026-11-12T11:20:00.934+00:00 INFO summary written: /content/repo/runs/phase3/inspect_labels_broken_template_20261112T111948Z/summary.json

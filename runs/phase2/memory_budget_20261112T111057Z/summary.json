@@ -1,0 +1,38 @@
+{
+  "finished_utc": "2026-11-12T11:10:59.532+00:00",
+  "param_total": 1543714304,
+  "trainable_params": 18464768,
+  "trainable_pct": 1.196,
+  "planned_terms_GiB": {
+    "weights": 2.875,
+    "lora_params_fp32": 0.069,
+    "lora_grads_fp32": 0.069,
+    "adam_states": 0.138,
+    "activations": 0.418,
+    "logits_chain_peak": 4.637
+  },
+  "planned_max_allocated_GiB": 8.205,
+  "planned_nvidia_smi_GiB": 8.655,
+  "export_GiB": {
+    "fp16_weights": 2.875,
+    "merge_gpu_peak": 2.927,
+    "merge_cpu_ram_peak_low": 2.927,
+    "merge_cpu_ram_peak_high": 5.751,
+    "merge_cpu_note": "low = load fp16 directly + in-place merge; high = an extra full copy (fp32 load then cast, or state-dict materialized for saving). If the base is accidentally loaded fp32: 2x fp16_weights before cast.",
+    "disk_hf_cache_base": 2.875,
+    "disk_merged_fp16": 2.875,
+    "nf4_bnb_in_vram": 1.064,
+    "nf4_quantize_gpu_peak": 1.09,
+    "gguf_q4_k_m_range": [
+      0.809,
+      0.899
+    ],
+    "gguf_conversion_f16_intermediate": 2.875,
+    "disk_peak_gguf_path": 9.525,
+    "disk_peak_gguf_note": "HF cache + merged fp16 + f16 GGUF intermediate + Q4_K_M output",
+    "kv_cache_bytes_per_token_fp16": 0.0
+  },
+  "soup_total_GiB": 7.877,
+  "grid_rows": 192,
+  "grid_fit_count": 128
+}

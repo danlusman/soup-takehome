@@ -1,0 +1,13 @@
+2026-11-12T11:17:49.479+00:00 INFO run_dir=/content/repo/runs/phase3/soup_checks_real_20261112T111747Z
+2026-11-12T11:17:49.479+00:00 INFO argv=scripts/soup_checks.py --config configs/real.yaml
+2026-11-12T11:17:49.761+00:00 INFO [data_doctor] /usr/bin/python3 -m soup_cli data doctor data/processed/trainval_soup.jsonl --model Qwen/Qwen2.5-1.5B-Instruct --max-length 512 --show-mask 2 -o /content/repo/runs/phase3/soup_checks_real_20261112T111747Z/data_doctor_report.json
+2026-11-12T11:17:57.311+00:00 INFO [data_doctor] exit=0
+2026-11-12T11:17:57.312+00:00 INFO [doctor] /usr/bin/python3 -m soup_cli doctor --config configs/real.yaml
+2026-11-12T11:18:13.891+00:00 INFO [doctor] exit=0
+2026-11-12T11:18:13.892+00:00 INFO [plan] /usr/bin/python3 -m soup_cli plan --config configs/real.yaml --state /content/repo/runs/phase3/soup_checks_real_20261112T111747Z/plan.tfstate
+2026-11-12T11:18:15.313+00:00 INFO [plan] exit=0
+2026-11-12T11:18:15.313+00:00 INFO [dry_run] /usr/bin/python3 -m soup_cli train --config configs/real.yaml --dry-run --yes
+2026-11-12T11:18:18.721+00:00 INFO [dry_run] exit=0
+2026-11-12T11:18:18.722+00:00 INFO [inspect_labels] /usr/bin/python3 /content/repo/scripts/inspect_soup_labels.py --config configs/real.yaml --phase phase3
+2026-11-12T11:18:32.411+00:00 INFO [inspect_labels] exit=0
+2026-11-12T11:18:32.411+00:00 INFO summary written: /content/repo/runs/phase3/soup_checks_real_20261112T111747Z/summary.json
