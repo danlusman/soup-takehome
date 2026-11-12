@@ -61,3 +61,13 @@ Status: OPEN unless marked otherwise. Each item says what would resolve it.
   fail S2's CI condition. That is the intended conservative behaviour, stated in advance.
 - **C-23 Thresholds are judgement calls** (10% elements, 3× noise floor, 5 pp, 2 pp, 95%, 98/99%).
   Chosen before results; defend them as "chosen in advance", not as "optimal".
+- **C-24 Smoke-run observations about the CHECK (0.5B, 9 rows, 5-step adapter; not results).**
+  runs/smoke/verify_20261112T093828Z/report.md. (a) T1/T2 separate real vs null cleanly (87% vs 0.14%
+  elements changed; changed fraction matches the fp16 half-ulp prediction to 3 decimals; soup merge ==
+  reference merge bit-for-bit). (b) T3 is the binding test at small n: real Δ=+0.33 but CI [0.0, 0.67]
+  touches 0 → FAIL, so real is "NOT TRAINED" on 9 rows. Expected; at 252 rows it can still bite (C-22).
+  (c) Null control: KL(adapter-on‖merged) = 0.0018 > KL(base‖adapter-on) = 0.0011 at the decision
+  position — merge rounding noise is larger than the null adapter's whole effect, as predicted in D-14.
+  (d) NF4 noise floor on 0.5B is large (decision-position KL 0.20) and base-NF4 changes greedy answers;
+  the floor on 1.5B/T4 is unknown. (e) Shipped sampling (T 0.7, top_p 0.8, top_k 20, rep 1.1) dropped
+  format_rate to 0.56 on the 5-step adapter — S7 may be the criterion that fails for real.

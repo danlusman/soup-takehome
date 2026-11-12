@@ -1,0 +1,8 @@
+{
+  "config": "configs/smoke_broken_template.yaml",
+  "skip": [],
+  "tag": null,
+  "seed": 0,
+  "phase": "smoke",
+  "runs_root": null
+}

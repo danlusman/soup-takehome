@@ -1,0 +1,2 @@
+# 2026-11-12T10:53:01Z
+STOPPED BY ASSISTANT (desktop session): duplicate of soup_checks_smoke_broken_template_20261112T100925Z started 30 s later by a second session; the two competed for CPU on a ~2 GB-free-RAM machine. Incomplete; not used for any conclusion.

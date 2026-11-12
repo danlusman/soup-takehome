@@ -15,3 +15,7 @@
 2026-11-12T09:33:34.153+00:00 INFO   KL merged||nf4              all=5.218e-02 decision=7.277e-02
 2026-11-12T09:33:34.153+00:00 INFO   KL base||nf4                all=2.372e-01 decision=2.452e+00
 2026-11-12T09:33:34.153+00:00 INFO   KL base||base_nf4[floor]    all=3.148e-02 decision=2.045e-01
+2026-11-12T09:34:09.988+00:00 INFO batch 1/1 done, elapsed generate 35.5s
+2026-11-12T09:34:49.165+00:00 INFO batch 1/1 done, elapsed generate 39.0s
+2026-11-12T09:36:18.394+00:00 INFO batch 1/1 done, elapsed generate 89.1s
+2026-11-12T09:40:13.438+00:00 INFO == teacher-forced KL null_lr1e-7

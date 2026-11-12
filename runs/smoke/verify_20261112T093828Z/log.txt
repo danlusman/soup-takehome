@@ -1,0 +1,39 @@
+2026-11-12T09:38:34.871+00:00 INFO run_dir=D:\soup\runs\smoke\verify_20261112T093828Z
+2026-11-12T09:38:34.871+00:00 INFO argv=scripts/verify.py --base Qwen/Qwen2.5-0.5B-Instruct --data data_smoke/processed/heldout.jsonl --adapter-dir outputs_smoke --merged-dir outputs_smoke/merged --merged-ref-dir outputs_smoke/merged_ref --nf4-dir outputs_smoke/nf4 --base-nf4 outputs_smoke/nf4/base --runs real null_lr1e-7 --ship-run real --allow-cpu-nf4 --cpu-dtype bf16 --gen-batch 9 --phase smoke
+2026-11-12T09:38:55.662+00:00 INFO rows=9 runs=['real', 'null_lr1e-7'] ship=real nulls=['null_lr1e-7'] nf4=True device=cpu
+2026-11-12T09:38:56.130+00:00 INFO == weights real
+2026-11-12T09:39:51.676+00:00 INFO weights: frac_changed=0.8726 (predicted 0.8723) rel_dW_med=2.18e-03 consistency_med=0.095 zeroB=0 untouched_equal=122 differ=0
+2026-11-12T09:39:57.895+00:00 INFO == weights null_lr1e-7
+2026-11-12T09:41:31.316+00:00 INFO weights: frac_changed=0.0014 (predicted 0.0014) rel_dW_med=1.41e-06 consistency_med=0.998 zeroB=0 untouched_equal=122 differ=0
+2026-11-12T09:41:40.187+00:00 INFO decision position = answer token #7 (first token where the 3 labels differ)
+2026-11-12T09:42:45.536+00:00 INFO == teacher-forced KL real
+2026-11-12T09:48:54.976+00:00 INFO   KL base||adapter@0          all=0.000e+00 decision=0.000e+00
+2026-11-12T09:48:54.985+00:00 INFO   KL base||adapter@0.5        all=4.004e-02 decision=5.163e-01
+2026-11-12T09:48:54.985+00:00 INFO   KL base||adapter@1          all=1.683e-01 decision=2.149e+00
+2026-11-12T09:48:54.985+00:00 INFO   KL adapter@1||merged        all=3.165e-04 decision=8.889e-04
+2026-11-12T09:48:54.985+00:00 INFO   KL base||merged             all=1.720e-01 decision=2.209e+00
+2026-11-12T09:48:54.985+00:00 INFO   KL merged||nf4              all=5.218e-02 decision=7.277e-02
+2026-11-12T09:48:54.985+00:00 INFO   KL base||nf4                all=2.372e-01 decision=2.452e+00
+2026-11-12T09:48:54.985+00:00 INFO   KL base||base_nf4[floor]    all=3.148e-02 decision=2.045e-01
+2026-11-12T09:49:20.764+00:00 INFO batch 1/1 done, elapsed generate 25.6s
+2026-11-12T09:49:51.758+00:00 INFO batch 1/1 done, elapsed generate 30.9s
+2026-11-12T09:51:31.078+00:00 INFO batch 1/1 done, elapsed generate 99.2s
+2026-11-12T09:55:01.007+00:00 INFO == teacher-forced KL null_lr1e-7
+2026-11-12T10:02:06.022+00:00 INFO   KL base||adapter@0          all=0.000e+00 decision=0.000e+00
+2026-11-12T10:02:06.053+00:00 INFO   KL base||adapter@0.5        all=2.259e-04 decision=2.466e-03
+2026-11-12T10:02:06.054+00:00 INFO   KL base||adapter@1          all=1.445e-04 decision=1.062e-03
+2026-11-12T10:02:06.054+00:00 INFO   KL adapter@1||merged        all=2.709e-04 decision=1.772e-03
+2026-11-12T10:02:06.054+00:00 INFO   KL base||merged             all=2.773e-04 decision=2.952e-03
+2026-11-12T10:02:06.054+00:00 INFO   KL merged||nf4              all=3.481e-02 decision=2.417e-01
+2026-11-12T10:02:06.054+00:00 INFO   KL base||nf4                all=3.456e-02 decision=2.317e-01
+2026-11-12T10:02:06.054+00:00 INFO   KL base||base_nf4[floor]    all=3.148e-02 decision=2.045e-01
+2026-11-12T10:02:33.851+00:00 INFO batch 1/1 done, elapsed generate 27.6s
+2026-11-12T10:02:57.889+00:00 INFO batch 1/1 done, elapsed generate 24.0s
+2026-11-12T10:05:34.766+00:00 INFO batch 1/1 done, elapsed generate 156.8s
+2026-11-12T10:06:18.947+00:00 INFO batch 1/1 done, elapsed generate 43.6s
+2026-11-12T10:09:18.274+00:00 INFO batch 1/1 done, elapsed generate 179.2s
+2026-11-12T10:09:19.144+00:00 INFO trained-ness real: {'T0_scale0_is_base': 'PASS', 'T0_merged_eq_adapter_on': 'PASS', 'T1_weights_changed': 'PASS', 'T2_kl_above_floor': 'PASS', 'T3_behaviour_changed': 'FAIL', 'overall': 'NOT TRAINED'}
+2026-11-12T10:09:19.146+00:00 INFO trained-ness null_lr1e-7: {'T0_scale0_is_base': 'PASS', 'T0_merged_eq_adapter_on': 'PASS', 'T1_weights_changed': 'FAIL', 'T2_kl_above_floor': 'FAIL', 'T3_behaviour_changed': 'FAIL', 'overall': 'NOT TRAINED'}
+2026-11-12T10:09:19.147+00:00 INFO SHIP criteria: {'S1_trained_and_null_separated': 'FAIL', 'S2_gain_vs_base': 'FAIL', 'S3_quantization_fidelity': 'FAIL', 'S4_contract': 'FAIL', 'S5_no_collapse': 'FAIL', 'S6_integrity': 'PASS', 'S7_shipped_sampling_format': 'FAIL'} -> DON'T SHIP
+2026-11-12T10:09:19.196+00:00 INFO report: D:\soup\runs\smoke\verify_20261112T093828Z\report.md
+2026-11-12T10:09:19.211+00:00 INFO summary written: D:\soup\runs\smoke\verify_20261112T093828Z\summary.json

@@ -1,0 +1,5 @@
+2026-11-12T10:52:13.613+00:00 INFO run_dir=D:\soup\runs\smoke\soup_checks_smoke_broken_template_20261112T100956Z
+2026-11-12T10:52:13.613+00:00 INFO argv=scripts/soup_checks.py --config configs/smoke_broken_template.yaml --phase smoke
+2026-11-12T10:52:14.326+00:00 INFO [data_doctor] D:\soup\.venv\Scripts\python.exe -m soup_cli data doctor data_smoke/processed/trainval_soup.jsonl --model Qwen/Qwen2.5-0.5B-Instruct --max-length 512 --show-mask 2 -o D:\soup\runs\smoke\soup_checks_smoke_broken_template_20261112T100956Z\data_doctor_report.json
+2026-11-12T10:52:35.201+00:00 INFO [data_doctor] exit=0
+2026-11-12T10:52:35.233+00:00 INFO [doctor] D:\soup\.venv\Scripts\python.exe -m soup_cli doctor --config configs/smoke_broken_template.yaml

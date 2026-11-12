@@ -1,0 +1,26 @@
+$ D:\soup\.venv\Scripts\python.exe D:\soup\scripts\inspect_soup_labels.py --config configs/smoke_broken_template.yaml --phase smoke
+# exit=0
+2026-11-12T10:53:47.324+00:00 INFO run_dir=D:\soup\runs\smoke\inspect_labels_smoke_broken_template_20261112T105345Z
+2026-11-12T10:53:47.324+00:00 INFO argv=D:\soup\scripts\inspect_soup_labels.py --config configs/smoke_broken_template.yaml --phase smoke
+2026-11-12T10:53:53.355+00:00 INFO soup chat_template override='qwen2.5' ; template sha soup=9fe579a2c222 ref=cd8e9439f057
+2026-11-12T10:53:53.404+00:00 INFO trained_equals_target_plus_im_end    0 / 12
+2026-11-12T10:53:53.404+00:00 INFO trained_equals_target_only           0 / 12
+2026-11-12T10:53:53.404+00:00 INFO im_end_trained                       12 / 12
+2026-11-12T10:53:53.404+00:00 INFO role_prefix_in_loss                  12 / 12
+2026-11-12T10:53:53.404+00:00 INFO render_matches_eval_template         0 / 12
+2026-11-12T10:53:53.405+00:00 INFO zero_trained_rows                    0 / 12
+2026-11-12T10:53:53.405+00:00 INFO example rendered input:
+<|im_start|>user
+Определи тональность отзыва покупателя о товаре.
+Ответь строго одной строкой JSON без пояснений и без markdown: {"тональность": "<метка>"}, где <метка> — одно из: "негативный", "нейтральный", "позитивный".
+
+Отзыв:
+Никому не советую покупать это платье. только вместо половой тряпки.На мои параметры,86-66-96,РАЗМЕР М ОКАЗАЛСЯ ОЧЕНЬ,И ОЧЕНЬ МАЛ.Сильно маломерит.В описании,платье якобы до колена.На мой рост,160 см,оно намного выше колен.<|im_end|>
+<|im_start|>assistant
+{"тональность": "негативный"}<|im_end|>
+
+2026-11-12T10:53:53.405+00:00 INFO example trained span: '<|im_start|>assistant\n{"тональность": "негативный"}<|im_end|>\n'
+2026-11-12T10:53:53.406+00:00 INFO summary written: D:\soup\runs\smoke\inspect_labels_smoke_broken_template_20261112T105345Z\summary.json
+
+--- stderr ---
+[transformers] return_assistant_tokens_mask==True but chat template does not contain `{% generation %}` keyword.

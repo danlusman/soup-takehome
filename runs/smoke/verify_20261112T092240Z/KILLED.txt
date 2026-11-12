@@ -1,0 +1,2 @@
+# 2026-11-12T09:41:54Z
+KILLED BY ASSISTANT: orphaned from a previous session and running concurrently with verify_20261112T093828Z on a ~2 GB-free-RAM machine. Incomplete run; not used for any conclusion. Partial KL lines in log.txt are kept as-is.

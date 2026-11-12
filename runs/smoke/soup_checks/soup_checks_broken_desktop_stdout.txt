@@ -1,0 +1,13 @@
+2026-11-12T10:53:12.533+00:00 INFO run_dir=D:\soup\runs\smoke\soup_checks_smoke_broken_template_20261112T105310Z
+2026-11-12T10:53:12.533+00:00 INFO argv=scripts/soup_checks.py --config configs/smoke_broken_template.yaml --phase smoke
+2026-11-12T10:53:12.789+00:00 INFO [data_doctor] D:\soup\.venv\Scripts\python.exe -m soup_cli data doctor data_smoke/processed/trainval_soup.jsonl --model Qwen/Qwen2.5-0.5B-Instruct --max-length 512 --show-mask 2 -o D:\soup\runs\smoke\soup_checks_smoke_broken_template_20261112T105310Z\data_doctor_report.json
+2026-11-12T10:53:23.197+00:00 INFO [data_doctor] exit=0
+2026-11-12T10:53:23.199+00:00 INFO [doctor] D:\soup\.venv\Scripts\python.exe -m soup_cli doctor --config configs/smoke_broken_template.yaml
+2026-11-12T10:53:39.260+00:00 INFO [doctor] exit=0
+2026-11-12T10:53:39.260+00:00 INFO [plan] D:\soup\.venv\Scripts\python.exe -m soup_cli plan --config configs/smoke_broken_template.yaml --state D:\soup\runs\smoke\soup_checks_smoke_broken_template_20261112T105310Z\plan.tfstate
+2026-11-12T10:53:40.879+00:00 INFO [plan] exit=0
+2026-11-12T10:53:40.880+00:00 INFO [dry_run] D:\soup\.venv\Scripts\python.exe -m soup_cli train --config configs/smoke_broken_template.yaml --dry-run --yes
+2026-11-12T10:53:44.856+00:00 INFO [dry_run] exit=0
+2026-11-12T10:53:44.856+00:00 INFO [inspect_labels] D:\soup\.venv\Scripts\python.exe D:\soup\scripts\inspect_soup_labels.py --config configs/smoke_broken_template.yaml --phase smoke
+2026-11-12T10:53:53.848+00:00 INFO [inspect_labels] exit=0
+2026-11-12T10:53:53.850+00:00 INFO summary written: D:\soup\runs\smoke\soup_checks_smoke_broken_template_20261112T105310Z\summary.json
