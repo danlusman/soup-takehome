@@ -1,0 +1,5 @@
+# 2026-11-12 (noted after the fact)
+KILLED BY CLAUDE CODE (CLI session) memory-pressure reaper during the [dry_run] step: machine had ~2 GB free RAM.
+data_doctor, doctor and plan completed (exit=0, see log.txt; doctor took 43 min because of memory pressure).
+dry_run and inspect_labels never finished; no summary.json. Superseded by the complete run
+soup_checks_smoke_broken_template_20261112T105310Z. Not used for any conclusion.
