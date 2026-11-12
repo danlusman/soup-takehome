@@ -1,0 +1,38 @@
+# (a) REAL RUN. Every key verified against soup_cli/config/schema.py (soup-cli 0.77.2).
+# Rationale per key: DECISIONS.md D-10, D-11, D-13.
+base: Qwen/Qwen2.5-0.5B-Instruct
+task: sft
+backend: transformers
+
+data:
+  train: data_smoke/processed/trainval_soup.jsonl   # train (1500) + val (150) appended LAST
+  format: chatml                              # {"messages": [...]}; explicit, not auto-detected
+  val_split: 0.25                           # Soup takes the last 9.09% = exactly our 150 val rows
+  max_length: 512                             # prepare_data dropped every row longer than this
+  train_on_responses_only: true               # loss on assistant tokens only (Soup default, stated)
+  # chat_template: unset -> the tokenizer's own Qwen2.5 template (same one eval_task.py uses)
+
+training:
+  epochs: 1
+  lr: 2.0e-4
+  batch_size: 2                  # explicit: "auto" would probe until OOM (CONCERNS C-15)
+  gradient_accumulation_steps: 1 # effective batch 16 -> ~94 optimizer steps/epoch
+  warmup_ratio: 0.05
+  scheduler: cosine
+  weight_decay: 0.0
+  max_grad_norm: 1.0
+  optimizer: adamw_torch
+  seed: 42
+  data_seed: 42
+  quantization: none             # fp16 base, NOT Soup's default 4bit QLoRA (D-10)
+  gradient_checkpointing: true
+  logging_steps: 1               # every optimizer step: loss, grad_norm, lr
+  eval_steps: 2
+  save_steps: 4
+  lora:
+    r: 16
+    alpha: 32
+    dropout: 0.05
+    target_modules: [q_proj, k_proj, v_proj, o_proj, gate_proj, up_proj, down_proj]
+
+output: outputs_smoke/real

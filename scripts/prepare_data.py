@@ -254,6 +254,25 @@ def main():
             "file_sha256": files, "hashes": [r["hash"] for r in rs],
             "tok_full": pct([r["n_tok_full"] for r in rs]),
         }
+    # Soup has no separate val file: it takes the LAST val_split fraction of the train file,
+    # unshuffled (soup_cli/data/loader.py:_split_val). So we hand it train + val concatenated and
+    # verify, with Soup's own function, that its split lands exactly on our val rows.
+    tv = [{"messages": build_messages(r["text"], r["label"])} for r in splits["train"] + splits["val"]]
+    write_jsonl(out / "processed" / "trainval_soup.jsonl", tv)
+    soup_val_split = round(len(splits["val"]) / len(tv), 4)
+    soup_split_check = {"val_split": soup_val_split}
+    try:
+        from soup_cli.data.loader import _split_val
+        s_tr, s_va = _split_val(tv, soup_val_split)
+        soup_split_check.update(n_train=len(s_tr), n_val=len(s_va),
+                                exact_match=(s_tr == tv[:len(splits["train"])]
+                                             and s_va == tv[len(splits["train"]):]))
+    except Exception as e:  # noqa: BLE001
+        soup_split_check["error"] = repr(e)
+    log.info("soup val split check: %s", soup_split_check)
+    split_meta["trainval_soup"] = {"file_sha256": {"trainval_soup.jsonl": sha256_file(out / "processed" / "trainval_soup.jsonl")},
+                                   "n": len(tv), "soup_split_check": soup_split_check, "hashes": []}
+
     write_json(out / "splits" / "split_hashes.json", {
         "dataset": args.dataset, "revision": args.revision, "salt": args.salt,
         "rule": "u=int(sha256(salt+'\\x00'+dedupe_key)[:15],16)/16**15; heldout u<hf; val hf<=u<hf+vf; "

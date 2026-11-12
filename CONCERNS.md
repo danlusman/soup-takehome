@@ -46,3 +46,18 @@ Status: OPEN unless marked otherwise. Each item says what would resolve it.
   measured peak is "whatever fit", not our planned shape. Set batch_size explicitly in Phase 3.
 - **C-16 TRL metrics may hold logits.** SFTTrainer logs mean_token_accuracy / entropy computed from
   logits — extra T×V transients not in either estimate. Check against measured peak.
+- **C-17 Base dtype on T4.** CPU smoke: Soup loaded the frozen base in bf16 (checkpoint dtype). Soup's
+  code says pre-Ampere cards get fp16 storage; check `frozen_dtypes` in runs/phase3/*/telemetry.jsonl.
+  bf16 storage on a T4 would be emulated and slow, not wrong.
+- **C-18 Grad clipping always active.** Smoke grad norms 21–36 vs max_grad_norm 1.0. On the real run,
+  if clipping binds every step, the effective update is lr × unit-norm direction; worth stating.
+- **C-19 fp16 overflow skips are silent in HF Trainer.** Captured via GradScaler scale + accelerate's
+  `optimizer_step_was_skipped` per step (telemetry.jsonl). Not testable on CPU (no scaler).
+- **C-20 Soup writes 2 full checkpoints (adapter + optimizer + rng) per run.** For 1.5B r16 expect
+  ~74 MB adapter (fp32) + ~150 MB optimizer per checkpoint. Disk, not risk — but copy only what's needed.
+- **C-21 Verdict scope.** SHIP/DON'T SHIP covers the NF4 checkpoint run with transformers+bitsandbytes on
+  CUDA. A GGUF/llama.cpp build would need its own tokenizer/template/quality verification.
+- **C-22 252 held-out rows ⇒ wide CIs.** ±~6 pp at 50–70% accuracy. A +5 pp gain can be real and still
+  fail S2's CI condition. That is the intended conservative behaviour, stated in advance.
+- **C-23 Thresholds are judgement calls** (10% elements, 3× noise floor, 5 pp, 2 pp, 95%, 98/99%).
+  Chosen before results; defend them as "chosen in advance", not as "optimal".

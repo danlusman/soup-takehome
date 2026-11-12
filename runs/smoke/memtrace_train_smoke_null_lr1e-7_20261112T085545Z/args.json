@@ -1,0 +1,16 @@
+{
+  "phase": "smoke",
+  "tag": "train_smoke_null_lr1e-7",
+  "step_every": 10,
+  "disk_paths": [
+    "outputs_smoke/null_lr1e-7"
+  ],
+  "runs_root": null,
+  "command": [
+    "soup",
+    "train",
+    "--config",
+    "configs/smoke_null_lr1e-7.yaml",
+    "--yes"
+  ]
+}

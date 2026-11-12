@@ -1,0 +1,16 @@
+{
+  "finished_utc": "2026-11-12T09:00:46.981+00:00",
+  "command": [
+    "soup",
+    "train",
+    "--config",
+    "configs/smoke_null_lr1e-7.yaml",
+    "--yes"
+  ],
+  "exit_code": 0,
+  "error": null,
+  "peak_nvidia_smi_used_MiB": null,
+  "final_torch": {
+    "cuda": false
+  }
+}

@@ -1,0 +1,8 @@
+2026-11-12T08:47:33.422+00:00 INFO run_dir=D:\soup\runs\smoke\memtrace_train_smoke_real_20261112T084729Z
+2026-11-12T08:47:33.422+00:00 INFO argv=scripts/memtrace.py --phase smoke --tag train_smoke_real --disk-paths outputs_smoke/real -- soup train --config configs/smoke_real.yaml --yes
+2026-11-12T08:47:33.481+00:00 INFO nvidia-smi not found: GPU sampler disabled
+2026-11-12T08:47:33.495+00:00 INFO disk before {'outputs_smoke/real': None} free=87.5 GiB
+2026-11-12T08:55:03.117+00:00 INFO phase command                (no CUDA) rss=1212547072 449.4s
+2026-11-12T08:55:03.154+00:00 INFO disk after {'outputs_smoke/real': 281375687} free=87.3 GiB
+2026-11-12T08:55:03.218+00:00 INFO command exit code=0 peak nvidia-smi memory.used=None MiB
+2026-11-12T08:55:03.224+00:00 INFO summary written: D:\soup\runs\smoke\memtrace_train_smoke_real_20261112T084729Z\summary.json

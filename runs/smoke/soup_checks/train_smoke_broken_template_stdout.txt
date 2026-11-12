@@ -1,0 +1,40 @@
+2026-11-12T09:01:04.819+00:00 INFO run_dir=D:\soup\runs\smoke\memtrace_train_smoke_broken_template_20261112T090058Z
+2026-11-12T09:01:04.820+00:00 INFO argv=scripts/memtrace.py --phase smoke --tag train_smoke_broken_template --disk-paths outputs_smoke/broken_template -- soup train --config configs/smoke_broken_template.yaml --yes
+2026-11-12T09:01:04.883+00:00 INFO nvidia-smi not found: GPU sampler disabled
+2026-11-12T09:01:04.935+00:00 INFO disk before {'outputs_smoke/broken_template': None} free=87.0 GiB
+Loading config from configs\smoke_broken_template.yaml...
+┌────────────────────────────────────────────────────────────────────── Training Setup ───────────────────────────────────────────────────────────────────────┐
+│ Device:  CPU (no GPU detected)                                                                                                                              │
+│ Memory:  N/A (CPU mode)                                                                                                                                     │
+│ Model:   Qwen/Qwen2.5-0.5B-Instruct                                                                                                                         │
+│ Task:    sft                                                                                                                                                │
+│ Backend: transformers                                                                                                                                       │
+│ LoRA:    r=16, alpha=32                                                                                                                                     │
+│ Quant:   none                                                                                                                                               │
+│ Seed:    42, data_seed=42                                                                                                                                   │
+└─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘
+Loading dataset...
+Loaded: 9 train samples
+Run ID: run_20261112_140127_fdd3b9d5
+Setting up model + trainer...
+Loading tokenizer: Qwen/Qwen2.5-0.5B-Instruct
+Loading model: Qwen/Qwen2.5-0.5B-Instruct
+Loading weights:   0%|          | 0/290 [00:00<?, ?it/s]Loading weights:   2%|▏         | 6/290 [00:00<00:05, 52.37it/s]Loading weights:   6%|▌         | 17/290 [00:00<00:03, 78.22it/s]Loading weights:   9%|▊         | 25/290 [00:00<00:04, 61.13it/s]Loading weights:  11%|█         | 32/290 [00:00<00:05, 46.40it/s]Loading weights:  13%|█▎        | 38/290 [00:00<00:07, 35.80it/s]Loading weights:  19%|█▉        | 56/290 [00:00<00:03, 63.89it/s]Loading weights:  26%|██▌       | 75/290 [00:01<00:02, 86.78it/s]Loading weights:  33%|███▎      | 97/290 [00:01<00:01, 114.17it/s]Loading weights:  38%|███▊      | 111/290 [00:01<00:02, 83.66it/s]Loading weights:  60%|██████    | 174/290 [00:01<00:00, 189.37it/s]Loading weights: 100%|██████████| 290/290 [00:01<00:00, 178.88it/s]
+LoRA applied: 8,798,208 trainable / 502,830,976 total (1.75%)
+chat_template override applied. Subsequent tokenizer.save_pretrained() / soup push will persist this Jinja string into tokenizer_config.json — replacing 
+whatever the model originally shipped.
+Map:   0%|          | 0/9 [00:00<?, ? examples/s][transformers] return_assistant_tokens_mask==True but chat template does not contain `{% generation %}` keyword.
+Map:  11%|█         | 1/9 [00:00<00:01,  4.93 examples/s]Map: 100%|██████████| 9/9 [00:00<00:00, 30.84 examples/s]Map: 100%|██████████| 9/9 [00:00<00:00, 25.58 examples/s]
+Map:   0%|          | 0/3 [00:00<?, ? examples/s]Map: 100%|██████████| 3/3 [00:00<00:00, 58.49 examples/s]
+Map:   0%|          | 0/9 [00:00<?, ? examples/s]Map: 100%|██████████| 9/9 [00:00<00:00, 653.78 examples/s]
+Map:   0%|          | 0/3 [00:00<?, ? examples/s]Map: 100%|██████████| 3/3 [00:00<00:00, 296.72 examples/s]
+Gradient checkpointing: full (every block)
+Truncating train dataset:   0%|          | 0/9 [00:00<?, ? examples/s]Truncating train dataset: 100%|██████████| 9/9 [00:00<00:00, 361.53 examples/s]
+Truncating eval dataset:   0%|          | 0/3 [00:00<?, ? examples/s]Truncating eval dataset: 100%|██████████| 3/3 [00:00<00:00, 225.17 examples/s]
+Rewind log: outputs_smoke\broken_template\rewind.jsonl
+Base revision: 7ae557604adf67be50417f59c2c2f167def9a775 (bound Hub commit)
+Training started!
+
+[transformers] The tokenizer has new PAD/BOS/EOS tokens that differ from the model config and generation config. The model config and generation config were aligned accordingly, being updated with the tokenizer's values. Updated tokens: {'pad_token_id': 151643}.
+  0%|          | 0/5 [00:00<?, ?it/s]D:\soup\.venv\Lib\site-packages\torch\utils\data\dataloader.py:759: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  super().__init__(loader)

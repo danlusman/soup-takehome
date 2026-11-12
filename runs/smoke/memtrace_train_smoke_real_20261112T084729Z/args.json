@@ -1,0 +1,16 @@
+{
+  "phase": "smoke",
+  "tag": "train_smoke_real",
+  "step_every": 10,
+  "disk_paths": [
+    "outputs_smoke/real"
+  ],
+  "runs_root": null,
+  "command": [
+    "soup",
+    "train",
+    "--config",
+    "configs/smoke_real.yaml",
+    "--yes"
+  ]
+}

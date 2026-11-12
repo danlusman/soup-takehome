@@ -1,0 +1,8 @@
+{"phase": "disk:before", "utc": "2026-11-12T08:47:33.495+00:00", "sizes_bytes": {"outputs_smoke/real": null}, "disk_used": 16360910848, "disk_free": 93979688960}
+{"phase": "trainer:train_begin", "utc": "2026-11-12T08:48:37.468+00:00"}
+{"phase": "trainer:step_end", "utc": "2026-11-12T08:50:13.731+00:00", "step": 1}
+{"phase": "trainer:step_end", "utc": "2026-11-12T08:51:11.191+00:00", "step": 2}
+{"phase": "trainer:step_end", "utc": "2026-11-12T08:52:13.250+00:00", "step": 3}
+{"phase": "trainer:train_end", "utc": "2026-11-12T08:55:00.384+00:00"}
+{"phase": "command", "utc_begin": "2026-11-12T08:47:33.528+00:00", "utc_end": "2026-11-12T08:55:03.029+00:00", "wall_s": 449.406, "torch_before": {"cuda": false}, "torch_after": {"cuda": false}, "rss_before": 207740928, "rss_after": 1212547072, "command": ["soup", "train", "--config", "configs/smoke_real.yaml", "--yes"]}
+{"phase": "disk:after", "utc": "2026-11-12T08:55:03.154+00:00", "sizes_bytes": {"outputs_smoke/real": 281375687}, "disk_used": 16642727936, "disk_free": 93697871872}

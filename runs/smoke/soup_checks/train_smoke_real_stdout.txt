@@ -1,0 +1,89 @@
+2026-11-12T08:47:33.422+00:00 INFO run_dir=D:\soup\runs\smoke\memtrace_train_smoke_real_20261112T084729Z
+2026-11-12T08:47:33.422+00:00 INFO argv=scripts/memtrace.py --phase smoke --tag train_smoke_real --disk-paths outputs_smoke/real -- soup train --config configs/smoke_real.yaml --yes
+2026-11-12T08:47:33.481+00:00 INFO nvidia-smi not found: GPU sampler disabled
+2026-11-12T08:47:33.495+00:00 INFO disk before {'outputs_smoke/real': None} free=87.5 GiB
+Loading config from configs\smoke_real.yaml...
+┌────────────────────────────────────────────────────────────────────── Training Setup ───────────────────────────────────────────────────────────────────────┐
+│ Device:  CPU (no GPU detected)                                                                                                                              │
+│ Memory:  N/A (CPU mode)                                                                                                                                     │
+│ Model:   Qwen/Qwen2.5-0.5B-Instruct                                                                                                                         │
+│ Task:    sft                                                                                                                                                │
+│ Backend: transformers                                                                                                                                       │
+│ LoRA:    r=16, alpha=32                                                                                                                                     │
+│ Quant:   none                                                                                                                                               │
+│ Seed:    42, data_seed=42                                                                                                                                   │
+└─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘
+Loading dataset...
+Loaded: 9 train samples
+Run ID: run_20261112_134804_108a3077
+Setting up model + trainer...
+Loading tokenizer: Qwen/Qwen2.5-0.5B-Instruct
+Loading model: Qwen/Qwen2.5-0.5B-Instruct
+Loading weights:   0%|          | 0/290 [00:00<?, ?it/s]Loading weights:   2%|▏         | 6/290 [00:00<00:06, 46.09it/s]Loading weights:   4%|▍         | 13/290 [00:00<00:04, 56.36it/s]Loading weights:   8%|▊         | 22/290 [00:00<00:04, 58.19it/s]Loading weights:  10%|█         | 29/290 [00:00<00:04, 58.67it/s]Loading weights:  12%|█▏        | 35/290 [00:00<00:05, 48.12it/s]Loading weights:  15%|█▌        | 44/290 [00:00<00:04, 50.99it/s]Loading weights:  17%|█▋        | 50/290 [00:01<00:05, 46.40it/s]Loading weights:  19%|█▉        | 55/290 [00:01<00:05, 40.50it/s]Loading weights:  23%|██▎       | 66/290 [00:01<00:04, 55.49it/s]Loading weights:  28%|██▊       | 81/290 [00:01<00:02, 71.72it/s]Loading weights:  44%|████▍     | 128/290 [00:01<00:00, 166.73it/s]Loading weights: 100%|██████████| 290/290 [00:01<00:00, 186.98it/s]
+LoRA applied: 8,798,208 trainable / 502,830,976 total (1.75%)
+Map:   0%|          | 0/9 [00:00<?, ? examples/s][transformers] return_assistant_tokens_mask==True but chat template does not contain `{% generation %}` keyword.
+Map:  11%|█         | 1/9 [00:00<00:02,  2.85 examples/s]Map: 100%|██████████| 9/9 [00:00<00:00, 21.73 examples/s]Map: 100%|██████████| 9/9 [00:00<00:00, 17.49 examples/s]
+Map:   0%|          | 0/3 [00:00<?, ? examples/s]Map: 100%|██████████| 3/3 [00:00<00:00, 69.41 examples/s]
+Map:   0%|          | 0/9 [00:00<?, ? examples/s]Map: 100%|██████████| 9/9 [00:00<00:00, 529.02 examples/s]
+Map:   0%|          | 0/3 [00:00<?, ? examples/s]Map: 100%|██████████| 3/3 [00:00<00:00, 300.29 examples/s]
+Gradient checkpointing: full (every block)
+Truncating train dataset:   0%|          | 0/9 [00:00<?, ? examples/s]Truncating train dataset: 100%|██████████| 9/9 [00:00<00:00, 236.15 examples/s]
+Truncating eval dataset:   0%|          | 0/3 [00:00<?, ? examples/s]Truncating eval dataset: 100%|██████████| 3/3 [00:00<00:00, 230.81 examples/s]
+Rewind log: outputs_smoke\real\rewind.jsonl
+Base revision: 7ae557604adf67be50417f59c2c2f167def9a775 (bound Hub commit)
+Training started!
+
+[transformers] The tokenizer has new PAD/BOS/EOS tokens that differ from the model config and generation config. The model config and generation config were aligned accordingly, being updated with the tokenizer's values. Updated tokens: {'pad_token_id': 151643}.
+  0%|          | 0/5 [00:00<?, ?it/s]D:\soup\.venv\Lib\site-packages\torch\utils\data\dataloader.py:759: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  super().__init__(loader)
+ 20%|██        | 1/5 [01:36<06:25, 96.26s/it]                                              20%|██        | 1/5 [01:36<06:25, 96.26s/it] 40%|████      | 2/5 [02:33<03:40, 73.45s/it]                                              40%|████      | 2/5 [02:33<03:40, 73.45s/it]{'loss': '0.9713', 'grad_norm': '31.57', 'learning_rate': '0', 'entropy': '2.172', 'num_tokens': '382', 'mean_token_accuracy': '0.9091', 'epoch': '0.2'}
+{'loss': '1.014', 'grad_norm': '21.38', 'learning_rate': '0.0002', 'entropy': '1.906', 'num_tokens': '663', 'mean_token_accuracy': '0.8529', 'epoch': '0.4'}
+
+  0%|          | 0/2 [00:00<?, ?it/s][A
+100%|██████████| 2/2 [00:02<00:00,  1.03s/it][A                                             
+                                             [A 40%|████      | 2/5 [02:54<03:40, 73.45s/it]
+100%|██████████| 2/2 [00:02<00:00,  1.03s/it][A
+                                             [A 60%|██████    | 3/5 [03:35<02:16, 68.25s/it]                                              60%|██████    | 3/5 [03:35<02:16, 68.25s/it] 80%|████████  | 4/5 [04:47<01:09, 69.75s/it]                                              80%|████████  | 4/5 [04:47<01:09, 69.75s/it]{'eval_loss': '0.09387', 'eval_runtime': '21.04', 'eval_samples_per_second': '0.143', 'eval_steps_per_second': '0.095', 'eval_entropy': '1.883', 'eval_num_tokens': '663', 'eval_mean_token_accuracy': '0.9714', 'epoch': '0.4'}
+{'loss': '0.08826', 'grad_norm': '6.773', 'learning_rate': '0.0001707', 'entropy': '1.703', 'num_tokens': '934', 'mean_token_accuracy': '0.9429', 'epoch': '0.6'}
+{'loss': '0.1078', 'grad_norm': '35.52', 'learning_rate': '0.0001', 'entropy': '2.109', 'num_tokens': '1319', 'mean_token_accuracy': '0.9429', 'epoch': '0.8'}
+
+  0%|          | 0/2 [00:00<?, ?it/s][A
+100%|██████████| 2/2 [00:07<00:00,  3.57s/it][A                                             
+                                             [A 80%|████████  | 4/5 [05:15<01:09, 69.75s/it]
+100%|██████████| 2/2 [00:07<00:00,  3.57s/it][A
+                                             [AWarning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+100%|██████████| 5/5 [05:51<00:00, 67.66s/it]                                             100%|██████████| 5/5 [05:51<00:00, 67.66s/it]D:\soup\.venv\Lib\site-packages\torch\utils\data\dataloader.py:759: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  super().__init__(loader)
+{'eval_loss': '0.08573', 'eval_runtime': '28.06', 'eval_samples_per_second': '0.107', 'eval_steps_per_second': '0.071', 'eval_entropy': '1.75', 'eval_num_tokens': '1319', 'eval_mean_token_accuracy': '0.9688', 'epoch': '0.8'}
+{'loss': '0.2032', 'grad_norm': '8.804', 'learning_rate': '2.929e-05', 'entropy': '1.844', 'num_tokens': '1487', 'mean_token_accuracy': '0.9375', 'epoch': '1'}
+
+  0%|          | 0/2 [00:00<?, ?it/s][A
+100%|██████████| 2/2 [00:07<00:00,  3.69s/it][A                                             
+                                             [A100%|██████████| 5/5 [06:20<00:00, 67.66s/it]
+100%|██████████| 2/2 [00:07<00:00,  3.69s/it][A
+                                             [A                                             100%|██████████| 5/5 [06:22<00:00, 67.66s/it]100%|██████████| 5/5 [06:22<00:00, 76.58s/it]
+{'eval_loss': '0.07858', 'eval_runtime': '28.67', 'eval_samples_per_second': '0.105', 'eval_steps_per_second': '0.07', 'eval_entropy': '1.734', 'eval_num_tokens': '1487', 'eval_mean_token_accuracy': '0.9688', 'epoch': '1'}
+{'train_runtime': '382.9', 'train_samples_per_second': '0.024', 'train_steps_per_second': '0.013', 'train_loss': '0.4769', 'epoch': '1'}
+┌───────────────────────────────────────────────────────── Soup Training: Qwen/Qwen2.5-0.5B-Instruct ─────────────────────────────────────────────────────────┐
+│ Epoch 1.0/1   100%                                                                                                                                          │
+│ Step:  5/5                                                                                                                                                  │
+│ Loss:  0.2032    LR: 2.93e-05                                                                                                                               │
+│ Val loss: 0.0786                                                                                                                                            │
+│ Speed: 0.01 it/s                                                                                                                                            │
+│ Grad:  8.8036                                                                                                                                               │
+└─────────────────────────────────────────────────────────────────── CPU (no GPU detected) ───────────────────────────────────────────────────────────────────┘┌──────────────────────────────────────────────────────────────────── Training Complete! ─────────────────────────────────────────────────────────────────────┐
+│ Loss: 0.9713 -> 0.2032                                                                                                                                      │
+│ Duration: 6m                                                                                                                                                │
+│ Output: outputs_smoke\real                                                                                                                                  │
+│ Run ID: run_20261112_134804_108a3077                                                                                                                        │
+│                                                                                                                                                             │
+│ Quick test:  soup chat --model outputs_smoke\real                                                                                                           │
+│ Push to HF:  soup push --model outputs_smoke\real                                                                                                           │
+│ Merge LoRA:  soup merge --adapter outputs_smoke\real                                                                                                        │
+│ Export GGUF: soup export --model outputs_smoke\real                                                                                                         │
+│ Run details: soup runs show run_20261112_134804_108a3077                                                                                                    │
+└─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘
+2026-11-12T08:55:03.117+00:00 INFO phase command                (no CUDA) rss=1212547072 449.4s
+2026-11-12T08:55:03.154+00:00 INFO disk after {'outputs_smoke/real': 281375687} free=87.3 GiB
+2026-11-12T08:55:03.218+00:00 INFO command exit code=0 peak nvidia-smi memory.used=None MiB
+2026-11-12T08:55:03.224+00:00 INFO summary written: D:\soup\runs\smoke\memtrace_train_smoke_real_20261112T084729Z\summary.json

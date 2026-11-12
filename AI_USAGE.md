@@ -29,4 +29,15 @@ redone (and how).
 | 12 | Controlled probe script instead of reading Soup's peak; in-process Trainer callback for the real Soup run | pending | CPU smoke only: CUDA stats, nvidia-smi sampler and the Trainer patch are untested |
 | 13 | Probe (e) as a pre-registered "should OOM" test | pending | — |
 
+## Phase 3 — training
+
+| # | AI suggestion | Engineer decision | Verification / changes |
+|---|---|---|---|
+| 14 | fp16 LoRA instead of Soup's QLoRA default | **Accepted by engineer** | — |
+| 15 | Hyper-parameters a priori (D-13), no held-out eval until SHIP criteria exist | pending | — |
+| 16 | Null control lr=1e-7 (D-14) | pending | lr=0 and mismatched targets verified to be rejected / crash |
+| 17 | Broken-template run via Soup's own `qwen2.5` alias (D-15) | pending | found by reading Soup source; render mismatch confirmed 0/12 vs 12/12 on CPU |
+| 18 | `inspect_soup_labels.py`: run Soup's formatter to see the real loss mask | pending | revealed role-prefix tokens in loss (D-16) |
+| 19 | Telemetry callback (scale, skipped steps, B norms) injected into Soup's Trainer | pending | CPU smoke run OK; fp16 scaler path untestable on CPU |
+
 (Engineer: fill in the "decision" column yourself and add anything you re-did by hand.)

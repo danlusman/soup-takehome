@@ -200,45 +200,99 @@ class MemTracker:
 
 
 # ---------------------------------------------------------------- in-process soup wrapping
-def _patch_trainer(events: list, every: int):
-    """Attach a memory callback to every transformers.Trainer created from now on."""
+def _patch_trainer(events: list, every: int, telemetry_path: Path):
+    """Attach a telemetry callback to every transformers.Trainer created from now on.
+
+    Writes telemetry.jsonl (one JSON per line, flushed, so it survives a crash):
+      train_begin : trainable/total params, trainable dtypes, peft config, fp16/bf16 flags,
+                    tokenizer chat_template sha256 (what Soup actually trains with)
+      log         : every Trainer log dict as-is (loss, grad_norm, learning_rate, eval_loss, ...)
+      step        : fp16 GradScaler scale + whether the optimizer step was skipped (overflow),
+                    CUDA peaks (steps 1-3, then every `every` steps)
+      train_end   : per-module LoRA-B Frobenius norms, count of all-zero B matrices
+    Only adds a callback; does not change what is trained.
+    """
+    import hashlib
     import transformers
     from transformers import TrainerCallback
 
-    class MemCallback(TrainerCallback):
-        def _rec(self, tag, state):
+    fh = open(telemetry_path, "a", encoding="utf-8")
+
+    def emit(obj):
+        fh.write(json.dumps({"utc": utc_iso(), **obj}, default=str) + "\n")
+        fh.flush()
+
+    class TelemetryCallback(TrainerCallback):
+        def __init__(self, trainer):
+            self.trainer = trainer
+
+        def _mem(self):
             t = _cuda()
             if not t:
-                return
-            events.append({"phase": f"trainer:{tag}", "utc": utc_iso(), "step": state.global_step,
-                           "max_allocated": t.cuda.max_memory_allocated(),
-                           "max_reserved": t.cuda.max_memory_reserved(),
-                           "allocated": t.cuda.memory_allocated()})
+                return {}
+            return {"max_allocated": t.cuda.max_memory_allocated(),
+                    "max_reserved": t.cuda.max_memory_reserved(), "allocated": t.cuda.memory_allocated()}
 
-        def on_train_begin(self, args, state, control, **kw):
-            self._rec("train_begin", state)
+        def _scaler(self):
+            acc = getattr(self.trainer, "accelerator", None)
+            sc = getattr(acc, "scaler", None) if acc else None
+            return {"loss_scale": float(sc.get_scale()) if sc is not None and sc.is_enabled() else None,
+                    "step_was_skipped": bool(getattr(acc, "optimizer_step_was_skipped", False)) if acc else None}
+
+        def on_train_begin(self, args, state, control, model=None, **kw):
+            m = model if model is not None else self.trainer.model
+            params = list(m.parameters())
+            trainable = [p for p in params if p.requires_grad]
+            tok = getattr(self.trainer, "processing_class", None) or getattr(self.trainer, "tokenizer", None)
+            tmpl = getattr(tok, "chat_template", None) if tok is not None else None
+            peft_cfg = getattr(m, "peft_config", None)
+            emit({"event": "train_begin", "trainable_params": sum(p.numel() for p in trainable),
+                  "total_params": sum(p.numel() for p in params),
+                  "trainable_dtypes": sorted({str(p.dtype) for p in trainable}),
+                  "frozen_dtypes": sorted({str(p.dtype) for p in params if not p.requires_grad}),
+                  "n_lora_B": sum(1 for n, _ in m.named_parameters() if "lora_B" in n),
+                  "peft_config": {k: v.to_dict() for k, v in peft_cfg.items()} if isinstance(peft_cfg, dict) else None,
+                  "fp16": args.fp16, "bf16": args.bf16, "max_steps": state.max_steps,
+                  "per_device_train_batch_size": args.per_device_train_batch_size,
+                  "gradient_accumulation_steps": args.gradient_accumulation_steps,
+                  "gradient_checkpointing": args.gradient_checkpointing,
+                  "learning_rate": args.learning_rate, "seed": args.seed,
+                  "chat_template_sha256": hashlib.sha256(tmpl.encode()).hexdigest() if tmpl else None,
+                  **self._scaler(), **self._mem()})
+            events.append({"phase": "trainer:train_begin", "utc": utc_iso(), **self._mem()})
             t = _cuda()
             if t:
                 t.cuda.reset_peak_memory_stats()
 
-        def on_step_end(self, args, state, control, **kw):
-            if state.global_step <= 3 or state.global_step % every == 0:
-                self._rec("step_end", state)
+        def on_log(self, args, state, control, logs=None, **kw):
+            emit({"event": "log", "step": state.global_step, "epoch": state.epoch, "logs": logs})
 
-        def on_evaluate(self, args, state, control, **kw):
-            self._rec("evaluate", state)
+        def on_step_end(self, args, state, control, **kw):
+            rec = {"event": "step", "step": state.global_step, **self._scaler()}
+            if state.global_step <= 3 or state.global_step % every == 0:
+                rec.update(self._mem())
+                events.append({"phase": "trainer:step_end", "utc": utc_iso(), "step": state.global_step, **self._mem()})
+            emit(rec)
+
+        def on_evaluate(self, args, state, control, metrics=None, **kw):
+            emit({"event": "evaluate", "step": state.global_step, "metrics": metrics, **self._mem()})
 
         def on_save(self, args, state, control, **kw):
-            self._rec("save", state)
+            emit({"event": "save", "step": state.global_step, **self._mem()})
 
-        def on_train_end(self, args, state, control, **kw):
-            self._rec("train_end", state)
+        def on_train_end(self, args, state, control, model=None, **kw):
+            m = model if model is not None else self.trainer.model
+            norms = {n: float(p.detach().float().norm()) for n, p in m.named_parameters() if "lora_B" in n}
+            emit({"event": "train_end", "step": state.global_step, "n_lora_B": len(norms),
+                  "n_lora_B_all_zero": sum(v == 0.0 for v in norms.values()),
+                  "lora_B_norm_sum": sum(norms.values()), "lora_B_norms": norms, **self._mem()})
+            events.append({"phase": "trainer:train_end", "utc": utc_iso(), **self._mem()})
 
     orig = transformers.Trainer.__init__
 
     def init(self, *a, **kw):
         orig(self, *a, **kw)
-        self.add_callback(MemCallback())
+        self.add_callback(TelemetryCallback(self))
 
     transformers.Trainer.__init__ = init
 
@@ -266,7 +320,7 @@ def main():
         mt.snapshot_disk("before", args.disk_paths)
         with mt.phase("command", command=args.command):
             if args.command and Path(args.command[0]).stem == "soup":
-                _patch_trainer(mt.events, args.step_every)
+                _patch_trainer(mt.events, args.step_every, run_dir / "telemetry.jsonl")
                 from soup_cli.cli import run as soup_run
                 sys.argv = ["soup", *args.command[1:]]
                 try:

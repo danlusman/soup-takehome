@@ -108,6 +108,35 @@ for a in probes:
     sync()
 """)
 
+md("""
+## Phase 3 — Soup checks, then training (real, null control, broken template)
+**Do NOT evaluate on held-out here.** SHIP criteria get written first (Phase 5).
+Each training run is wrapped by `memtrace.py` (nvidia-smi 1 s CSV, RAM CSV, raw dumps,
+per-step telemetry incl. fp16 loss scale / skipped steps, LoRA-B norms).
+""")
+code("""
+for cfg in ["real", "null_lr1e-7", "broken_template"]:
+    !python scripts/soup_checks.py --config configs/{cfg}.yaml 2>&1 | grep -E "exit=|Error"
+sync()
+""")
+code("""
+import shutil
+def train(cfg):
+    out = f"runs/phase3/train_{cfg}_stdout.txt"
+    !python scripts/memtrace.py --phase phase3 --tag train_{cfg} --disk-paths outputs/{cfg} -- soup train --config configs/{cfg}.yaml --yes > {out} 2>&1; echo "exit=$?"
+    !grep -vE "it/s\\]|Loading weights" {out} | tail -15
+    # keep the adapter + trainer_state (not optimizer.pt) in Drive
+    !mkdir -p {DRIVE_RUNS}/../outputs/{cfg} && rsync -a --exclude 'optimizer.pt' --exclude 'rng_state.pth' outputs/{cfg}/ {DRIVE_RUNS}/../outputs/{cfg}/
+    sync()
+train("real")
+""")
+code("""
+train("null_lr1e-7")
+""")
+code("""
+train("broken_template")   # optional (c)
+""")
+
 nb = {"cells": cells, "metadata": {"accelerator": "GPU", "colab": {"gpuType": "T4"},
                                    "kernelspec": {"name": "python3", "display_name": "Python 3"}},
       "nbformat": 4, "nbformat_minor": 5}

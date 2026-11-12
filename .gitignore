@@ -3,3 +3,5 @@ __pycache__/
 *.pyc
 data_smoke/
 Soup-Task-*.pdf
+outputs_smoke/
+outputs/
