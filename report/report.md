@@ -1,4 +1,4 @@
-# Ship or not? LoRA fine-tune of Qwen2.5-1.5B-Instruct → merged fp16 → NF4
+# Ship or not? Qwen2.5-1.5B-Instruct LoRA → merged fp16 → NF4
 
 ## Executive summary
 
@@ -54,6 +54,7 @@ needs about 7 GiB.
 The null control's eval loss also fell (0.754 → 0.728) while its predictions stayed identical to the base.
 
 **The check.** It runs on the same 252 prompts in four layers:
+
 - weight deltas, scored against the fp16 rounding floor;
 - an adapter-scale ablation (0 / 0.5 / 1);
 - teacher-forced KL at the decision token, compared with a quantisation reference;
@@ -89,10 +90,12 @@ Each fault was injected on purpose and run through Soup's built-in checks and th
 | one extra correct row of 252 | — | — | ❌ SHIP | ✅ CI gate |
 
 **What `soup ship` evaluates** (read from source, and its rule run with our numbers):
+
 - base + adapter in bf16, never the merged or 4-bit file unless it's passed explicitly via `--tuned`;
 - decision = `tuned > base` on a point estimate, with no confidence interval.
 
 **Proposed Soup changes:**
+
 - a CI-based ship gate that evaluates the exported artifact;
 - `--dry-run` that fails on data-doctor MAJOR findings, with data doctor seeing the template override;
 - `soup merge` warnings for template overrides and for non-finite values after the dtype cast.
@@ -107,6 +110,7 @@ Both are scripted and ready (`notebooks/colab_runner.ipynb`, Phase 6), and neith
 | **FAIL** | **FAIL** +4.0 [−2.0, +9.9] | **FAIL** agreement 92.1% | PASS | PASS | PASS | PASS |
 
 **DON'T SHIP. What must change first:**
+
 1. Re-test on ≥1,500 of the 6,863 never-used held-out rows, with thresholds registered first.
 2. Fix the 4-bit step until it agrees with fp16 on ≥95% of labels.
 3. Audit the neutral-class labels, which are star-derived.
