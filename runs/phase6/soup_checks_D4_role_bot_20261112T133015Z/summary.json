@@ -1,0 +1,37 @@
+{
+  "finished_utc": "2026-11-12T13:31:12.638+00:00",
+  "config": "D:\\soup\\faults\\D4_role_bot\\config.yaml",
+  "base": "Qwen/Qwen2.5-0.5B-Instruct",
+  "train_file": "faults/D4_role_bot/trainval_soup.jsonl",
+  "chat_template_override": null,
+  "checks": {
+    "data_doctor": {
+      "exit": 2,
+      "overall": "MAJOR",
+      "non_ok_checks": [
+        [
+          "generation_markers",
+          "MINOR"
+        ],
+        [
+          "unknown_roles",
+          "MAJOR"
+        ]
+      ]
+    },
+    "doctor": {
+      "exit": 0
+    },
+    "plan": {
+      "exit": 0,
+      "peak_vram_gb": 3.8
+    },
+    "dry_run": {
+      "exit": 0,
+      "says_ready": true
+    },
+    "inspect_labels": {
+      "exit": 0
+    }
+  }
+}

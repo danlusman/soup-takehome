@@ -1,0 +1,13 @@
+2026-11-12T13:43:09.204+00:00 INFO run_dir=D:\soup\runs\phase6\soup_checks_D2_heldout_leak_20261112T134304Z
+2026-11-12T13:43:09.204+00:00 INFO argv=D:\soup\scripts\soup_checks.py --config D:\soup\faults\D2_heldout_leak\config.yaml --tag D2_heldout_leak --phase phase6
+2026-11-12T13:43:09.669+00:00 INFO [data_doctor] D:\soup\.venv\Scripts\python.exe -m soup_cli data doctor faults/D2_heldout_leak/trainval_soup.jsonl --model Qwen/Qwen2.5-0.5B-Instruct --max-length 512 --show-mask 2 -o D:\soup\runs\phase6\soup_checks_D2_heldout_leak_20261112T134304Z\data_doctor_report.json
+2026-11-12T13:43:26.626+00:00 INFO [data_doctor] exit=0
+2026-11-12T13:43:26.627+00:00 INFO [doctor] D:\soup\.venv\Scripts\python.exe -m soup_cli doctor --config D:\soup\faults\D2_heldout_leak\config.yaml
+2026-11-12T13:43:54.122+00:00 INFO [doctor] exit=0
+2026-11-12T13:43:54.123+00:00 INFO [plan] D:\soup\.venv\Scripts\python.exe -m soup_cli plan --config D:\soup\faults\D2_heldout_leak\config.yaml --state D:\soup\runs\phase6\soup_checks_D2_heldout_leak_20261112T134304Z\plan.tfstate
+2026-11-12T13:43:57.661+00:00 INFO [plan] exit=0
+2026-11-12T13:43:57.662+00:00 INFO [dry_run] D:\soup\.venv\Scripts\python.exe -m soup_cli train --config D:\soup\faults\D2_heldout_leak\config.yaml --dry-run --yes
+2026-11-12T13:44:05.159+00:00 INFO [dry_run] exit=0
+2026-11-12T13:44:05.160+00:00 INFO [inspect_labels] D:\soup\.venv\Scripts\python.exe D:\soup\scripts\inspect_soup_labels.py --config D:\soup\faults\D2_heldout_leak\config.yaml --phase phase6
+2026-11-12T13:44:22.143+00:00 INFO [inspect_labels] exit=0
+2026-11-12T13:44:22.145+00:00 INFO summary written: D:\soup\runs\phase6\soup_checks_D2_heldout_leak_20261112T134304Z\summary.json

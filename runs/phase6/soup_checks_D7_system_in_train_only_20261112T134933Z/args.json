@@ -1,0 +1,8 @@
+{
+  "config": "D:\\soup\\faults\\D7_system_in_train_only\\config.yaml",
+  "skip": [],
+  "tag": "D7_system_in_train_only",
+  "seed": 0,
+  "phase": "phase6",
+  "runs_root": null
+}

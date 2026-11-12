@@ -1,0 +1,8 @@
+{
+  "config": "D:\\soup\\faults\\D3_truncation_max_len_96\\config.yaml",
+  "skip": [],
+  "tag": "D3_truncation_max_len_96",
+  "seed": 0,
+  "phase": "phase6",
+  "runs_root": null
+}

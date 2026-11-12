@@ -59,4 +59,14 @@ redone (and how).
 | 27 | Analysis of raw logs only: estimate-vs-measured with a cause per gap | pending | Two numbers first written from memory were caught and corrected against estimates.json and the nvidia-smi CSV before committing |
 | 28 | Verdict strictly by pre-registered criteria; post-hoc T2 alternative reported separately | pending | analysis/verdict.md; thresholds unchanged |
 
+## Phase 6 + report
+
+| # | AI suggestion / action | Engineer decision | Verification / changes |
+|---|---|---|---|
+| 29 | Fault-injection matrix (9 data/template/config + 4 artifact faults) through Soup checks and ours | Engineer: CPU only, no more T4 | v1 showed our inspector missed D5/D7; v2 added two checks; both kept |
+| 30 | Harness flagged "soup merge mentions overflow" for the Q2 fault | **AI error, caught** | the match was our own folder name `Q2_base_overflow`; corrected in analysis/silent_failures.md (results.json field left as recorded) |
+| 31 | `soup ship --evidence` rule test with measured T4 accuracies | pending | first attempt exit 3 (extra `_note` key rejected); one case crashed on a `:` in a Windows filename (AI bug); both kept in earlier run dirs |
+| 32 | Report drafted by AI from analysis files; every number traced to runs/ | **Engineer must review and own the wording** | "13 of 16–18 fixed tokens" re-derived from tokenizer + inspector output before use |
+| 33 | Discussion question list with pointers, no answers | pending | report/discussion_questions.md |
+
 (Engineer: fill in the "decision" column yourself and add anything you re-did by hand.)

@@ -26,6 +26,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from common import read_jsonl, setup_run, sha256_text, write_jsonl, write_summary  # noqa: E402
+from task_format import build_messages, parse_response  # noqa: E402
 
 IGNORE = -100
 
@@ -73,7 +74,22 @@ def main():
         ref_ids = list(ref_ids)
         # reference render ends with "<|im_end|>\n"; soup may or may not keep the trailing "\n"
         same_render = ids == ref_ids or ids == ref_ids[:-1]
+        # v2 (added after fault injection showed two misses, runs/phase6/fault_inject_20261112T132518Z):
+        # (a) data contract: the training target itself must be a valid task answer (catches empty/garbled targets)
+        # (b) serving parity: the training render must equal what OUR eval/serving prompt builder produces for the
+        #     same review (catches system prompts / extra turns that exist only in the training data)
+        contract_ok = parse_response(target)["strict_valid"]
+        user = next((m["content"] for m in row["messages"] if m["role"] == "user"), "")
+        review = user.split("Отзыв:\n", 1)[-1]
+        label = parse_response(target)["strict_label"]
+        parity = False
+        if label is not None:
+            ev_ids = ref.apply_chat_template(build_messages(review, label), tokenize=True, add_generation_prompt=False)
+            ev_ids = list(ev_ids["input_ids"] if hasattr(ev_ids, "keys") else ev_ids)
+            parity = ids == ev_ids or ids == ev_ids[:-1]
         r = {
+            "target_contract_valid": contract_ok,
+            "render_matches_serving_prompt_builder": parity,
             "row": i, "n_input": len(ids), "n_trained": len(trained),
             "trained_text": tok.decode(trained, skip_special_tokens=False),
             "trained_equals_target_plus_im_end": trained == want,
@@ -85,7 +101,8 @@ def main():
         }
         per_row.append(r)
         for k in ("trained_equals_target_plus_im_end", "trained_equals_target_only", "im_end_trained",
-                  "role_prefix_in_loss", "render_matches_eval_template"):
+                  "role_prefix_in_loss", "render_matches_eval_template", "target_contract_valid",
+                  "render_matches_serving_prompt_builder"):
             stats[k] += bool(r[k])
         stats["zero_trained_rows"] += r["n_trained"] == 0
         if i < args.examples:

@@ -1,0 +1,59 @@
+$ D:\soup\.venv\Scripts\python.exe -m soup_cli doctor --config D:\soup\faults\D2_heldout_leak\config.yaml
+# exit=0
+Soup Doctor - checking your environment...
+
+┌────────────────────────────────────────────────────────────────────────────────────────────── System ───────────────────────────────────────────────────────────────────────────────────────────────┐
+│ Python:   3.12.10                                                                                                                                                                                   │
+│ Platform: Windows 11                                                                                                                                                                                │
+│ Arch:     AMD64                                                                                                                                                                                     │
+│ `soup` runs under D:\soup\.venv\Scripts\python.exe; `python` on your PATH is C:\Users\Admin\AppData\Local\Programs\Python\Python310\python.EXE. site-packages may differ — for any `python -c`      │
+│ check use the soup interpreter explicitly.                                                                                                                                                          │
+└─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘
+┌──────────────────────────────────────────────────────────────────────────────────────────────── GPU ────────────────────────────────────────────────────────────────────────────────────────────────┐
+│ Backend:  CPU only                                                                                                                                                                                  │
+│ Warning:  Training will be slow without GPU.                                                                                                                                                        │
+└─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘
+    System Resources     
+┌──────────┬────────────┐
+│ Resource │ Value      │
+├──────────┼────────────┤
+│ RAM      │ 8 GB       │
+│ Disk     │ 77 GB free │
+└──────────┴────────────┘
+
+                             Dependencies                             
+┌──────────────┬──────────┬────────────┬─────────────┬───────────────┐
+│ Package      │ Required │ Installed  │ Min Version │ Status        │
+├──────────────┼──────────┼────────────┼─────────────┼───────────────┤
+│ pydantic     │   yes    │   2.14.3   │ >=2.0.0     │ OK            │
+│ typer        │   yes    │   0.27.3   │ >=0.15.4    │ OK            │
+│ rich         │   yes    │   15.0.0   │ >=13.0.0    │ OK            │
+│ pyyaml       │   yes    │   6.0.3    │ >=6.0       │ OK            │
+│ plotext      │   yes    │   6.1.0    │ >=5.2.0     │ OK            │
+│ fastapi      │ optional │     -      │ >=0.104.0   │ not installed │
+│ uvicorn      │ optional │     -      │ >=0.24.0    │ not installed │
+│ datasketch   │ optional │     -      │ >=1.6.0     │ not installed │
+│ lm-eval      │ optional │     -      │ >=0.4.0     │ not installed │
+│ wandb        │ optional │     -      │ >=0.15.0    │ not installed │
+│ deepspeed    │ optional │     -      │ >=0.12.0    │ not installed │
+│ httpx        │ optional │     -      │ >=0.24.0    │ not installed │
+│ unsloth      │ optional │     -      │ >=2024.8    │ not installed │
+│ Pillow       │ optional │     -      │ >=9.0.0     │ not installed │
+│ torchao      │ optional │     -      │ >=0.18.0    │ not installed │
+│ sglang       │ optional │     -      │ >=0.5.1     │ not installed │
+│ librosa      │ optional │     -      │ >=0.10.0    │ not installed │
+│ torch        │ [train]  │ 2.15.0+cpu │ >=2.6.0     │ OK            │
+│ transformers │ [train]  │   5.22.2   │ >=5.16.1    │ OK            │
+│ peft         │ [train]  │   0.21.2   │ >=0.20.0    │ OK            │
+│ trl          │ [train]  │   0.29.1   │ >=0.29.0    │ OK            │
+│ datasets     │ [train]  │   5.2.0    │ >=2.14.0    │ OK            │
+│ bitsandbytes │ [train]  │   0.50.2   │ >=0.41.0    │ OK            │
+│ accelerate   │ [train]  │   1.15.0   │ >=0.27.0    │ OK            │
+└──────────────┴──────────┴────────────┴─────────────┴───────────────┘
+
+All checks passed! Your environment is ready.
+
+Config check - task=sft backend=transformers
+  None of the 0 setting(s) known to be unread on task=sft backend=transformers is switched on in this config.
+
+GitHub: https://github.com/MakazhanAlpamys/Soup

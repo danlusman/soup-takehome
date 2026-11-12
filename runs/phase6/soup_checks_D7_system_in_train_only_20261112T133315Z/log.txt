@@ -1,0 +1,13 @@
+2026-11-12T13:33:19.015+00:00 INFO run_dir=D:\soup\runs\phase6\soup_checks_D7_system_in_train_only_20261112T133315Z
+2026-11-12T13:33:19.015+00:00 INFO argv=D:\soup\scripts\soup_checks.py --config D:\soup\faults\D7_system_in_train_only\config.yaml --tag D7_system_in_train_only --phase phase6
+2026-11-12T13:33:19.428+00:00 INFO [data_doctor] D:\soup\.venv\Scripts\python.exe -m soup_cli data doctor faults/D7_system_in_train_only/trainval_soup.jsonl --model Qwen/Qwen2.5-0.5B-Instruct --max-length 512 --show-mask 2 -o D:\soup\runs\phase6\soup_checks_D7_system_in_train_only_20261112T133315Z\data_doctor_report.json
+2026-11-12T13:33:31.548+00:00 INFO [data_doctor] exit=0
+2026-11-12T13:33:31.549+00:00 INFO [doctor] D:\soup\.venv\Scripts\python.exe -m soup_cli doctor --config D:\soup\faults\D7_system_in_train_only\config.yaml
+2026-11-12T13:33:51.522+00:00 INFO [doctor] exit=0
+2026-11-12T13:33:51.522+00:00 INFO [plan] D:\soup\.venv\Scripts\python.exe -m soup_cli plan --config D:\soup\faults\D7_system_in_train_only\config.yaml --state D:\soup\runs\phase6\soup_checks_D7_system_in_train_only_20261112T133315Z\plan.tfstate
+2026-11-12T13:33:53.733+00:00 INFO [plan] exit=0
+2026-11-12T13:33:53.733+00:00 INFO [dry_run] D:\soup\.venv\Scripts\python.exe -m soup_cli train --config D:\soup\faults\D7_system_in_train_only\config.yaml --dry-run --yes
+2026-11-12T13:33:59.266+00:00 INFO [dry_run] exit=0
+2026-11-12T13:33:59.267+00:00 INFO [inspect_labels] D:\soup\.venv\Scripts\python.exe D:\soup\scripts\inspect_soup_labels.py --config D:\soup\faults\D7_system_in_train_only\config.yaml --phase phase6
+2026-11-12T13:34:11.684+00:00 INFO [inspect_labels] exit=0
+2026-11-12T13:34:11.692+00:00 INFO summary written: D:\soup\runs\phase6\soup_checks_D7_system_in_train_only_20261112T133315Z\summary.json

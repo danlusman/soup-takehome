@@ -1,0 +1,26 @@
+{
+  "task": {
+    "mode": "metric",
+    "base": 0.6587,
+    "tuned": 0.6587
+  },
+  "benchmarks": {
+    "mini_mmlu": {
+      "base": 0.5,
+      "tuned": 0.5
+    },
+    "mini_common_sense": {
+      "base": 0.5,
+      "tuned": 0.5
+    },
+    "mini_instruction": {
+      "base": 0.5,
+      "tuned": 0.5
+    },
+    "mini_arithmetic": {
+      "base": 0.5,
+      "tuned": 0.5
+    }
+  },
+  "_note": "leg-2 benchmarks are HYPOTHETICAL (equal); only leg 1 is measured"
+}

@@ -1,0 +1,410 @@
+{
+  "clean": {
+    "run": "runs\\phase6\\soup_checks_clean_20261112T132526Z",
+    "soup_data_doctor": {
+      "flagged": true,
+      "exit": 0,
+      "overall": "MINOR",
+      "new_non_ok": [
+        [
+          "generation_markers",
+          "MINOR"
+        ]
+      ]
+    },
+    "soup_doctor": {
+      "flagged": false,
+      "exit": 0
+    },
+    "soup_plan": {
+      "flagged": false,
+      "exit": 0
+    },
+    "soup_dry_run": {
+      "flagged": false,
+      "exit": 0
+    },
+    "ours_inspect_labels": {
+      "flagged": false,
+      "why": [],
+      "rates": {
+        "trained_equals_target_plus_im_end": 0.0,
+        "trained_equals_target_only": 0.0,
+        "im_end_trained": 1.0,
+        "role_prefix_in_loss": 1.0,
+        "render_matches_eval_template": 1.0,
+        "zero_trained_rows": 0.0
+      }
+    },
+    "ours_leak_check": {
+      "heldout_rows_in_train_file": 0,
+      "flagged": false
+    }
+  },
+  "D1_shuffled_labels": {
+    "description": "assistant answers permuted across rows",
+    "run": "runs\\phase6\\soup_checks_D1_shuffled_labels_20261112T132646Z",
+    "soup_data_doctor": {
+      "flagged": false,
+      "exit": 0,
+      "overall": "MINOR",
+      "new_non_ok": []
+    },
+    "soup_doctor": {
+      "flagged": false,
+      "exit": 0
+    },
+    "soup_plan": {
+      "flagged": false,
+      "exit": 0
+    },
+    "soup_dry_run": {
+      "flagged": false,
+      "exit": 0
+    },
+    "ours_inspect_labels": {
+      "flagged": false,
+      "why": [],
+      "rates": {
+        "trained_equals_target_plus_im_end": 0.0,
+        "trained_equals_target_only": 0.0,
+        "im_end_trained": 1.0,
+        "role_prefix_in_loss": 1.0,
+        "render_matches_eval_template": 1.0,
+        "zero_trained_rows": 0.0
+      }
+    },
+    "ours_leak_check": {
+      "heldout_rows_in_train_file": 0,
+      "flagged": false
+    }
+  },
+  "D2_heldout_leak": {
+    "description": "3 held-out rows copied into the training part",
+    "run": "runs\\phase6\\soup_checks_D2_heldout_leak_20261112T132803Z",
+    "soup_data_doctor": {
+      "flagged": false,
+      "exit": 0,
+      "overall": "MINOR",
+      "new_non_ok": []
+    },
+    "soup_doctor": {
+      "flagged": false,
+      "exit": 0
+    },
+    "soup_plan": {
+      "flagged": false,
+      "exit": 0
+    },
+    "soup_dry_run": {
+      "flagged": false,
+      "exit": 0
+    },
+    "ours_inspect_labels": {
+      "flagged": false,
+      "why": [],
+      "rates": {
+        "trained_equals_target_plus_im_end": 0.0,
+        "trained_equals_target_only": 0.0,
+        "im_end_trained": 1.0,
+        "role_prefix_in_loss": 1.0,
+        "render_matches_eval_template": 1.0,
+        "zero_trained_rows": 0.0
+      }
+    },
+    "ours_leak_check": {
+      "heldout_rows_in_train_file": 3,
+      "flagged": true
+    }
+  },
+  "D3_truncation_max_len_96": {
+    "description": "max_length 96 < every full sequence (121+ tokens)",
+    "run": "runs\\phase6\\soup_checks_D3_truncation_max_len_96_20261112T132914Z",
+    "soup_data_doctor": {
+      "flagged": true,
+      "exit": 2,
+      "overall": "MAJOR",
+      "new_non_ok": [
+        [
+          "truncation_risk",
+          "MAJOR"
+        ]
+      ]
+    },
+    "soup_doctor": {
+      "flagged": false,
+      "exit": 0
+    },
+    "soup_plan": {
+      "flagged": false,
+      "exit": 0
+    },
+    "soup_dry_run": {
+      "flagged": false,
+      "exit": 0
+    },
+    "ours_inspect_labels": {
+      "flagged": true,
+      "why": [
+        "render != eval template",
+        "<|im_end|> not trained",
+        "rows with zero trained tokens",
+        "trained span != target"
+      ],
+      "rates": {
+        "trained_equals_target_plus_im_end": 0.0,
+        "trained_equals_target_only": 0.0,
+        "im_end_trained": 0.0,
+        "role_prefix_in_loss": 0.0,
+        "render_matches_eval_template": 0.0,
+        "zero_trained_rows": 1.0
+      }
+    },
+    "ours_leak_check": {
+      "heldout_rows_in_train_file": 0,
+      "flagged": false
+    }
+  },
+  "D4_role_bot": {
+    "description": "assistant role renamed to 'bot'",
+    "run": "runs\\phase6\\soup_checks_D4_role_bot_20261112T133015Z",
+    "soup_data_doctor": {
+      "flagged": true,
+      "exit": 2,
+      "overall": "MAJOR",
+      "new_non_ok": [
+        [
+          "unknown_roles",
+          "MAJOR"
+        ]
+      ]
+    },
+    "soup_doctor": {
+      "flagged": false,
+      "exit": 0
+    },
+    "soup_plan": {
+      "flagged": false,
+      "exit": 0
+    },
+    "soup_dry_run": {
+      "flagged": false,
+      "exit": 0
+    },
+    "ours_inspect_labels": {
+      "flagged": true,
+      "why": [
+        "<|im_end|> not trained",
+        "rows with zero trained tokens",
+        "trained span != target"
+      ],
+      "rates": {
+        "trained_equals_target_plus_im_end": 0.0,
+        "trained_equals_target_only": 0.0,
+        "im_end_trained": 0.0,
+        "role_prefix_in_loss": 0.0,
+        "render_matches_eval_template": 1.0,
+        "zero_trained_rows": 1.0
+      }
+    },
+    "ours_leak_check": {
+      "heldout_rows_in_train_file": 0,
+      "flagged": false
+    }
+  },
+  "D5_empty_target": {
+    "description": "assistant content is the empty string",
+    "run": "runs\\phase6\\soup_checks_D5_empty_target_20261112T133113Z",
+    "soup_data_doctor": {
+      "flagged": false,
+      "exit": 0,
+      "overall": "MINOR",
+      "new_non_ok": []
+    },
+    "soup_doctor": {
+      "flagged": false,
+      "exit": 0
+    },
+    "soup_plan": {
+      "flagged": false,
+      "exit": 0
+    },
+    "soup_dry_run": {
+      "flagged": false,
+      "exit": 0
+    },
+    "ours_inspect_labels": {
+      "flagged": false,
+      "why": [],
+      "rates": {
+        "trained_equals_target_plus_im_end": 0.0,
+        "trained_equals_target_only": 0.0,
+        "im_end_trained": 1.0,
+        "role_prefix_in_loss": 1.0,
+        "render_matches_eval_template": 1.0,
+        "zero_trained_rows": 0.0
+      }
+    },
+    "ours_leak_check": {
+      "heldout_rows_in_train_file": 0,
+      "flagged": false
+    }
+  },
+  "D6_no_eos_template": {
+    "description": "data.chat_template override without <|im_end|> after assistant",
+    "run": "runs\\phase6\\soup_checks_D6_no_eos_template_20261112T133215Z",
+    "soup_data_doctor": {
+      "flagged": false,
+      "exit": 0,
+      "overall": "MINOR",
+      "new_non_ok": []
+    },
+    "soup_doctor": {
+      "flagged": false,
+      "exit": 0
+    },
+    "soup_plan": {
+      "flagged": false,
+      "exit": 0
+    },
+    "soup_dry_run": {
+      "flagged": false,
+      "exit": 0
+    },
+    "ours_inspect_labels": {
+      "flagged": true,
+      "why": [
+        "render != eval template",
+        "<|im_end|> not trained"
+      ],
+      "rates": {
+        "trained_equals_target_plus_im_end": 0.0,
+        "trained_equals_target_only": 0.0,
+        "im_end_trained": 0.0,
+        "role_prefix_in_loss": 1.0,
+        "render_matches_eval_template": 0.0,
+        "zero_trained_rows": 0.0
+      }
+    },
+    "ours_leak_check": {
+      "heldout_rows_in_train_file": 0,
+      "flagged": false
+    }
+  },
+  "D7_system_in_train_only": {
+    "description": "custom system message in every training row (eval has none)",
+    "run": "runs\\phase6\\soup_checks_D7_system_in_train_only_20261112T133315Z",
+    "soup_data_doctor": {
+      "flagged": false,
+      "exit": 0,
+      "overall": "MINOR",
+      "new_non_ok": []
+    },
+    "soup_doctor": {
+      "flagged": false,
+      "exit": 0
+    },
+    "soup_plan": {
+      "flagged": false,
+      "exit": 0
+    },
+    "soup_dry_run": {
+      "flagged": false,
+      "exit": 0
+    },
+    "ours_inspect_labels": {
+      "flagged": false,
+      "why": [],
+      "rates": {
+        "trained_equals_target_plus_im_end": 0.0,
+        "trained_equals_target_only": 0.0,
+        "im_end_trained": 1.0,
+        "role_prefix_in_loss": 1.0,
+        "render_matches_eval_template": 1.0,
+        "zero_trained_rows": 0.0
+      }
+    },
+    "ours_leak_check": {
+      "heldout_rows_in_train_file": 0,
+      "flagged": false
+    }
+  },
+  "T1_qwen25_alias": {
+    "description": "data.chat_template: qwen2.5 (Soup alias = ChatML without default system prompt)",
+    "run": "runs\\phase6\\soup_checks_T1_qwen25_alias_20261112T133412Z",
+    "soup_data_doctor": {
+      "flagged": false,
+      "exit": 0,
+      "overall": "MINOR",
+      "new_non_ok": []
+    },
+    "soup_doctor": {
+      "flagged": false,
+      "exit": 0
+    },
+    "soup_plan": {
+      "flagged": false,
+      "exit": 0
+    },
+    "soup_dry_run": {
+      "flagged": false,
+      "exit": 0
+    },
+    "ours_inspect_labels": {
+      "flagged": true,
+      "why": [
+        "render != eval template"
+      ],
+      "rates": {
+        "trained_equals_target_plus_im_end": 0.0,
+        "trained_equals_target_only": 0.0,
+        "im_end_trained": 1.0,
+        "role_prefix_in_loss": 1.0,
+        "render_matches_eval_template": 0.0,
+        "zero_trained_rows": 0.0
+      }
+    },
+    "ours_leak_check": {
+      "heldout_rows_in_train_file": 0,
+      "flagged": false
+    }
+  },
+  "C1_lr_1e-7": {
+    "description": "lr 2e-4 -> 1e-7 (the null control)",
+    "run": "runs\\phase6\\soup_checks_C1_lr_1e-7_20261112T133510Z",
+    "soup_data_doctor": {
+      "flagged": false,
+      "exit": 0,
+      "overall": "MINOR",
+      "new_non_ok": []
+    },
+    "soup_doctor": {
+      "flagged": false,
+      "exit": 0
+    },
+    "soup_plan": {
+      "flagged": false,
+      "exit": 0
+    },
+    "soup_dry_run": {
+      "flagged": false,
+      "exit": 0
+    },
+    "ours_inspect_labels": {
+      "flagged": false,
+      "why": [],
+      "rates": {
+        "trained_equals_target_plus_im_end": 0.0,
+        "trained_equals_target_only": 0.0,
+        "im_end_trained": 1.0,
+        "role_prefix_in_loss": 1.0,
+        "render_matches_eval_template": 1.0,
+        "zero_trained_rows": 0.0
+      }
+    },
+    "ours_leak_check": {
+      "heldout_rows_in_train_file": 0,
+      "flagged": false
+    }
+  }
+}

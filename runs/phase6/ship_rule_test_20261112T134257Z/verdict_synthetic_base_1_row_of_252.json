@@ -1,0 +1,44 @@
+{
+  "decision": "SHIP",
+  "task_win": {
+    "mode": "metric",
+    "base": 0.6587,
+    "tuned": 0.662668,
+    "won": true
+  },
+  "benchmark_deltas": [
+    {
+      "name": "mini_arithmetic",
+      "base": 0.5,
+      "tuned": 0.5,
+      "delta": 0.0,
+      "regressed": false
+    },
+    {
+      "name": "mini_common_sense",
+      "base": 0.5,
+      "tuned": 0.5,
+      "delta": 0.0,
+      "regressed": false
+    },
+    {
+      "name": "mini_instruction",
+      "base": 0.5,
+      "tuned": 0.5,
+      "delta": 0.0,
+      "regressed": false
+    },
+    {
+      "name": "mini_mmlu",
+      "base": 0.5,
+      "tuned": 0.5,
+      "delta": 0.0,
+      "regressed": false
+    }
+  ],
+  "failed_rule": null,
+  "forgetting_threshold": 0.05,
+  "soup_version": "0.77.2",
+  "noise_floor": null,
+  "numerics": null
+}

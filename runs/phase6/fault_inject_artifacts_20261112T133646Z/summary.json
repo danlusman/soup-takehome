@@ -1,0 +1,66 @@
+{
+  "finished_utc": "2026-11-12T13:39:37.670+00:00",
+  "M1": {
+    "soup_merge_exit": 0,
+    "trained_alpha": 32,
+    "edited_alpha": 16,
+    "verify_scale_used": 1.0,
+    "verify_consistency_resid_median": 0.18670451524932183,
+    "verify_frac_changed": 0.7617186717497997,
+    "verify_flags_it": false,
+    "telemetry_alpha": 32,
+    "telemetry_cross_check_flags_it": true
+  },
+  "Q2": {
+    "soup_merge_exit": 0,
+    "injected": "model.layers.0.mlp.down_proj.weight[0,0] = 1e5 (bf16)",
+    "verify_nonfinite_after_cast": 1,
+    "verify_flags_it": true,
+    "soup_merge_output_mentions_inf_or_overflow": true
+  },
+  "I1": {
+    "I1": [
+      {
+        "n_new_tokens": 15,
+        "hit_max_new_tokens": false,
+        "contains_im_end": true,
+        "text": "{\"тональность\": \"позитивный\"}<|im_end|>\n<|endoftext|>"
+      },
+      {
+        "n_new_tokens": 16,
+        "hit_max_new_tokens": false,
+        "contains_im_end": true,
+        "text": "{\"тональность\": \"негативный\"}<|im_end|>\n<|endoftext|>"
+      },
+      {
+        "n_new_tokens": 16,
+        "hit_max_new_tokens": false,
+        "contains_im_end": true,
+        "text": "{\"тональность\": \"негативный\"}<|im_end|>\n<|endoftext|>"
+      }
+    ],
+    "I2": [
+      {
+        "strict_valid": false,
+        "text": " раз.\n\nЯзык: русский\nТон: нейтральный\n\nДля проверки точности ответа, я добавлю дополн"
+      },
+      {
+        "strict_valid": false,
+        "text": " \n\nЯ не могу понять, почему она такая толстая. Может быть, это из-за того, что она была сделана"
+      },
+      {
+        "strict_valid": false,
+        "text": ". Странно, что в интернет-магазине они предлагают такую же модель, как у меня. Я не могу найти ни одного товар"
+      }
+    ],
+    "I1_summary": {
+      "rows": 3,
+      "ran_to_max_new_tokens": 0,
+      "our_eval_would_flag": false,
+      "why_ours_misses": "eval_task.eos_ids_for() always adds <|im_end|> to the stop set"
+    },
+    "I2_summary": {
+      "strict_valid_rate": 0.0
+    }
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "finished_utc": "2026-11-12T13:30:13.872+00:00",
+  "config": "D:\\soup\\faults\\D3_truncation_max_len_96\\config.yaml",
+  "n_rows": 12,
+  "chat_template_override": null,
+  "soup_template_sha256": "cd8e9439f0570856fd70470bf8889ebd8b5d1107207f67a5efb46e342330527f",
+  "eval_template_sha256": "cd8e9439f0570856fd70470bf8889ebd8b5d1107207f67a5efb46e342330527f",
+  "train_on_responses_only": true,
+  "train_on_eot": false,
+  "counts": {
+    "trained_equals_target_plus_im_end": 0,
+    "trained_equals_target_only": 0,
+    "im_end_trained": 0,
+    "role_prefix_in_loss": 0,
+    "render_matches_eval_template": 0,
+    "zero_trained_rows": 12
+  },
+  "rates": {
+    "trained_equals_target_plus_im_end": 0.0,
+    "trained_equals_target_only": 0.0,
+    "im_end_trained": 0.0,
+    "role_prefix_in_loss": 0.0,
+    "render_matches_eval_template": 0.0,
+    "zero_trained_rows": 1.0
+  },
+  "examples": [
+    {
+      "rendered_input": "<|im_start|>system\nYou are Qwen, created by Alibaba Cloud. You are a helpful assistant.<|im_end|>\n<|im_start|>user\nОпредели тональность отзыва покупателя о товаре.\nОтветь строго одной строкой JSON без пояснений и без markdown: {\"тональность\": \"<метка>\"}, где <метка> — одно из: \"негативный\", \"нейтральный\", \"позитивный\".\n\n",
+      "trained_text": ""
+    },
+    {
+      "rendered_input": "<|im_start|>system\nYou are Qwen, created by Alibaba Cloud. You are a helpful assistant.<|im_end|>\n<|im_start|>user\nОпредели тональность отзыва покупателя о товаре.\nОтветь строго одной строкой JSON без пояснений и без markdown: {\"тональность\": \"<метка>\"}, где <метка> — одно из: \"негативный\", \"нейтральный\", \"позитивный\".\n\n",
+      "trained_text": ""
+    },
+    {
+      "rendered_input": "<|im_start|>system\nYou are Qwen, created by Alibaba Cloud. You are a helpful assistant.<|im_end|>\n<|im_start|>user\nОпредели тональность отзыва покупателя о товаре.\nОтветь строго одной строкой JSON без пояснений и без markdown: {\"тональность\": \"<метка>\"}, где <метка> — одно из: \"негативный\", \"нейтральный\", \"позитивный\".\n\n",
+      "trained_text": ""
+    }
+  ]
+}

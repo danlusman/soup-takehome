@@ -1,0 +1,85 @@
+{
+  "finished_utc": "2026-11-12T13:36:06.910+00:00",
+  "faults": {
+    "clean": {
+      "soup_data_doctor": true,
+      "soup_doctor": false,
+      "soup_plan": false,
+      "soup_dry_run": false,
+      "ours_inspect_labels": false,
+      "ours_leak_check": false
+    },
+    "D1_shuffled_labels": {
+      "soup_data_doctor": false,
+      "soup_doctor": false,
+      "soup_plan": false,
+      "soup_dry_run": false,
+      "ours_inspect_labels": false,
+      "ours_leak_check": false
+    },
+    "D2_heldout_leak": {
+      "soup_data_doctor": false,
+      "soup_doctor": false,
+      "soup_plan": false,
+      "soup_dry_run": false,
+      "ours_inspect_labels": false,
+      "ours_leak_check": true
+    },
+    "D3_truncation_max_len_96": {
+      "soup_data_doctor": true,
+      "soup_doctor": false,
+      "soup_plan": false,
+      "soup_dry_run": false,
+      "ours_inspect_labels": true,
+      "ours_leak_check": false
+    },
+    "D4_role_bot": {
+      "soup_data_doctor": true,
+      "soup_doctor": false,
+      "soup_plan": false,
+      "soup_dry_run": false,
+      "ours_inspect_labels": true,
+      "ours_leak_check": false
+    },
+    "D5_empty_target": {
+      "soup_data_doctor": false,
+      "soup_doctor": false,
+      "soup_plan": false,
+      "soup_dry_run": false,
+      "ours_inspect_labels": false,
+      "ours_leak_check": false
+    },
+    "D6_no_eos_template": {
+      "soup_data_doctor": false,
+      "soup_doctor": false,
+      "soup_plan": false,
+      "soup_dry_run": false,
+      "ours_inspect_labels": true,
+      "ours_leak_check": false
+    },
+    "D7_system_in_train_only": {
+      "soup_data_doctor": false,
+      "soup_doctor": false,
+      "soup_plan": false,
+      "soup_dry_run": false,
+      "ours_inspect_labels": false,
+      "ours_leak_check": false
+    },
+    "T1_qwen25_alias": {
+      "soup_data_doctor": false,
+      "soup_doctor": false,
+      "soup_plan": false,
+      "soup_dry_run": false,
+      "ours_inspect_labels": true,
+      "ours_leak_check": false
+    },
+    "C1_lr_1e-7": {
+      "soup_data_doctor": false,
+      "soup_doctor": false,
+      "soup_plan": false,
+      "soup_dry_run": false,
+      "ours_inspect_labels": false,
+      "ours_leak_check": false
+    }
+  }
+}

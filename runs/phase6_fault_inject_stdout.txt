@@ -1,0 +1,32 @@
+2026-11-12T13:25:26.206+00:00 INFO run_dir=D:\soup\runs\phase6\fault_inject_20261112T132518Z
+2026-11-12T13:25:26.207+00:00 INFO argv=scripts/fault_inject.py --phase phase6
+2026-11-12T13:25:26.212+00:00 INFO == clean reference
+2026-11-12T13:25:26.213+00:00 INFO running D:\soup\.venv\Scripts\python.exe D:\soup\scripts\soup_checks.py --config D:\soup\configs\smoke_real.yaml --tag clean --phase phase6
+2026-11-12T13:26:45.759+00:00 INFO == D1_shuffled_labels: assistant answers permuted across rows
+2026-11-12T13:26:45.759+00:00 INFO running D:\soup\.venv\Scripts\python.exe D:\soup\scripts\soup_checks.py --config D:\soup\faults\D1_shuffled_labels\config.yaml --tag D1_shuffled_labels --phase phase6
+2026-11-12T13:28:03.211+00:00 INFO    {'soup_data_doctor': False, 'soup_doctor': False, 'soup_plan': False, 'soup_dry_run': False, 'ours_inspect_labels': False, 'ours_leak_check': False}
+2026-11-12T13:28:03.216+00:00 INFO == D2_heldout_leak: 3 held-out rows copied into the training part
+2026-11-12T13:28:03.216+00:00 INFO running D:\soup\.venv\Scripts\python.exe D:\soup\scripts\soup_checks.py --config D:\soup\faults\D2_heldout_leak\config.yaml --tag D2_heldout_leak --phase phase6
+2026-11-12T13:29:13.844+00:00 INFO    {'soup_data_doctor': False, 'soup_doctor': False, 'soup_plan': False, 'soup_dry_run': False, 'ours_inspect_labels': False, 'ours_leak_check': True}
+2026-11-12T13:29:13.851+00:00 INFO == D3_truncation_max_len_96: max_length 96 < every full sequence (121+ tokens)
+2026-11-12T13:29:13.851+00:00 INFO running D:\soup\.venv\Scripts\python.exe D:\soup\scripts\soup_checks.py --config D:\soup\faults\D3_truncation_max_len_96\config.yaml --tag D3_truncation_max_len_96 --phase phase6
+2026-11-12T13:30:15.066+00:00 INFO    {'soup_data_doctor': True, 'soup_doctor': False, 'soup_plan': False, 'soup_dry_run': False, 'ours_inspect_labels': True, 'ours_leak_check': False}
+2026-11-12T13:30:15.075+00:00 INFO == D4_role_bot: assistant role renamed to 'bot'
+2026-11-12T13:30:15.075+00:00 INFO running D:\soup\.venv\Scripts\python.exe D:\soup\scripts\soup_checks.py --config D:\soup\faults\D4_role_bot\config.yaml --tag D4_role_bot --phase phase6
+2026-11-12T13:31:13.126+00:00 INFO    {'soup_data_doctor': True, 'soup_doctor': False, 'soup_plan': False, 'soup_dry_run': False, 'ours_inspect_labels': True, 'ours_leak_check': False}
+2026-11-12T13:31:13.134+00:00 INFO == D5_empty_target: assistant content is the empty string
+2026-11-12T13:31:13.134+00:00 INFO running D:\soup\.venv\Scripts\python.exe D:\soup\scripts\soup_checks.py --config D:\soup\faults\D5_empty_target\config.yaml --tag D5_empty_target --phase phase6
+2026-11-12T13:32:15.455+00:00 INFO    {'soup_data_doctor': False, 'soup_doctor': False, 'soup_plan': False, 'soup_dry_run': False, 'ours_inspect_labels': False, 'ours_leak_check': False}
+2026-11-12T13:32:15.461+00:00 INFO == D6_no_eos_template: data.chat_template override without <|im_end|> after assistant
+2026-11-12T13:32:15.462+00:00 INFO running D:\soup\.venv\Scripts\python.exe D:\soup\scripts\soup_checks.py --config D:\soup\faults\D6_no_eos_template\config.yaml --tag D6_no_eos_template --phase phase6
+2026-11-12T13:33:15.158+00:00 INFO    {'soup_data_doctor': False, 'soup_doctor': False, 'soup_plan': False, 'soup_dry_run': False, 'ours_inspect_labels': True, 'ours_leak_check': False}
+2026-11-12T13:33:15.164+00:00 INFO == D7_system_in_train_only: custom system message in every training row (eval has none)
+2026-11-12T13:33:15.164+00:00 INFO running D:\soup\.venv\Scripts\python.exe D:\soup\scripts\soup_checks.py --config D:\soup\faults\D7_system_in_train_only\config.yaml --tag D7_system_in_train_only --phase phase6
+2026-11-12T13:34:12.140+00:00 INFO    {'soup_data_doctor': False, 'soup_doctor': False, 'soup_plan': False, 'soup_dry_run': False, 'ours_inspect_labels': False, 'ours_leak_check': False}
+2026-11-12T13:34:12.147+00:00 INFO == T1_qwen25_alias: data.chat_template: qwen2.5 (Soup alias = ChatML without default system prompt)
+2026-11-12T13:34:12.148+00:00 INFO running D:\soup\.venv\Scripts\python.exe D:\soup\scripts\soup_checks.py --config D:\soup\faults\T1_qwen25_alias\config.yaml --tag T1_qwen25_alias --phase phase6
+2026-11-12T13:35:09.787+00:00 INFO    {'soup_data_doctor': False, 'soup_doctor': False, 'soup_plan': False, 'soup_dry_run': False, 'ours_inspect_labels': True, 'ours_leak_check': False}
+2026-11-12T13:35:09.794+00:00 INFO == C1_lr_1e-7: lr 2e-4 -> 1e-7 (the null control)
+2026-11-12T13:35:09.794+00:00 INFO running D:\soup\.venv\Scripts\python.exe D:\soup\scripts\soup_checks.py --config D:\soup\faults\C1_lr_1e-7\config.yaml --tag C1_lr_1e-7 --phase phase6
+2026-11-12T13:36:06.898+00:00 INFO    {'soup_data_doctor': False, 'soup_doctor': False, 'soup_plan': False, 'soup_dry_run': False, 'ours_inspect_labels': False, 'ours_leak_check': False}
+2026-11-12T13:36:06.913+00:00 INFO summary written: D:\soup\runs\phase6\fault_inject_20261112T132518Z\summary.json

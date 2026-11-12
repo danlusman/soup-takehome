@@ -1,0 +1,11 @@
+2026-11-12T13:36:51.110+00:00 INFO run_dir=D:\soup\runs\phase6\fault_inject_artifacts_20261112T133646Z
+2026-11-12T13:36:51.110+00:00 INFO argv=scripts/fault_inject_artifacts.py --phase phase6
+2026-11-12T13:36:51.118+00:00 INFO == M1
+2026-11-12T13:37:59.904+00:00 INFO weights: frac_changed=0.7617 (predicted 0.7612) rel_dW_med=1.09e-03 consistency_med=0.187 zeroB=0 untouched_equal=122 differ=0
+2026-11-12T13:37:59.927+00:00 INFO M1 -> {"soup_merge_exit": 0, "trained_alpha": 32, "edited_alpha": 16, "verify_scale_used": 1.0, "verify_consistency_resid_median": 0.18670451524932183, "verify_frac_changed": 0.7617186717497997, "verify_flags_it": false, "telemetry_alpha": 32, "telemetry_cross_check_flags_it": true}
+2026-11-12T13:37:59.930+00:00 INFO == Q2
+2026-11-12T13:39:01.155+00:00 INFO weights: frac_changed=0.8726 (predicted 0.8723) rel_dW_med=2.18e-03 consistency_med=0.095 zeroB=0 untouched_equal=122 differ=0
+2026-11-12T13:39:01.162+00:00 INFO Q2 -> {"soup_merge_exit": 0, "injected": "model.layers.0.mlp.down_proj.weight[0,0] = 1e5 (bf16)", "verify_nonfinite_after_cast": 1, "verify_flags_it": true, "soup_merge_output_mentions_inf_or_overflow": true}
+2026-11-12T13:39:01.166+00:00 INFO == I1
+2026-11-12T13:39:37.668+00:00 INFO I1 -> {"I1": [{"n_new_tokens": 15, "hit_max_new_tokens": false, "contains_im_end": true, "text": "{\"тональность\": \"позитивный\"}<|im_end|>\n<|endoftext|>"}, {"n_new_tokens": 16, "hit_max_new_tokens": false, "contains_im_end": true, "text": "{\"тональность\": \"негативный\"}<|im_end|>\n<|endoftext|>"}, {"n_new_tokens": 16, "hit_max_new_tokens": false, "contains_im_end": true, "text": "{\"тональность\": \"негативный\"}<|im_end|>\n<|endoftext|>"}], "I2": [{"strict_valid": false, "text": " раз.\n\nЯзык: русский\nТон: нейтральный\n\nДля проверки точности ответа, я добавлю дополн"}, {"strict_valid": fa
+2026-11-12T13:39:37.673+00:00 INFO summary written: D:\soup\runs\phase6\fault_inject_artifacts_20261112T133646Z\summary.json

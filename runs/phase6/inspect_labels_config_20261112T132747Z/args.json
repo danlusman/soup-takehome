@@ -1,0 +1,8 @@
+{
+  "config": "D:\\soup\\faults\\D1_shuffled_labels\\config.yaml",
+  "limit": null,
+  "examples": 3,
+  "seed": 0,
+  "phase": "phase6",
+  "runs_root": null
+}

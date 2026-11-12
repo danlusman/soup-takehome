@@ -179,6 +179,39 @@ code("""
 sync()
 """)
 
+md("""
+## Phase 6 — what does `soup ship` actually evaluate? + is the NF4 collapse the method or the artifact?
+Run in a FRESH session: Phase 0 cells (clone, install, torchao uninstall) and `sync()` first; this cell then
+restores adapters + NF4 artifacts from Drive and re-creates the merged fp16 dirs (they were not kept in Drive).
+""")
+code("""
+!mkdir -p outputs runs/phase6 data/phase6
+!rsync -a {DRIVE_RUNS}/../outputs/ outputs/ --exclude 'checkpoint-*'
+!ls outputs outputs/nf4
+for R in ["real", "null_lr1e-7"]:
+    !soup merge --adapter outputs/{R} --output outputs/merged/{R} --dtype float16 > runs/phase6/remerge_{R}.txt 2>&1; echo "remerge {R} exit=$?"
+!python scripts/make_ship_tasks.py --data data/processed/heldout.jsonl --out data/phase6/ship_tasks.jsonl
+""")
+code("""
+# soup ship, live. Exit codes: 0 SHIP, 2 DON'T SHIP, 3 usage, 1 runtime. Keep every output.
+SHIP = [
+  ("real_adapter",   "--adapter outputs/real --noise-floor 2"),
+  ("real_nf4_tuned", "--tuned outputs/nf4/real"),     # can it even see the shipped 4-bit artifact?
+  ("null_adapter",   "--adapter outputs/null_lr1e-7"),
+  ("broken_adapter", "--adapter outputs/broken_template"),
+]
+for tag, extra in SHIP:
+    !soup ship --base Qwen/Qwen2.5-1.5B-Instruct {extra} --task-eval data/phase6/ship_tasks.jsonl --device cuda --output runs/phase6/ship_{tag}.json --emit-evidence runs/phase6/ship_{tag}_evidence.json > runs/phase6/ship_{tag}_stdout.txt 2>&1; echo "soup ship {tag} exit=$?"
+    !tail -25 runs/phase6/ship_{tag}_stdout.txt
+    sync()
+""")
+code("""
+!python scripts/nf4_study.py --model Qwen/Qwen2.5-1.5B-Instruct --artifact outputs/nf4/base --tag base 2>&1 | grep -E "acc=|Error"
+sync()
+!python scripts/nf4_study.py --model outputs/merged/real --artifact outputs/nf4/real --tag real 2>&1 | grep -E "acc=|Error"
+sync()
+""")
+
 nb = {"cells": cells, "metadata": {"accelerator": "GPU", "colab": {"gpuType": "T4"},
                                    "kernelspec": {"name": "python3", "display_name": "Python 3"}},
       "nbformat": 4, "nbformat_minor": 5}

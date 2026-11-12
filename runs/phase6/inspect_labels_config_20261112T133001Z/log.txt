@@ -1,0 +1,19 @@
+2026-11-12T13:30:05.457+00:00 INFO run_dir=D:\soup\runs\phase6\inspect_labels_config_20261112T133001Z
+2026-11-12T13:30:05.457+00:00 INFO argv=D:\soup\scripts\inspect_soup_labels.py --config D:\soup\faults\D3_truncation_max_len_96\config.yaml --phase phase6
+2026-11-12T13:30:13.752+00:00 INFO soup chat_template override=None ; template sha soup=cd8e9439f057 ref=cd8e9439f057
+2026-11-12T13:30:13.870+00:00 INFO trained_equals_target_plus_im_end    0 / 12
+2026-11-12T13:30:13.871+00:00 INFO trained_equals_target_only           0 / 12
+2026-11-12T13:30:13.871+00:00 INFO im_end_trained                       0 / 12
+2026-11-12T13:30:13.871+00:00 INFO role_prefix_in_loss                  0 / 12
+2026-11-12T13:30:13.871+00:00 INFO render_matches_eval_template         0 / 12
+2026-11-12T13:30:13.872+00:00 INFO zero_trained_rows                    12 / 12
+2026-11-12T13:30:13.872+00:00 INFO example rendered input:
+<|im_start|>system
+You are Qwen, created by Alibaba Cloud. You are a helpful assistant.<|im_end|>
+<|im_start|>user
+Определи тональность отзыва покупателя о товаре.
+Ответь строго одной строкой JSON без пояснений и без markdown: {"тональность": "<метка>"}, где <метка> — одно из: "негативный", "нейтральный", "позитивный".
+
+
+2026-11-12T13:30:13.872+00:00 INFO example trained span: ''
+2026-11-12T13:30:13.875+00:00 INFO summary written: D:\soup\runs\phase6\inspect_labels_config_20261112T133001Z\summary.json

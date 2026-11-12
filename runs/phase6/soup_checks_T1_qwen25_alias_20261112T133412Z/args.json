@@ -1,0 +1,8 @@
+{
+  "config": "D:\\soup\\faults\\T1_qwen25_alias\\config.yaml",
+  "skip": [],
+  "tag": "T1_qwen25_alias",
+  "seed": 0,
+  "phase": "phase6",
+  "runs_root": null
+}

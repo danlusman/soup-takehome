@@ -1,0 +1,22 @@
+2026-11-12T13:49:21.526+00:00 INFO run_dir=D:\soup\runs\phase6\inspect_labels_config_20261112T134917Z
+2026-11-12T13:49:21.527+00:00 INFO argv=D:\soup\scripts\inspect_soup_labels.py --config D:\soup\faults\D6_no_eos_template\config.yaml --phase phase6
+2026-11-12T13:49:31.352+00:00 INFO soup chat_template override="{% for message in messages %}<|im_start|>{{ message['role'] }}\n{{ message['content'] }}{% if message['role'] != 'assistant' %}<|im_end|>\n{% endif %}{% endfor %}{% if add_generation_prompt %}<|im_start|>assistant\n{% endif %}" ; template sha soup=896a45c10d38 ref=cd8e9439f057
+2026-11-12T13:49:31.495+00:00 INFO trained_equals_target_plus_im_end    0 / 12
+2026-11-12T13:49:31.495+00:00 INFO trained_equals_target_only           0 / 12
+2026-11-12T13:49:31.496+00:00 INFO im_end_trained                       0 / 12
+2026-11-12T13:49:31.496+00:00 INFO role_prefix_in_loss                  12 / 12
+2026-11-12T13:49:31.496+00:00 INFO render_matches_eval_template         0 / 12
+2026-11-12T13:49:31.497+00:00 INFO target_contract_valid                12 / 12
+2026-11-12T13:49:31.497+00:00 INFO render_matches_serving_prompt_builder 0 / 12
+2026-11-12T13:49:31.497+00:00 INFO zero_trained_rows                    0 / 12
+2026-11-12T13:49:31.497+00:00 INFO example rendered input:
+<|im_start|>user
+Определи тональность отзыва покупателя о товаре.
+Ответь строго одной строкой JSON без пояснений и без markdown: {"тональность": "<метка>"}, где <метка> — одно из: "негативный", "нейтральный", "позитивный".
+
+Отзыв:
+Никому не советую покупать это платье. только вместо половой тряпки.На мои параметры,86-66-96,РАЗМЕР М ОКАЗАЛСЯ ОЧЕНЬ,И ОЧЕНЬ МАЛ.Сильно маломерит.В описании,платье якобы до колена.На мой рост,160 см,оно намного выше колен.<|im_end|>
+<|im_start|>assistant
+{"тональность": "негативный"}
+2026-11-12T13:49:31.497+00:00 INFO example trained span: '<|im_start|>assistant\n{"тональность": "негативный"}'
+2026-11-12T13:49:31.501+00:00 INFO summary written: D:\soup\runs\phase6\inspect_labels_config_20261112T134917Z\summary.json

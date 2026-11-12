@@ -1,0 +1,32 @@
+$ D:\soup\.venv\Scripts\python.exe -m soup_cli data doctor faults/D3_truncation_max_len_96/trainval_soup.jsonl --model Qwen/Qwen2.5-0.5B-Instruct --max-length 96 --show-mask 2 -o D:\soup\runs\phase6\soup_checks_D3_truncation_max_len_96_20261112T134423Z\data_doctor_report.json
+# exit=2
+                                                                                        soup data doctor                                                                                        
+┌────────────────────┬─────────┬────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┬──────────────────┐
+│ Check              │ Verdict │ Message                                                                                                                                    │ Evidence         │
+├────────────────────┼─────────┼────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┼──────────────────┤
+│ chat_template      │ OK      │ tokenizer has a chat_template                                                                                                              │ 2507 chars       │
+│ template_render    │ OK      │ 0/12 rows failed to render through the chat template                                                                                       │                  │
+│ generation_markers │ MINOR   │ template lacks {% generation %} markers — assistant-only masking falls back to a heuristic that may include role-prefix tokens in the loss │                  │
+│ eos_in_labels      │ OK      │ no assistant turns to check                                                                                                                │                  │
+│ bos_duplication    │ OK      │ tokenizer has no bos_token_id                                                                                                              │                  │
+│ system_role        │ OK      │ no rows use a system message                                                                                                               │                  │
+│ unknown_roles      │ OK      │ 0/12 rows (0.0%) contain a message role outside ['assistant', 'function', 'system', 'tool', 'user']                                        │                  │
+│ truncation_risk    │ MAJOR   │ p95 length = 233 tokens vs max_length=96; 12/12 rows (100.0%) would be truncated                                                           │ p50=149, max=246 │
+└────────────────────┴─────────┴────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┴──────────────────┘
+┌───────── overall ──────────┐
+│ MAJOR — 12/12 rows scanned │
+└────────────────────────────┘
+Wrote D:\soup\runs\phase6\soup_checks_D3_truncation_max_len_96_20261112T134423Z\data_doctor_report.json
+┌────────────────────────────────────────────────────────────────────────────────────── row 0 (assistant_only) ───────────────────────────────────────────────────────────────────────────────────────┐
+│ <|im_start|>systemĊYouĠareĠQwen,ĠcreatedĠbyĠAlibabaĠCloud.ĠYouĠareĠaĠhelpfulĠassistant.<|im_end|>Ċ<|im_start|>userĊÐŀÐ¿ÑĢÐµÐ´ÐµÐ»Ð¸ĠÑĤÐ¾Ð½Ð°Ð»ÑĮÐ½Ð¾ÑģÑĤÑĮĠÐ¾ÑĤÐ·ÑĭÐ²Ð°ĠÐ¿Ð¾ÐºÑĥÐ¿Ð°ÑĤÐµÐ»ÑıĠÐ¾ĠÑĤÐ │
+│ ¾Ð²Ð°ÑĢÐµ.ĊÐŀÑĤÐ²ÐµÑĤÑĮĠÑģÑĤÑĢÐ¾Ð³Ð¾ĠÐ¾Ð´Ð½Ð¾Ð¹ĠÑģÑĤÑĢÐ¾ÐºÐ¾Ð¹ĠJSONĠÐ±ÐµÐ·ĠÐ¿Ð¾ÑıÑģÐ½ÐµÐ½Ð¸Ð¹ĠÐ¸ĠÐ±ÐµÐ·Ġmarkdown:Ġ{"ÑĤÐ¾Ð½Ð°Ð»ÑĮÐ½Ð¾ÑģÑĤÑĮ":Ġ"<Ð¼ÐµÑĤÐºÐ°>"},ĠÐ³Ð´ÐµĠ<Ð¼ÐµÑĤÐºÐ°>ĠâĢĶĠÐ¾Ð´Ð½Ð¾ĠÐ¸Ð· │
+│ :Ġ"Ð½ÐµÐ³Ð°ÑĤÐ¸Ð²Ð½ÑĭÐ¹",Ġ"Ð½ÐµÐ¹ÑĤÑĢÐ°Ð»ÑĮÐ½ÑĭÐ¹",Ġ"Ð¿Ð¾Ð·Ð¸ÑĤÐ¸Ð²Ð½ÑĭÐ¹".ĊĊ                                                                                                                       │
+└─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘
+┌────────────────────────────────────────────────────────────────────────────────────── row 1 (assistant_only) ───────────────────────────────────────────────────────────────────────────────────────┐
+│ <|im_start|>systemĊYouĠareĠQwen,ĠcreatedĠbyĠAlibabaĠCloud.ĠYouĠareĠaĠhelpfulĠassistant.<|im_end|>Ċ<|im_start|>userĊÐŀÐ¿ÑĢÐµÐ´ÐµÐ»Ð¸ĠÑĤÐ¾Ð½Ð°Ð»ÑĮÐ½Ð¾ÑģÑĤÑĮĠÐ¾ÑĤÐ·ÑĭÐ²Ð°ĠÐ¿Ð¾ÐºÑĥÐ¿Ð°ÑĤÐµÐ»ÑıĠÐ¾ĠÑĤÐ │
+│ ¾Ð²Ð°ÑĢÐµ.ĊÐŀÑĤÐ²ÐµÑĤÑĮĠÑģÑĤÑĢÐ¾Ð³Ð¾ĠÐ¾Ð´Ð½Ð¾Ð¹ĠÑģÑĤÑĢÐ¾ÐºÐ¾Ð¹ĠJSONĠÐ±ÐµÐ·ĠÐ¿Ð¾ÑıÑģÐ½ÐµÐ½Ð¸Ð¹ĠÐ¸ĠÐ±ÐµÐ·Ġmarkdown:Ġ{"ÑĤÐ¾Ð½Ð°Ð»ÑĮÐ½Ð¾ÑģÑĤÑĮ":Ġ"<Ð¼ÐµÑĤÐºÐ°>"},ĠÐ³Ð´ÐµĠ<Ð¼ÐµÑĤÐºÐ°>ĠâĢĶĠÐ¾Ð´Ð½Ð¾ĠÐ¸Ð· │
+│ :Ġ"Ð½ÐµÐ³Ð°ÑĤÐ¸Ð²Ð½ÑĭÐ¹",Ġ"Ð½ÐµÐ¹ÑĤÑĢÐ°Ð»ÑĮÐ½ÑĭÐ¹",Ġ"Ð¿Ð¾Ð·Ð¸ÑĤÐ¸Ð²Ð½ÑĭÐ¹".ĊĊ                                                                                                                       │
+└─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘
+
+--- stderr ---
+[transformers] return_assistant_tokens_mask==True but chat template does not contain `{% generation %}` keyword.

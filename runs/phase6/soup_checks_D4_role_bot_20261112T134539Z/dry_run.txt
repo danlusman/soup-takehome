@@ -1,0 +1,17 @@
+$ D:\soup\.venv\Scripts\python.exe -m soup_cli train --config D:\soup\faults\D4_role_bot\config.yaml --dry-run --yes
+# exit=0
+Loading config from D:\soup\faults\D4_role_bot\config.yaml...
+┌────────────────────────────────────────────────────────────────────────────────────────── Training Setup ───────────────────────────────────────────────────────────────────────────────────────────┐
+│ Device:  CPU (no GPU detected)                                                                                                                                                                      │
+│ Memory:  N/A (CPU mode)                                                                                                                                                                             │
+│ Model:   Qwen/Qwen2.5-0.5B-Instruct                                                                                                                                                                 │
+│ Task:    sft                                                                                                                                                                                        │
+│ Backend: transformers                                                                                                                                                                               │
+│ LoRA:    r=16, alpha=32                                                                                                                                                                             │
+│ Quant:   none                                                                                                                                                                                       │
+│ Seed:    42, data_seed=42                                                                                                                                                                           │
+└─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘
+Dry run - validating data...
+Data OK: 9 train samples
+Val: 3 samples
+Config valid. Ready to train!

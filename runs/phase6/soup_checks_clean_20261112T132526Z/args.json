@@ -1,0 +1,8 @@
+{
+  "config": "D:\\soup\\configs\\smoke_real.yaml",
+  "skip": [],
+  "tag": "clean",
+  "seed": 0,
+  "phase": "phase6",
+  "runs_root": null
+}

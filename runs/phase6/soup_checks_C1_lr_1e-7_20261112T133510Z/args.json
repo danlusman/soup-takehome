@@ -1,0 +1,8 @@
+{
+  "config": "D:\\soup\\faults\\C1_lr_1e-7\\config.yaml",
+  "skip": [],
+  "tag": "C1_lr_1e-7",
+  "seed": 0,
+  "phase": "phase6",
+  "runs_root": null
+}

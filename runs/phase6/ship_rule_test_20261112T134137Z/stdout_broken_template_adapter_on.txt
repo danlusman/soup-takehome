@@ -1,0 +1,3 @@
+Error: evidence has unsupported field(s): '_note'
+
+--- stderr ---

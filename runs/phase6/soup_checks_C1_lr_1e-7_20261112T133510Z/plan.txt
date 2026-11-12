@@ -1,0 +1,19 @@
+$ D:\soup\.venv\Scripts\python.exe -m soup_cli plan --config D:\soup\faults\C1_lr_1e-7\config.yaml --state D:\soup\runs\phase6\soup_checks_C1_lr_1e-7_20261112T133510Z\plan.tfstate
+# exit=0
+                     Training plan                      
+┌─────────────────────────┬────────────────────────────┐
+│ Field                   │ Value                      │
+├─────────────────────────┼────────────────────────────┤
+│ base                    │ Qwen/Qwen2.5-0.5B-Instruct │
+│ task                    │ sft                        │
+│ config_sha              │ 9101f6e9e821dec3...        │
+│ dataset_sha             │ da0dcc49fcf408c5...        │
+│ estimated_cost          │ $0.0500                    │
+│ estimated_minutes       │ 10.0                       │
+│ peak_vram_gb            │ 3.8                        │
+│ spot_price_usd_per_hour │ $0.30                      │
+└─────────────────────────┴────────────────────────────┘
+┌─────────────────────────────────────────────────────────────────────────────────────────────── plan ────────────────────────────────────────────────────────────────────────────────────────────────┐
+│ Plan written to D:\soup\runs\phase6\soup_checks_C1_lr_1e-7_20261112T133510Z\plan.tfstate.                                                                                                           │
+│ Review the numbers, then run `soup apply` to record the plan.                                                                                                                                       │
+└─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘

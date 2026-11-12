@@ -1,0 +1,37 @@
+{
+  "finished_utc": "2026-11-12T13:30:14.610+00:00",
+  "config": "D:\\soup\\faults\\D3_truncation_max_len_96\\config.yaml",
+  "base": "Qwen/Qwen2.5-0.5B-Instruct",
+  "train_file": "faults/D3_truncation_max_len_96/trainval_soup.jsonl",
+  "chat_template_override": null,
+  "checks": {
+    "data_doctor": {
+      "exit": 2,
+      "overall": "MAJOR",
+      "non_ok_checks": [
+        [
+          "generation_markers",
+          "MINOR"
+        ],
+        [
+          "truncation_risk",
+          "MAJOR"
+        ]
+      ]
+    },
+    "doctor": {
+      "exit": 0
+    },
+    "plan": {
+      "exit": 0,
+      "peak_vram_gb": 2.1
+    },
+    "dry_run": {
+      "exit": 0,
+      "says_ready": true
+    },
+    "inspect_labels": {
+      "exit": 0
+    }
+  }
+}

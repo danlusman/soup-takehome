@@ -1,0 +1,13 @@
+2026-11-12T13:41:50.788+00:00 INFO run_dir=D:\soup\runs\phase6\soup_checks_D1_shuffled_labels_20261112T134146Z
+2026-11-12T13:41:50.789+00:00 INFO argv=D:\soup\scripts\soup_checks.py --config D:\soup\faults\D1_shuffled_labels\config.yaml --tag D1_shuffled_labels --phase phase6
+2026-11-12T13:41:51.121+00:00 INFO [data_doctor] D:\soup\.venv\Scripts\python.exe -m soup_cli data doctor faults/D1_shuffled_labels/trainval_soup.jsonl --model Qwen/Qwen2.5-0.5B-Instruct --max-length 512 --show-mask 2 -o D:\soup\runs\phase6\soup_checks_D1_shuffled_labels_20261112T134146Z\data_doctor_report.json
+2026-11-12T13:42:07.751+00:00 INFO [data_doctor] exit=0
+2026-11-12T13:42:07.752+00:00 INFO [doctor] D:\soup\.venv\Scripts\python.exe -m soup_cli doctor --config D:\soup\faults\D1_shuffled_labels\config.yaml
+2026-11-12T13:42:36.714+00:00 INFO [doctor] exit=0
+2026-11-12T13:42:36.715+00:00 INFO [plan] D:\soup\.venv\Scripts\python.exe -m soup_cli plan --config D:\soup\faults\D1_shuffled_labels\config.yaml --state D:\soup\runs\phase6\soup_checks_D1_shuffled_labels_20261112T134146Z\plan.tfstate
+2026-11-12T13:42:39.790+00:00 INFO [plan] exit=0
+2026-11-12T13:42:39.791+00:00 INFO [dry_run] D:\soup\.venv\Scripts\python.exe -m soup_cli train --config D:\soup\faults\D1_shuffled_labels\config.yaml --dry-run --yes
+2026-11-12T13:42:47.042+00:00 INFO [dry_run] exit=0
+2026-11-12T13:42:47.043+00:00 INFO [inspect_labels] D:\soup\.venv\Scripts\python.exe D:\soup\scripts\inspect_soup_labels.py --config D:\soup\faults\D1_shuffled_labels\config.yaml --phase phase6
+2026-11-12T13:43:03.626+00:00 INFO [inspect_labels] exit=0
+2026-11-12T13:43:03.628+00:00 INFO summary written: D:\soup\runs\phase6\soup_checks_D1_shuffled_labels_20261112T134146Z\summary.json

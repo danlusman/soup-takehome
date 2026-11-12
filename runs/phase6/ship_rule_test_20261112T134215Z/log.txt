@@ -1,0 +1,9 @@
+2026-11-12T13:42:19.745+00:00 INFO run_dir=D:\soup\runs\phase6\ship_rule_test_20261112T134215Z
+2026-11-12T13:42:19.745+00:00 INFO argv=scripts/ship_rule_test.py
+2026-11-12T13:42:22.423+00:00 INFO real_nf4 (shipped artifact; our verdict DON'T SHIP)     base=0.6587 tuned=0.6984 -> SHIP
+2026-11-12T13:42:25.022+00:00 INFO real_adapter_on                                         base=0.6587 tuned=0.6944 -> SHIP
+2026-11-12T13:42:27.615+00:00 INFO broken_template_adapter_on                              base=0.6587 tuned=0.6984 -> SHIP
+2026-11-12T13:42:30.063+00:00 INFO null_merged (identical predictions to base)             base=0.6587 tuned=0.6587 -> DON'T SHIP
+2026-11-12T13:42:32.535+00:00 INFO null_nf4                                                base=0.6587 tuned=0.6310 -> DON'T SHIP
+2026-11-12T13:42:35.002+00:00 INFO synthetic: base + 1 row of 252                          base=0.6587 tuned=0.6627 -> exit 1
+2026-11-12T13:42:35.007+00:00 INFO summary written: D:\soup\runs\phase6\ship_rule_test_20261112T134215Z\summary.json

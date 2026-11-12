@@ -277,3 +277,17 @@ template leak per artifact, paired bootstrap (10,000 resamples, seed 0) on per-p
   S2 and S3 still fail, so the verdict doesn't depend on that choice.
 - Next step if continued: re-evaluate base vs NF4 on ≥1,500 of the 6,863 never-used held-out rows with thresholds
   registered first, and fix the 4-bit step until label agreement with fp16 is ≥95%.
+
+---
+# Phase 6 — silent failures
+
+## D-24 Fault injection on CPU (0.5B), plus T4 observations; no live `soup ship` on the 1.5B model
+- Engineer decision: no further T4 time; the report has priority. Data, template and config faults run through all four
+  Soup checks plus ours (`scripts/fault_inject.py`); merge, quantisation and inference faults through `soup merge`
+  plus verify.py (`scripts/fault_inject_artifacts.py`).
+- `soup ship`: what it loads, scores and decides was read from source, and its decision rule was exercised offline
+  with `--evidence` using our measured T4 accuracies. Leg 2 is a labelled hypothetical (equal scores). A full local
+  live run isn't feasible: the bundled general suite is 144+ prompts × 256 new tokens per model on CPU.
+- The NF4 study (`scripts/nf4_study.py`) and the live `soup ship` cells are written but not run.
+- Our label inspector missed 2 of 9 injected faults (v1). Two checks were added (answer-contract validity,
+  serving-prompt parity) and the whole matrix re-run (v2). Both runs are kept.

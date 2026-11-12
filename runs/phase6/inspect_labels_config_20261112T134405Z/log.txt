@@ -1,0 +1,25 @@
+2026-11-12T13:44:10.154+00:00 INFO run_dir=D:\soup\runs\phase6\inspect_labels_config_20261112T134405Z
+2026-11-12T13:44:10.154+00:00 INFO argv=D:\soup\scripts\inspect_soup_labels.py --config D:\soup\faults\D2_heldout_leak\config.yaml --phase phase6
+2026-11-12T13:44:21.176+00:00 INFO soup chat_template override=None ; template sha soup=cd8e9439f057 ref=cd8e9439f057
+2026-11-12T13:44:21.286+00:00 INFO trained_equals_target_plus_im_end    0 / 15
+2026-11-12T13:44:21.286+00:00 INFO trained_equals_target_only           0 / 15
+2026-11-12T13:44:21.286+00:00 INFO im_end_trained                       15 / 15
+2026-11-12T13:44:21.286+00:00 INFO role_prefix_in_loss                  15 / 15
+2026-11-12T13:44:21.286+00:00 INFO render_matches_eval_template         15 / 15
+2026-11-12T13:44:21.286+00:00 INFO target_contract_valid                15 / 15
+2026-11-12T13:44:21.286+00:00 INFO render_matches_serving_prompt_builder 15 / 15
+2026-11-12T13:44:21.286+00:00 INFO zero_trained_rows                    0 / 15
+2026-11-12T13:44:21.286+00:00 INFO example rendered input:
+<|im_start|>system
+You are Qwen, created by Alibaba Cloud. You are a helpful assistant.<|im_end|>
+<|im_start|>user
+Определи тональность отзыва покупателя о товаре.
+Ответь строго одной строкой JSON без пояснений и без markdown: {"тональность": "<метка>"}, где <метка> — одно из: "негативный", "нейтральный", "позитивный".
+
+Отзыв:
+Никому не советую покупать это платье. только вместо половой тряпки.На мои параметры,86-66-96,РАЗМЕР М ОКАЗАЛСЯ ОЧЕНЬ,И ОЧЕНЬ МАЛ.Сильно маломерит.В описании,платье якобы до колена.На мой рост,160 см,оно намного выше колен.<|im_end|>
+<|im_start|>assistant
+{"тональность": "негативный"}<|im_end|>
+
+2026-11-12T13:44:21.286+00:00 INFO example trained span: '<|im_start|>assistant\n{"тональность": "негативный"}<|im_end|>\n'
+2026-11-12T13:44:21.288+00:00 INFO summary written: D:\soup\runs\phase6\inspect_labels_config_20261112T134405Z\summary.json

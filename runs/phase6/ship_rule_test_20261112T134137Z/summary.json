@@ -1,0 +1,48 @@
+{
+  "finished_utc": "2026-11-12T13:41:55.217+00:00",
+  "cases": {
+    "real_nf4 (shipped artifact; our verdict DON'T SHIP)": {
+      "base": 0.6587,
+      "tuned": 0.6984,
+      "delta_pp": 3.97,
+      "soup_ship_exit": 3,
+      "soup_ship_verdict": "exit 3"
+    },
+    "real_adapter_on": {
+      "base": 0.6587,
+      "tuned": 0.6944,
+      "delta_pp": 3.57,
+      "soup_ship_exit": 3,
+      "soup_ship_verdict": "exit 3"
+    },
+    "broken_template_adapter_on": {
+      "base": 0.6587,
+      "tuned": 0.6984,
+      "delta_pp": 3.97,
+      "soup_ship_exit": 3,
+      "soup_ship_verdict": "exit 3"
+    },
+    "null_merged (identical predictions to base)": {
+      "base": 0.6587,
+      "tuned": 0.6587,
+      "delta_pp": 0.0,
+      "soup_ship_exit": 3,
+      "soup_ship_verdict": "exit 3"
+    },
+    "null_nf4": {
+      "base": 0.6587,
+      "tuned": 0.631,
+      "delta_pp": -2.77,
+      "soup_ship_exit": 3,
+      "soup_ship_verdict": "exit 3"
+    },
+    "synthetic: base + 1 row of 252": {
+      "base": 0.6587,
+      "tuned": 0.662668,
+      "delta_pp": 0.4,
+      "soup_ship_exit": 3,
+      "soup_ship_verdict": "exit 3"
+    }
+  },
+  "leg2": "hypothetical equal scores"
+}

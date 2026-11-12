@@ -1,0 +1,33 @@
+{
+  "finished_utc": "2026-11-12T13:28:02.573+00:00",
+  "config": "D:\\soup\\faults\\D1_shuffled_labels\\config.yaml",
+  "base": "Qwen/Qwen2.5-0.5B-Instruct",
+  "train_file": "faults/D1_shuffled_labels/trainval_soup.jsonl",
+  "chat_template_override": null,
+  "checks": {
+    "data_doctor": {
+      "exit": 0,
+      "overall": "MINOR",
+      "non_ok_checks": [
+        [
+          "generation_markers",
+          "MINOR"
+        ]
+      ]
+    },
+    "doctor": {
+      "exit": 0
+    },
+    "plan": {
+      "exit": 0,
+      "peak_vram_gb": 3.8
+    },
+    "dry_run": {
+      "exit": 0,
+      "says_ready": true
+    },
+    "inspect_labels": {
+      "exit": 0
+    }
+  }
+}
