@@ -1,0 +1,8 @@
+2026-11-12T09:07:58.247+00:00 INFO run_dir=D:\soup\runs\smoke\memtrace_soup_merge_real_20261112T090751Z
+2026-11-12T09:07:58.249+00:00 INFO argv=scripts/memtrace.py --phase smoke --tag soup_merge_real --disk-paths outputs_smoke/merged/real -- soup merge --adapter outputs_smoke/real --output outputs_smoke/merged/real --dtype float16
+2026-11-12T09:07:58.409+00:00 INFO nvidia-smi not found: GPU sampler disabled
+2026-11-12T09:07:58.452+00:00 INFO disk before {'outputs_smoke/merged/real': None} free=86.7 GiB
+2026-11-12T09:08:55.105+00:00 INFO phase command                (no CUDA) rss=1293942784 56.5s
+2026-11-12T09:08:55.114+00:00 INFO disk after {'outputs_smoke/merged/real': 999524308} free=85.8 GiB
+2026-11-12T09:08:55.171+00:00 INFO command exit code=0 peak nvidia-smi memory.used=None MiB
+2026-11-12T09:08:55.177+00:00 INFO summary written: D:\soup\runs\smoke\memtrace_soup_merge_real_20261112T090751Z\summary.json

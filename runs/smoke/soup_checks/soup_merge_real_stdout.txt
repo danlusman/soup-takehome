@@ -1,0 +1,31 @@
+2026-11-12T09:07:58.247+00:00 INFO run_dir=D:\soup\runs\smoke\memtrace_soup_merge_real_20261112T090751Z
+2026-11-12T09:07:58.249+00:00 INFO argv=scripts/memtrace.py --phase smoke --tag soup_merge_real --disk-paths outputs_smoke/merged/real -- soup merge --adapter outputs_smoke/real --output outputs_smoke/merged/real --dtype float16
+2026-11-12T09:07:58.409+00:00 INFO nvidia-smi not found: GPU sampler disabled
+2026-11-12T09:07:58.452+00:00 INFO disk before {'outputs_smoke/merged/real': None} free=86.7 GiB
+┌──────────────────────────────────────────────────────────────────────── Merge Plan ─────────────────────────────────────────────────────────────────────────┐
+│ Adapter: outputs_smoke\real                                                                                                                                 │
+│ Base:    Qwen/Qwen2.5-0.5B-Instruct                                                                                                                         │
+│ Output:  outputs_smoke\merged\real                                                                                                                          │
+│ Dtype:   float16                                                                                                                                            │
+└─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘
+Loading base model: Qwen/Qwen2.5-0.5B-Instruct...
+Base revision: 7ae557604adf67be50417f59c2c2f167def9a775 (recorded run)
+Loading weights:   0%|          | 0/290 [00:00<?, ?it/s]Loading weights:   2%|▏         | 5/290 [00:00<00:07, 35.87it/s]Loading weights:   9%|▊         | 25/290 [00:00<00:02, 117.86it/s]Loading weights:  13%|█▎        | 39/290 [00:00<00:02, 113.69it/s]Loading weights:  18%|█▊        | 52/290 [00:00<00:02, 118.36it/s]Loading weights:  22%|██▏       | 65/290 [00:00<00:02, 109.87it/s]Loading weights:  29%|██▉       | 84/290 [00:00<00:02, 89.97it/s] Loading weights:  34%|███▍      | 99/290 [00:01<00:02, 95.06it/s]Loading weights:  40%|████      | 117/290 [00:01<00:01, 113.25it/s]Loading weights:  46%|████▌     | 133/290 [00:01<00:01, 123.52it/s]Loading weights:  51%|█████     | 147/290 [00:01<00:01, 127.56it/s]Loading weights:  56%|█████▌    | 161/290 [00:01<00:01, 115.28it/s]Loading weights:  60%|██████    | 174/290 [00:01<00:01, 113.02it/s]Loading weights:  64%|██████▍   | 187/290 [00:01<00:00, 114.49it/s]Loading weights:  70%|██████▉   | 202/290 [00:01<00:00, 123.66it/s]Loading weights:  76%|███████▌  | 219/290 [00:01<00:00, 127.46it/s]Loading weights:  80%|████████  | 232/290 [00:02<00:00, 118.50it/s]Loading weights:  88%|████████▊ | 255/290 [00:02<00:00, 139.46it/s]Loading weights:  96%|█████████▌| 277/290 [00:02<00:00, 159.07it/s]Loading weights: 100%|██████████| 290/290 [00:02<00:00, 126.07it/s]
+Loading LoRA adapter: outputs_smoke\real...
+Merging weights...
+Saving merged model to outputs_smoke\merged\real...
+Writing model shards:   0%|          | 0/1 [00:00<?, ?it/s]Writing model shards: 100%|██████████| 1/1 [00:03<00:00,  3.10s/it]Writing model shards: 100%|██████████| 1/1 [00:03<00:00,  3.11s/it]
+Saving tokenizer...
+┌────────────────────────────────────────────────────────────────────── Merge Complete! ──────────────────────────────────────────────────────────────────────┐
+│ Output: outputs_smoke\merged\real                                                                                                                           │
+│ Size:   953.2 MB                                                                                                                                            │
+│                                                                                                                                                             │
+│ Next steps:                                                                                                                                                 │
+│   soup chat --model outputs_smoke\merged\real                                                                                                               │
+│   soup push --model outputs_smoke\merged\real --repo user/model                                                                                             │
+│   soup export --model outputs_smoke\merged\real --format gguf                                                                                               │
+└─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘
+2026-11-12T09:08:55.105+00:00 INFO phase command                (no CUDA) rss=1293942784 56.5s
+2026-11-12T09:08:55.114+00:00 INFO disk after {'outputs_smoke/merged/real': 999524308} free=85.8 GiB
+2026-11-12T09:08:55.171+00:00 INFO command exit code=0 peak nvidia-smi memory.used=None MiB
+2026-11-12T09:08:55.177+00:00 INFO summary written: D:\soup\runs\smoke\memtrace_soup_merge_real_20261112T090751Z\summary.json

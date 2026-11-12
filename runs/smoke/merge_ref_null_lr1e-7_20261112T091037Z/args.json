@@ -1,0 +1,9 @@
+{
+  "adapter": "outputs_smoke/null_lr1e-7",
+  "base": null,
+  "out": "outputs_smoke/merged_ref/null_lr1e-7",
+  "device": "cpu",
+  "seed": 0,
+  "phase": "smoke",
+  "runs_root": null
+}

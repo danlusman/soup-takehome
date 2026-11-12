@@ -1,0 +1,19 @@
+{
+  "finished_utc": "2026-11-12T09:08:55.172+00:00",
+  "command": [
+    "soup",
+    "merge",
+    "--adapter",
+    "outputs_smoke/real",
+    "--output",
+    "outputs_smoke/merged/real",
+    "--dtype",
+    "float16"
+  ],
+  "exit_code": 0,
+  "error": null,
+  "peak_nvidia_smi_used_MiB": null,
+  "final_torch": {
+    "cuda": false
+  }
+}

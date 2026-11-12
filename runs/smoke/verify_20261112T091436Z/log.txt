@@ -1,0 +1,4 @@
+2026-11-12T09:14:40.254+00:00 INFO run_dir=D:\soup\runs\smoke\verify_20261112T091436Z
+2026-11-12T09:14:40.254+00:00 INFO argv=scripts/verify.py --base Qwen/Qwen2.5-0.5B-Instruct --data data_smoke/processed/heldout.jsonl --adapter-dir outputs_smoke --merged-dir outputs_smoke/merged --merged-ref-dir outputs_smoke/merged_ref --nf4-dir outputs_smoke/nf4 --base-nf4 outputs_smoke/nf4/base --runs real null_lr1e-7 --ship-run real --allow-cpu-nf4 --bootstrap 2000 --gen-batch 9 --phase smoke
+2026-11-12T09:14:55.062+00:00 INFO rows=9 runs=['real', 'null_lr1e-7'] ship=real nulls=['null_lr1e-7'] nf4=True device=cpu
+2026-11-12T09:14:55.894+00:00 INFO == weights real

@@ -1,0 +1,9 @@
+2026-11-12T09:11:43.615+00:00 INFO run_dir=D:\soup\runs\smoke\quantize_real_20261112T091136Z
+2026-11-12T09:11:43.616+00:00 INFO argv=scripts/quantize.py --src outputs_smoke/merged/real --out outputs_smoke/nf4/real --phase smoke
+2026-11-12T09:11:43.770+00:00 INFO nvidia-smi not found: GPU sampler disabled
+2026-11-12T09:11:43.812+00:00 INFO disk before {'outputs_smoke\\merged\\real': 999524308} free=83.0 GiB
+2026-11-12T09:12:14.769+00:00 INFO phase merge_4bit_load_quantize_save (no CUDA) rss=270843904 30.9s
+2026-11-12T09:12:14.774+00:00 INFO disk after {'outputs_smoke\\merged\\real': 999524308, 'outputs_smoke\\nf4\\real': 468773797} free=82.6 GiB
+2026-11-12T09:12:16.439+00:00 INFO phase reload_check           (no CUDA) rss=464617472 1.6s
+2026-11-12T09:12:17.609+00:00 INFO Linear4bit modules after reload: 168; dir bytes 468773797
+2026-11-12T09:12:17.612+00:00 INFO summary written: D:\soup\runs\smoke\quantize_real_20261112T091136Z\summary.json

@@ -1,0 +1,10 @@
+2026-11-12T09:13:46.953+00:00 INFO run_dir=D:\soup\runs\smoke\quantize_base_20261112T091341Z
+2026-11-12T09:13:46.953+00:00 INFO argv=scripts/quantize.py --src-hub Qwen/Qwen2.5-0.5B-Instruct --src outputs_smoke/base_fp16 --out outputs_smoke/nf4/base --phase smoke
+2026-11-12T09:13:47.089+00:00 INFO nvidia-smi not found: GPU sampler disabled
+2026-11-12T09:13:51.260+00:00 INFO phase snapshot_base          (no CUDA) rss=226119680 4.0s
+2026-11-12T09:13:51.283+00:00 INFO disk before {'outputs_smoke\\base_fp16': 999588592} free=81.2 GiB
+2026-11-12T09:14:17.535+00:00 INFO phase merge_4bit_load_quantize_save (no CUDA) rss=382164992 26.1s
+2026-11-12T09:14:17.558+00:00 INFO disk after {'outputs_smoke\\base_fp16': 999588592, 'outputs_smoke\\nf4\\base': 468774085} free=80.8 GiB
+2026-11-12T09:14:19.549+00:00 INFO phase reload_check           (no CUDA) rss=574529536 1.9s
+2026-11-12T09:14:20.466+00:00 INFO Linear4bit modules after reload: 168; dir bytes 468774085
+2026-11-12T09:14:20.470+00:00 INFO summary written: D:\soup\runs\smoke\quantize_base_20261112T091341Z\summary.json

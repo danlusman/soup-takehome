@@ -1,0 +1,31 @@
+2026-11-12T09:09:58.432+00:00 INFO run_dir=D:\soup\runs\smoke\memtrace_soup_merge_null_lr1e-7_20261112T090951Z
+2026-11-12T09:09:58.433+00:00 INFO argv=scripts/memtrace.py --phase smoke --tag soup_merge_null_lr1e-7 --disk-paths outputs_smoke/merged/null_lr1e-7 -- soup merge --adapter outputs_smoke/null_lr1e-7 --output outputs_smoke/merged/null_lr1e-7 --dtype float16
+2026-11-12T09:09:58.529+00:00 INFO nvidia-smi not found: GPU sampler disabled
+2026-11-12T09:09:58.543+00:00 INFO disk before {'outputs_smoke/merged/null_lr1e-7': None} free=84.9 GiB
+┌──────────────────────────────────────────────────────────────────────── Merge Plan ─────────────────────────────────────────────────────────────────────────┐
+│ Adapter: outputs_smoke\null_lr1e-7                                                                                                                          │
+│ Base:    Qwen/Qwen2.5-0.5B-Instruct                                                                                                                         │
+│ Output:  outputs_smoke\merged\null_lr1e-7                                                                                                                   │
+│ Dtype:   float16                                                                                                                                            │
+└─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘
+Loading base model: Qwen/Qwen2.5-0.5B-Instruct...
+Base revision: 7ae557604adf67be50417f59c2c2f167def9a775 (recorded run)
+Loading weights:   0%|          | 0/290 [00:00<?, ?it/s]Loading weights:   0%|          | 1/290 [00:00<00:29,  9.67it/s]Loading weights:  11%|█         | 31/290 [00:00<00:01, 174.29it/s]Loading weights:  20%|██        | 59/290 [00:00<00:01, 201.62it/s]Loading weights:  29%|██▊       | 83/290 [00:00<00:00, 211.63it/s]Loading weights:  36%|███▌      | 105/290 [00:00<00:00, 213.24it/s]Loading weights:  46%|████▌     | 133/290 [00:00<00:00, 231.92it/s]Loading weights:  54%|█████▍    | 157/290 [00:00<00:00, 233.42it/s]Loading weights:  62%|██████▏   | 181/290 [00:00<00:00, 228.29it/s]Loading weights:  72%|███████▏  | 209/290 [00:00<00:00, 242.38it/s]Loading weights:  81%|████████  | 234/290 [00:01<00:00, 172.53it/s]Loading weights:  88%|████████▊ | 255/290 [00:01<00:00, 151.88it/s]Loading weights:  95%|█████████▍| 275/290 [00:01<00:00, 157.34it/s]Loading weights: 100%|██████████| 290/290 [00:01<00:00, 193.31it/s]
+Loading LoRA adapter: outputs_smoke\null_lr1e-7...
+Merging weights...
+Saving merged model to outputs_smoke\merged\null_lr1e-7...
+Writing model shards:   0%|          | 0/1 [00:00<?, ?it/s]Writing model shards: 100%|██████████| 1/1 [00:04<00:00,  4.71s/it]Writing model shards: 100%|██████████| 1/1 [00:04<00:00,  4.71s/it]
+Saving tokenizer...
+┌────────────────────────────────────────────────────────────────────── Merge Complete! ──────────────────────────────────────────────────────────────────────┐
+│ Output: outputs_smoke\merged\null_lr1e-7                                                                                                                    │
+│ Size:   953.2 MB                                                                                                                                            │
+│                                                                                                                                                             │
+│ Next steps:                                                                                                                                                 │
+│   soup chat --model outputs_smoke\merged\null_lr1e-7                                                                                                        │
+│   soup push --model outputs_smoke\merged\null_lr1e-7 --repo user/model                                                                                      │
+│   soup export --model outputs_smoke\merged\null_lr1e-7 --format gguf                                                                                        │
+└─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘
+2026-11-12T09:10:34.731+00:00 INFO phase command                (no CUDA) rss=1289740288 36.1s
+2026-11-12T09:10:34.735+00:00 INFO disk after {'outputs_smoke/merged/null_lr1e-7': 999524308} free=83.9 GiB
+2026-11-12T09:10:34.779+00:00 INFO command exit code=0 peak nvidia-smi memory.used=None MiB
+2026-11-12T09:10:34.784+00:00 INFO summary written: D:\soup\runs\smoke\memtrace_soup_merge_null_lr1e-7_20261112T090951Z\summary.json

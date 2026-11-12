@@ -40,4 +40,14 @@ redone (and how).
 | 18 | `inspect_soup_labels.py`: run Soup's formatter to see the real loss mask | pending | revealed role-prefix tokens in loss (D-16) |
 | 19 | Telemetry callback (scale, skipped steps, B norms) injected into Soup's Trainer | pending | CPU smoke run OK; fp16 scaler path untestable on CPU |
 
+## Phase 4–5 — merge, quantize, verify
+
+| # | AI suggestion | Engineer decision | Verification / changes |
+|---|---|---|---|
+| 20 | `soup merge` primary + plain-peft reference merge, diffed tensor-by-tensor (D-17) | pending | CPU smoke: both merges run; diff reported by verify.py |
+| 21 | NF4 via Soup's `merge_4bit` on the already-merged dir; GGUF rejected (D-18) | pending | CPU smoke: bnb 0.50 quantizes on CPU, 168 Linear4bit after reload (24 layers × 7) |
+| 22 | Pre-registered T0–T3 / S1–S7 thresholds, committed before any held-out result (D-20/21) | pending | commit d76ee50; S6 amended before results (D-21 amendment) |
+| 23 | verify.py weight test vs raw base tensors | **AI error, caught by smoke test** | base is bf16; compare against base cast to fp16 (D-22). Without the smoke run the null control would have passed T1 |
+| 24 | verify.py read safetensors lazily | **AI error** | segfault on Windows; fixed by clone inside safe_open |
+
 (Engineer: fill in the "decision" column yourself and add anything you re-did by hand.)

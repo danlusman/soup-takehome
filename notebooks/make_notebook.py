@@ -120,6 +120,7 @@ for cfg in ["real", "null_lr1e-7", "broken_template"]:
 sync()
 """)
 code("""
+!mkdir -p runs/phase3
 import shutil
 def train(cfg):
     out = f"runs/phase3/train_{cfg}_stdout.txt"
@@ -135,6 +136,44 @@ train("null_lr1e-7")
 """)
 code("""
 train("broken_template")   # optional (c)
+""")
+
+md("""
+## Phase 4 — merge (fp16) + quantize (NF4)
+`soup merge` is the primary merge (CPU, fp16), wrapped by memtrace (RAM / VRAM / disk sampled 1 s).
+`merge_ref.py` is an independent plain-peft merge with per-phase peaks; verify.py diffs the two.
+`quantize.py` writes NF4 with Soup's own `merge_4bit`, also for the BASE (noise floor).
+""")
+code("""
+RUNS = ["real", "null_lr1e-7", "broken_template"]
+!mkdir -p runs/phase4
+for R in RUNS:
+    !python scripts/memtrace.py --phase phase4 --tag soup_merge_{R} --disk-paths outputs/merged/{R} -- soup merge --adapter outputs/{R} --output outputs/merged/{R} --dtype float16 > runs/phase4/soup_merge_{R}_stdout.txt 2>&1; echo "soup merge {R} exit=$?"
+    !python scripts/merge_ref.py --adapter outputs/{R} --out outputs/merged_ref/{R} --device cpu 2>&1 | grep -E "phase |WARN|Error"
+    sync()
+# GPU merge peak, measured once (real run only)
+!python scripts/merge_ref.py --adapter outputs/real --out outputs/merged_ref_gpu/real --device cuda 2>&1 | grep -E "phase |Error"
+sync()
+""")
+code("""
+!python scripts/quantize.py --src-hub Qwen/Qwen2.5-1.5B-Instruct --src outputs/base_fp16 --out outputs/nf4/base 2>&1 | grep -E "phase |Linear4bit|Error"
+for R in RUNS:
+    !python scripts/quantize.py --src outputs/merged/{R} --out outputs/nf4/{R} 2>&1 | grep -E "phase |Linear4bit|Error"
+    sync()
+!df -h /content > runs/phase4/df_after.txt; du -sh outputs/* outputs/*/* >> runs/phase4/df_after.txt; cat runs/phase4/df_after.txt
+!mkdir -p {DRIVE_RUNS}/../outputs/nf4 && rsync -a outputs/nf4/ {DRIVE_RUNS}/../outputs/nf4/
+sync()
+""")
+md("""
+## Phase 5 — verification (criteria were pre-registered in DECISIONS.md D-20/D-21 before this runs)
+`broken_template` is reported alongside but is NOT a null control (`--null-runs null_lr1e-7`).
+""")
+code("""
+!mkdir -p runs/phase5
+!python scripts/verify.py --runs real null_lr1e-7 broken_template --ship-run real --null-runs null_lr1e-7 > runs/phase5/verify_stdout.txt 2>&1; echo "exit=$?"
+!grep -E "trained-ness|SHIP criteria|weights:|KL " runs/phase5/verify_stdout.txt | cut -c1-250
+!cat $(ls -d runs/phase5/verify_*/ | tail -1)report.md
+sync()
 """)
 
 nb = {"cells": cells, "metadata": {"accelerator": "GPU", "colab": {"gpuType": "T4"},

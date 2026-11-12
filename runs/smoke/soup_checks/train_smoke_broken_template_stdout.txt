@@ -38,3 +38,54 @@ Training started!
 [transformers] The tokenizer has new PAD/BOS/EOS tokens that differ from the model config and generation config. The model config and generation config were aligned accordingly, being updated with the tokenizer's values. Updated tokens: {'pad_token_id': 151643}.
   0%|          | 0/5 [00:00<?, ?it/s]D:\soup\.venv\Lib\site-packages\torch\utils\data\dataloader.py:759: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
   super().__init__(loader)
+ 20%|██        | 1/5 [01:17<05:10, 77.61s/it]                                              20%|██        | 1/5 [01:17<05:10, 77.61s/it] 40%|████      | 2/5 [02:04<02:59, 59.69s/it]                                              40%|████      | 2/5 [02:04<02:59, 59.69s/it]{'loss': '2.16', 'grad_norm': '37.34', 'learning_rate': '0', 'entropy': '2.219', 'num_tokens': '340', 'mean_token_accuracy': '0.8182', 'epoch': '0.2'}
+{'loss': '2.118', 'grad_norm': '46.39', 'learning_rate': '0.0002', 'entropy': '1.922', 'num_tokens': '579', 'mean_token_accuracy': '0.7647', 'epoch': '0.4'}
+
+  0%|          | 0/2 [00:00<?, ?it/s][A
+100%|██████████| 2/2 [00:05<00:00,  2.74s/it][A                                             
+                                             [A 40%|████      | 2/5 [02:28<02:59, 59.69s/it]
+100%|██████████| 2/2 [00:05<00:00,  2.74s/it][A
+                                             [A 60%|██████    | 3/5 [02:49<01:46, 53.07s/it]                                              60%|██████    | 3/5 [02:49<01:46, 53.07s/it] 80%|████████  | 4/5 [03:57<00:58, 58.87s/it]                                              80%|████████  | 4/5 [03:57<00:58, 58.87s/it]{'eval_loss': '1.018', 'eval_runtime': '23.52', 'eval_samples_per_second': '0.128', 'eval_steps_per_second': '0.085', 'eval_entropy': '1.941', 'eval_num_tokens': '579', 'eval_mean_token_accuracy': '0.8661', 'epoch': '0.4'}
+{'loss': '1.001', 'grad_norm': '23.71', 'learning_rate': '0.0001707', 'entropy': '1.719', 'num_tokens': '808', 'mean_token_accuracy': '0.8571', 'epoch': '0.6'}
+{'loss': '0.4767', 'grad_norm': '30.63', 'learning_rate': '0.0001', 'entropy': '2.297', 'num_tokens': '1151', 'mean_token_accuracy': '0.8857', 'epoch': '0.8'}
+
+  0%|          | 0/2 [00:00<?, ?it/s][A
+100%|██████████| 2/2 [00:05<00:00,  2.87s/it][A                                             
+                                             [A 80%|████████  | 4/5 [04:18<00:58, 58.87s/it]
+100%|██████████| 2/2 [00:05<00:00,  2.87s/it][A
+                                             [AWarning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+100%|██████████| 5/5 [04:47<00:00, 55.67s/it]                                             100%|██████████| 5/5 [04:47<00:00, 55.67s/it]D:\soup\.venv\Lib\site-packages\torch\utils\data\dataloader.py:759: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  super().__init__(loader)
+{'eval_loss': '0.3649', 'eval_runtime': '20.67', 'eval_samples_per_second': '0.145', 'eval_steps_per_second': '0.097', 'eval_entropy': '1.91', 'eval_num_tokens': '1151', 'eval_mean_token_accuracy': '0.9259', 'epoch': '0.8'}
+{'loss': '0.3595', 'grad_norm': '14.01', 'learning_rate': '2.929e-05', 'entropy': '2', 'num_tokens': '1298', 'mean_token_accuracy': '0.9375', 'epoch': '1'}
+
+  0%|          | 0/2 [00:00<?, ?it/s][A
+100%|██████████| 2/2 [00:05<00:00,  2.65s/it][A                                             
+                                             [A100%|██████████| 5/5 [05:09<00:00, 55.67s/it]
+100%|██████████| 2/2 [00:05<00:00,  2.65s/it][A
+                                             [A                                             100%|██████████| 5/5 [05:11<00:00, 55.67s/it]100%|██████████| 5/5 [05:11<00:00, 62.36s/it]
+{'eval_loss': '0.3736', 'eval_runtime': '22.1', 'eval_samples_per_second': '0.136', 'eval_steps_per_second': '0.09', 'eval_entropy': '1.922', 'eval_num_tokens': '1298', 'eval_mean_token_accuracy': '0.8973', 'epoch': '1'}
+{'train_runtime': '311.8', 'train_samples_per_second': '0.029', 'train_steps_per_second': '0.016', 'train_loss': '1.223', 'epoch': '1'}
+┌───────────────────────────────────────────────────────── Soup Training: Qwen/Qwen2.5-0.5B-Instruct ─────────────────────────────────────────────────────────┐
+│ Epoch 1.0/1   100%                                                                                                                                          │
+│ Step:  5/5                                                                                                                                                  │
+│ Loss:  0.3595    LR: 2.93e-05                                                                                                                               │
+│ Val loss: 0.3736                                                                                                                                            │
+│ Speed: 0.02 it/s                                                                                                                                            │
+│ Grad:  14.0064                                                                                                                                              │
+└─────────────────────────────────────────────────────────────────── CPU (no GPU detected) ───────────────────────────────────────────────────────────────────┘┌──────────────────────────────────────────────────────────────────── Training Complete! ─────────────────────────────────────────────────────────────────────┐
+│ Loss: 2.1595 -> 0.3595                                                                                                                                      │
+│ Duration: 5m                                                                                                                                                │
+│ Output: outputs_smoke\broken_template                                                                                                                       │
+│ Run ID: run_20261112_140127_fdd3b9d5                                                                                                                        │
+│                                                                                                                                                             │
+│ Quick test:  soup chat --model outputs_smoke\broken_template                                                                                                │
+│ Push to HF:  soup push --model outputs_smoke\broken_template                                                                                                │
+│ Merge LoRA:  soup merge --adapter outputs_smoke\broken_template                                                                                             │
+│ Export GGUF: soup export --model outputs_smoke\broken_template                                                                                              │
+│ Run details: soup runs show run_20261112_140127_fdd3b9d5                                                                                                    │
+└─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘
+2026-11-12T09:07:19.635+00:00 INFO phase command                (no CUDA) rss=1020850176 374.5s
+2026-11-12T09:07:19.674+00:00 INFO disk after {'outputs_smoke/broken_template': 281368582} free=86.7 GiB
+2026-11-12T09:07:19.724+00:00 INFO command exit code=0 peak nvidia-smi memory.used=None MiB
+2026-11-12T09:07:19.727+00:00 INFO summary written: D:\soup\runs\smoke\memtrace_train_smoke_broken_template_20261112T090058Z\summary.json

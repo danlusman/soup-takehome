@@ -1,0 +1,16 @@
+{
+  "phase": "smoke",
+  "tag": "train_smoke_broken_template",
+  "step_every": 10,
+  "disk_paths": [
+    "outputs_smoke/broken_template"
+  ],
+  "runs_root": null,
+  "command": [
+    "soup",
+    "train",
+    "--config",
+    "configs/smoke_broken_template.yaml",
+    "--yes"
+  ]
+}

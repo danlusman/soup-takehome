@@ -1,0 +1,8 @@
+2026-11-12T09:01:04.819+00:00 INFO run_dir=D:\soup\runs\smoke\memtrace_train_smoke_broken_template_20261112T090058Z
+2026-11-12T09:01:04.820+00:00 INFO argv=scripts/memtrace.py --phase smoke --tag train_smoke_broken_template --disk-paths outputs_smoke/broken_template -- soup train --config configs/smoke_broken_template.yaml --yes
+2026-11-12T09:01:04.883+00:00 INFO nvidia-smi not found: GPU sampler disabled
+2026-11-12T09:01:04.935+00:00 INFO disk before {'outputs_smoke/broken_template': None} free=87.0 GiB
+2026-11-12T09:07:19.635+00:00 INFO phase command                (no CUDA) rss=1020850176 374.5s
+2026-11-12T09:07:19.674+00:00 INFO disk after {'outputs_smoke/broken_template': 281368582} free=86.7 GiB
+2026-11-12T09:07:19.724+00:00 INFO command exit code=0 peak nvidia-smi memory.used=None MiB
+2026-11-12T09:07:19.727+00:00 INFO summary written: D:\soup\runs\smoke\memtrace_train_smoke_broken_template_20261112T090058Z\summary.json

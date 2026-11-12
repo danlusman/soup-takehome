@@ -1,0 +1,9 @@
+{
+  "adapter": "outputs_smoke/real",
+  "base": null,
+  "out": "outputs_smoke/merged_ref/real",
+  "device": "cpu",
+  "seed": 0,
+  "phase": "smoke",
+  "runs_root": null
+}

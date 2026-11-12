@@ -1,0 +1,4 @@
+{"phase": "disk:before", "utc": "2026-11-12T09:12:42.844+00:00", "sizes_bytes": {"outputs_smoke\\merged\\null_lr1e-7": 999524308}, "disk_used": 21674885120, "disk_free": 88665714688}
+{"phase": "merge_4bit_load_quantize_save", "utc_begin": "2026-11-12T09:12:42.925+00:00", "utc_end": "2026-11-12T09:13:32.366+00:00", "wall_s": 49.433, "torch_before": {"cuda": false}, "torch_after": {"cuda": false}, "rss_before": 209567744, "rss_after": 534761472}
+{"phase": "disk:after", "utc": "2026-11-12T09:13:32.523+00:00", "sizes_bytes": {"outputs_smoke\\merged\\null_lr1e-7": 999524308, "outputs_smoke\\nf4\\null_lr1e-7": 468773788}, "disk_used": 22143676416, "disk_free": 88196923392}
+{"phase": "reload_check", "utc_begin": "2026-11-12T09:13:32.626+00:00", "utc_end": "2026-11-12T09:13:35.400+00:00", "wall_s": 2.774, "torch_before": {"cuda": false}, "torch_after": {"cuda": false}, "rss_before": 534786048, "rss_after": 718823424}

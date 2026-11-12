@@ -248,3 +248,21 @@ template leak per artifact, paired bootstrap (10,000 resamples, seed 0) on per-p
 - Any failure → DON'T SHIP, and the report states which criterion failed and what must change first.
 - Thresholds are fixed now (commit timestamp is the evidence). If a threshold later looks wrong, the
   original verdict is still reported next to any revised one, with the reason.
+
+### D-21 amendment (made BEFORE any held-out result; see commit time)
+- S6 originally said "tokenizer files identical (sha256)". transformers 5 re-serialises tokenizer files on
+  save (and moves the template to chat_template.jinja), so byte equality would fail for a correct artifact.
+  S6 now requires: chat template string equal, rendered prompt equal, tokenizer functionally equivalent
+  (same vocab, same special tokens, same ids on probe strings), generation_config present, and identical
+  greedy outputs when the same in-memory artifact is run twice ("rerun determinism", not a disk reload).
+  File sha256 equality is still reported, for information only.
+
+## D-22 The "fp16 base" is a bf16 checkpoint cast to fp16 (found during the verify.py smoke test)
+- Qwen2.5 safetensors are **bf16** (`torch_dtype: bfloat16` in config.json; confirmed by reading tensors).
+  `soup merge --dtype float16` and our merge_ref load it as fp16, i.e. bf16 → fp16 cast first, then merge.
+- My first verify.py compared merged fp16 tensors against the raw bf16 tensors, which would have counted
+  ~every element as "changed" and let the null control pass T1. Caught on CPU smoke, fixed: the reference is
+  base cast to the merged dtype. verify.py now also reports how many elements the bf16→fp16 cast changes
+  and how many overflow to inf (fp16 max 65504) — a silent-failure candidate for Phase 6.
+- Also found: safetensors `get_tensor` outside the `safe_open` context segfaults on Windows (mmap closed);
+  verify.py clones inside the context.

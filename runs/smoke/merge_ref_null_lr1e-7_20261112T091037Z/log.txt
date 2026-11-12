@@ -1,0 +1,10 @@
+2026-11-12T09:10:44.678+00:00 INFO run_dir=D:\soup\runs\smoke\merge_ref_null_lr1e-7_20261112T091037Z
+2026-11-12T09:10:44.678+00:00 INFO argv=scripts/merge_ref.py --adapter outputs_smoke/null_lr1e-7 --out outputs_smoke/merged_ref/null_lr1e-7 --phase smoke
+2026-11-12T09:11:06.806+00:00 INFO nvidia-smi not found: GPU sampler disabled
+2026-11-12T09:11:10.022+00:00 INFO phase load_base_fp16         (no CUDA) rss=1183965184 3.1s
+2026-11-12T09:11:10.865+00:00 INFO phase load_adapter           (no CUDA) rss=1231949824 0.8s
+2026-11-12T09:11:11.743+00:00 INFO phase merge_and_unload       (no CUDA) rss=1262608384 0.8s
+2026-11-12T09:11:13.764+00:00 INFO phase save_merged            (no CUDA) rss=1264758784 2.0s
+2026-11-12T09:11:16.537+00:00 INFO phase copy_tokenizer_template_genconfig_from_base (no CUDA) rss=1240498176 2.6s
+2026-11-12T09:11:16.548+00:00 INFO disk after_save {'outputs_smoke\\merged_ref\\null_lr1e-7': 999524309} free=83.0 GiB
+2026-11-12T09:11:21.060+00:00 INFO summary written: D:\soup\runs\smoke\merge_ref_null_lr1e-7_20261112T091037Z\summary.json

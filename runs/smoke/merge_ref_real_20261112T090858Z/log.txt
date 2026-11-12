@@ -1,0 +1,10 @@
+2026-11-12T09:09:03.750+00:00 INFO run_dir=D:\soup\runs\smoke\merge_ref_real_20261112T090858Z
+2026-11-12T09:09:03.751+00:00 INFO argv=scripts/merge_ref.py --adapter outputs_smoke/real --out outputs_smoke/merged_ref/real --phase smoke
+2026-11-12T09:09:23.456+00:00 INFO nvidia-smi not found: GPU sampler disabled
+2026-11-12T09:09:29.614+00:00 INFO phase load_base_fp16         (no CUDA) rss=515940352 6.0s
+2026-11-12T09:09:30.907+00:00 INFO phase load_adapter           (no CUDA) rss=484028416 1.2s
+2026-11-12T09:09:32.590+00:00 INFO phase merge_and_unload       (no CUDA) rss=809541632 1.6s
+2026-11-12T09:09:40.523+00:00 INFO phase save_merged            (no CUDA) rss=755208192 7.9s
+2026-11-12T09:09:42.932+00:00 INFO phase copy_tokenizer_template_genconfig_from_base (no CUDA) rss=758640640 2.3s
+2026-11-12T09:09:42.942+00:00 INFO disk after_save {'outputs_smoke\\merged_ref\\real': 999524309} free=84.9 GiB
+2026-11-12T09:09:48.731+00:00 INFO summary written: D:\soup\runs\smoke\merge_ref_real_20261112T090858Z\summary.json

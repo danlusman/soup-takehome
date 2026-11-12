@@ -1,0 +1,8 @@
+{"phase": "disk:before", "utc": "2026-11-12T09:01:04.935+00:00", "sizes_bytes": {"outputs_smoke/broken_template": null}, "disk_used": 16924676096, "disk_free": 93415923712}
+{"phase": "trainer:train_begin", "utc": "2026-11-12T09:02:05.352+00:00"}
+{"phase": "trainer:step_end", "utc": "2026-11-12T09:03:22.950+00:00", "step": 1}
+{"phase": "trainer:step_end", "utc": "2026-11-12T09:04:10.069+00:00", "step": 2}
+{"phase": "trainer:step_end", "utc": "2026-11-12T09:04:55.269+00:00", "step": 3}
+{"phase": "trainer:train_end", "utc": "2026-11-12T09:07:17.135+00:00"}
+{"phase": "command", "utc_begin": "2026-11-12T09:01:04.986+00:00", "utc_end": "2026-11-12T09:07:19.551+00:00", "wall_s": 374.505, "torch_before": {"cuda": false}, "torch_after": {"cuda": false}, "rss_before": 207929344, "rss_after": 1020850176, "command": ["soup", "train", "--config", "configs/smoke_broken_template.yaml", "--yes"]}
+{"phase": "disk:after", "utc": "2026-11-12T09:07:19.674+00:00", "sizes_bytes": {"outputs_smoke/broken_template": 281368582}, "disk_used": 17206849536, "disk_free": 93133750272}

@@ -1,0 +1,8 @@
+2026-11-12T09:09:58.432+00:00 INFO run_dir=D:\soup\runs\smoke\memtrace_soup_merge_null_lr1e-7_20261112T090951Z
+2026-11-12T09:09:58.433+00:00 INFO argv=scripts/memtrace.py --phase smoke --tag soup_merge_null_lr1e-7 --disk-paths outputs_smoke/merged/null_lr1e-7 -- soup merge --adapter outputs_smoke/null_lr1e-7 --output outputs_smoke/merged/null_lr1e-7 --dtype float16
+2026-11-12T09:09:58.529+00:00 INFO nvidia-smi not found: GPU sampler disabled
+2026-11-12T09:09:58.543+00:00 INFO disk before {'outputs_smoke/merged/null_lr1e-7': None} free=84.9 GiB
+2026-11-12T09:10:34.731+00:00 INFO phase command                (no CUDA) rss=1289740288 36.1s
+2026-11-12T09:10:34.735+00:00 INFO disk after {'outputs_smoke/merged/null_lr1e-7': 999524308} free=83.9 GiB
+2026-11-12T09:10:34.779+00:00 INFO command exit code=0 peak nvidia-smi memory.used=None MiB
+2026-11-12T09:10:34.784+00:00 INFO summary written: D:\soup\runs\smoke\memtrace_soup_merge_null_lr1e-7_20261112T090951Z\summary.json

@@ -1,0 +1,9 @@
+2026-11-12T09:12:42.596+00:00 INFO run_dir=D:\soup\runs\smoke\quantize_null_lr1e-7_20261112T091235Z
+2026-11-12T09:12:42.597+00:00 INFO argv=scripts/quantize.py --src outputs_smoke/merged/null_lr1e-7 --out outputs_smoke/nf4/null_lr1e-7 --phase smoke
+2026-11-12T09:12:42.786+00:00 INFO nvidia-smi not found: GPU sampler disabled
+2026-11-12T09:12:42.844+00:00 INFO disk before {'outputs_smoke\\merged\\null_lr1e-7': 999524308} free=82.6 GiB
+2026-11-12T09:13:32.508+00:00 INFO phase merge_4bit_load_quantize_save (no CUDA) rss=534761472 49.4s
+2026-11-12T09:13:32.523+00:00 INFO disk after {'outputs_smoke\\merged\\null_lr1e-7': 999524308, 'outputs_smoke\\nf4\\null_lr1e-7': 468773788} free=82.1 GiB
+2026-11-12T09:13:35.469+00:00 INFO phase reload_check           (no CUDA) rss=718823424 2.8s
+2026-11-12T09:13:37.301+00:00 INFO Linear4bit modules after reload: 168; dir bytes 468773788
+2026-11-12T09:13:37.307+00:00 INFO summary written: D:\soup\runs\smoke\quantize_null_lr1e-7_20261112T091235Z\summary.json

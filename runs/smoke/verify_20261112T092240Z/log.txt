@@ -1,0 +1,17 @@
+2026-11-12T09:22:45.535+00:00 INFO run_dir=D:\soup\runs\smoke\verify_20261112T092240Z
+2026-11-12T09:22:45.536+00:00 INFO argv=scripts/verify.py --base Qwen/Qwen2.5-0.5B-Instruct --data data_smoke/processed/heldout.jsonl --adapter-dir outputs_smoke --merged-dir outputs_smoke/merged --merged-ref-dir outputs_smoke/merged_ref --nf4-dir outputs_smoke/nf4 --base-nf4 outputs_smoke/nf4/base --runs real null_lr1e-7 --ship-run real --allow-cpu-nf4 --cpu-dtype bf16 --bootstrap 2000 --gen-batch 9 --phase smoke
+2026-11-12T09:22:59.666+00:00 INFO rows=9 runs=['real', 'null_lr1e-7'] ship=real nulls=['null_lr1e-7'] nf4=True device=cpu
+2026-11-12T09:23:00.209+00:00 INFO == weights real
+2026-11-12T09:23:39.794+00:00 INFO weights: frac_changed=0.8726 (predicted 0.8723) rel_dW_med=2.18e-03 consistency_med=0.095 zeroB=0 untouched_equal=122 differ=0
+2026-11-12T09:23:50.593+00:00 INFO == weights null_lr1e-7
+2026-11-12T09:24:21.282+00:00 INFO weights: frac_changed=0.0014 (predicted 0.0014) rel_dW_med=1.41e-06 consistency_med=0.998 zeroB=0 untouched_equal=122 differ=0
+2026-11-12T09:24:28.384+00:00 INFO decision position = answer token #7 (first token where the 3 labels differ)
+2026-11-12T09:25:24.970+00:00 INFO == teacher-forced KL real
+2026-11-12T09:33:34.134+00:00 INFO   KL base||adapter@0          all=0.000e+00 decision=0.000e+00
+2026-11-12T09:33:34.151+00:00 INFO   KL base||adapter@0.5        all=4.004e-02 decision=5.163e-01
+2026-11-12T09:33:34.151+00:00 INFO   KL base||adapter@1          all=1.683e-01 decision=2.149e+00
+2026-11-12T09:33:34.153+00:00 INFO   KL adapter@1||merged        all=3.165e-04 decision=8.889e-04
+2026-11-12T09:33:34.153+00:00 INFO   KL base||merged             all=1.720e-01 decision=2.209e+00
+2026-11-12T09:33:34.153+00:00 INFO   KL merged||nf4              all=5.218e-02 decision=7.277e-02
+2026-11-12T09:33:34.153+00:00 INFO   KL base||nf4                all=2.372e-01 decision=2.452e+00
+2026-11-12T09:33:34.153+00:00 INFO   KL base||base_nf4[floor]    all=3.148e-02 decision=2.045e-01

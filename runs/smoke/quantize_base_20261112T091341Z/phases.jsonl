@@ -1,0 +1,5 @@
+{"phase": "snapshot_base", "utc_begin": "2026-11-12T09:13:47.185+00:00", "utc_end": "2026-11-12T09:13:51.174+00:00", "wall_s": 3.989, "torch_before": {"cuda": false}, "torch_after": {"cuda": false}, "rss_before": 209215488, "rss_after": 226119680}
+{"phase": "disk:before", "utc": "2026-11-12T09:13:51.282+00:00", "sizes_bytes": {"outputs_smoke\\base_fp16": 999588592}, "disk_used": 23143301120, "disk_free": 87197298688}
+{"phase": "merge_4bit_load_quantize_save", "utc_begin": "2026-11-12T09:13:51.332+00:00", "utc_end": "2026-11-12T09:14:17.477+00:00", "wall_s": 26.141, "torch_before": {"cuda": false}, "torch_after": {"cuda": false}, "rss_before": 226136064, "rss_after": 382164992}
+{"phase": "disk:after", "utc": "2026-11-12T09:14:17.558+00:00", "sizes_bytes": {"outputs_smoke\\base_fp16": 999588592, "outputs_smoke\\nf4\\base": 468774085}, "disk_used": 23612301312, "disk_free": 86728298496}
+{"phase": "reload_check", "utc_begin": "2026-11-12T09:14:17.592+00:00", "utc_end": "2026-11-12T09:14:19.518+00:00", "wall_s": 1.926, "torch_before": {"cuda": false}, "torch_after": {"cuda": false}, "rss_before": 382455808, "rss_after": 574529536}

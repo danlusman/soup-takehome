@@ -1,0 +1,19 @@
+{
+  "phase": "smoke",
+  "tag": "soup_merge_real",
+  "step_every": 10,
+  "disk_paths": [
+    "outputs_smoke/merged/real"
+  ],
+  "runs_root": null,
+  "command": [
+    "soup",
+    "merge",
+    "--adapter",
+    "outputs_smoke/real",
+    "--output",
+    "outputs_smoke/merged/real",
+    "--dtype",
+    "float16"
+  ]
+}
